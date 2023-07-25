@@ -1,0 +1,156 @@
+/* Reset some default browser styles */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.row-heading {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  padding: 10px 0;
+}
+
+.row {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+input.qty {
+  width: 70px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input[readonly] {
+  background-color: #f9f9f9;
+}
+
+.col-6,
+.col-3 {
+  flex: 1;
+}
+
+.col-9.total {
+  flex: 3;
+}
+
+.col-3.total-val {
+  flex: 0.5;
+}
+
+
+#total_value {
+  font-size: 2rem;
+  margin-left: 0;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.my-3 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.my-4 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Additional styles for a more visually appealing form */
+.label {
+  font-weight: bold;
+}
+
+.row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Styling for the right-side display box */
+.display-box {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.display-box h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.display-box p {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Styling for input[type="text"] and input[type="number"] elements */
+input[type="text"],
+input[type="number"] {
+  width: 50%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  color: #333;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #666;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for the selected items display box */
+.selected-items-box {
+  background-color: #f9f9f9;
+  border: 2px solid #ff0000;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.selected-items-box h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
