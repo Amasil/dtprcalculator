@@ -165,55 +165,81 @@
             </div>
         </div>
 
-        <!-- Sixth item row (MT @ $90 & GST Each) -->
-
         <div class="row my-3">
             <div class="col-6">
                 MT @ $90 & GST Each
             </div>
             <div class="col-3">
-                <input type="number" class="qty" min="0" max="21" value="0" id="qty_90MT" />
+                <input type="number" class="qty" min="0" max="21" value="0" id="qty_90MT"
+                    oninput="updateDisplay(item_90MT, this, price_90MT)">
             </div>
             <div class="col-3">
                 <input type="text" id="date_90MT" name="date_90MT">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_vanilla" />
+                <input type="text" class="readOnly" readonly value="0" />
+            </div>
+            <div class="col-3">
+                <input type="number" class="readOnly" readonly value="0" id="price_90MT">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
             </div>
         </div>
 
-        <!-- Sixth item row (MT @ $90 & GST Each)  -->
-
+        <!-- Sixth item row (MT @ $ (Any Amount) 1) -->
         <div class="row my-3">
             <div class="col-6">
                 MT @ $ (Any Amount)
             </div>
             <div class="col-3">
-                <input type="number" class="qty" min="0" max="21" value="0" id="qty_90MT" />
+                <input type="number" class="qty" min="0" max="21" value="0" id="qty_Any1MT"
+                    oninput="updateDisplay(item_Any1MT, this, price_Any1MT)">
             </div>
             <div class="col-3">
                 <input type="text" id="date_Any1MT" name="date_Any1MT">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_vanilla" />
+                <input type="text" class="readOnly" readonly value="0" />
+            </div>
+            <div class="col-3">
+                <input type="text" value="0" id="price_Any1MT">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
             </div>
         </div>
-        <!-- Sixth item row (MT @ $90 & GST Each)  -->
 
+        <!-- Sixth item row (MT @ $ (Any Amount) 2) -->
         <div class="row my-3">
             <div class="col-6">
                 MT @ $ (Any Amount)
             </div>
             <div class="col-3">
-                <input type="number" class="qty" min="0" max="21" value="0" id="qty_90MT" />
+                <input type="number" class="qty" min="0" max="21" value="0" id="qty_Any2MT"
+                    oninput="updateDisplay(item_Any2MT, this, price_Any2MT)">
             </div>
             <div class="col-3">
                 <input type="text" id="date_Any2MT" name="date_Any2MT">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_vanilla" />
+                <input type="text" class="readOnly" readonly value="0" />
+            </div>
+            <div class="col-3">
+                <input type="text" value="0" id="price_Any2MT">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
             </div>
         </div>
+
+
+
+
+        <!---->
+
+
+
 
         <!-- Seventh item row (CT @ $83 Each) -->
         <div class="row my-3">
