@@ -1,63 +1,78 @@
+<!-- This is an HTML document -->
 <!DOCTYPE html>
 <html>
 
 <head>
+    <!-- The title of the document shown in the browser tab -->
     <title>Simple HTML Calculation form</title>
+    <!-- Linking an external CSS file for styling -->
     <link rel="stylesheet" href="style.css">
+    <!-- Including an external JavaScript file and deferring its execution until the document has loaded -->
     <script src="script.js" defer></script>
 </head>
 
 <body>
+    <!-- The main container for the form with some top margin -->
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-6 row-heading">Claimant: <input type="text" id="claimant_name" name="claimant_name"></div>
-        </div>
-        <div class="row">
-            <div class="col-6 row-heading">Invoice Number: <input type="text" id="invoice_number" name="invoice_number">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-6 row-heading">Clinic Name: <input type="text" id="clinic_name" name="clinic_name"></div>
-        </div>
 
         <div class="row">
-            <div class="col-6 row-heading">
-                Item
+            <div class="col-4">
+                <label for="claimant_name" class="form-label">Claimant:</label>
             </div>
-            <div class="col-3 row-heading">
-                No of TX
+            <div class="col-8">
+                <input type="text" id="claimant_name" name="claimant_name" class="form-control">
             </div>
-            <div class="col-3 row-heading">
-                Date of TX
+
+            <div class="col-4">
+                <label for="invoice_number" class="form-label">Invoice Number:</label>
             </div>
-            <div class="col-3 row-heading">
-                Price
+            <div class="col-8">
+                <input type="text" id="invoice_number" name="invoice_number" class="form-control">
             </div>
-            <div class="col-3 row-heading">
-                Cost G if GST
+            <div class="col-4">
+                <label for="clinic_name" class="form-label">Clinic Name:</label>
             </div>
-            <div class="col-3 row-heading">
-                Subtotal
+            <div class="col-8">
+                <input type="text" id="clinic_name" name="clinic_name" class="form-control">
             </div>
         </div>
 
+        <!-- Table headers for item details -->
+        <div class="row">
+            <div class="col-6 row-heading">Item</div>
+            <div class="col-3 row-heading">No of TX</div>
+            <div class="col-3 row-heading">Date of TX</div>
+            <div class="col-3 row-heading">Price</div>
+            <div class="col-3 row-heading">Cost G if GST</div>
+            <div class="col-3 row-heading">Subtotal</div>
+        </div>
+
+        <!-- First item row (AB1) -->
         <div class="row">
             <div class="col-6">
                 AB1 = $117
             </div>
             <div class="col-3">
+                <!-- Input for quantity with minimum and maximum value constraints -->
                 <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="2"
                     id="qty_ab1" />
             </div>
-
             <div class="col-3">
                 <input type="text" disabled>
             </div>
             <div class="col-3">
+                <!-- Read-only input for displaying the calculated price -->
                 <input type="number" class="readOnly" readonly value="0" id="price_ab1" />
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
             </div>
         </div>
 
+        <!-- Second item row (AB2) -->
         <div class="row my-3">
             <div class="col-6">
                 AB2 = $50
@@ -72,8 +87,15 @@
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_ab2" />
             </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
         </div>
 
+        <!-- Third item row (AB4) -->
         <div class="row my-3">
             <div class="col-6">
                 AB4 = $40
@@ -85,12 +107,19 @@
             <div class="col-3">
                 <input type="text" disabled>
             </div>
-
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_ab4" />
             </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+
         </div>
 
+        <!-- Fourth item row (PT @ $83 Each) -->
         <div class="row my-3">
             <div class="col-6">
                 PT @ $83 Each
@@ -105,7 +134,15 @@
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_83PT" />
             </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
         </div>
+
+        <!-- Fifth item row (PT @ $41 Each) -->
         <div class="row my-3">
             <div class="col-6">
                 PT @ $41 Each
@@ -115,14 +152,21 @@
                     id="qty_41PT" />
             </div>
             <div class="col-3">
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="date_41PT" name="date_41PT">
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_41PT" />
             </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
         </div>
 
-        <!--
+        <!-- Sixth item row (MT @ $90 & GST Each) -->
+
         <div class="row my-3">
             <div class="col-6">
                 MT @ $90 & GST Each
@@ -131,41 +175,47 @@
                 <input type="number" class="qty" min="0" max="21" value="0" id="qty_90MT" />
             </div>
             <div class="col-3">
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="date_90MT" name="date_90MT">
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_vanilla" />
             </div>
         </div>
+
+        <!-- Sixth item row (MT @ $90 & GST Each)  -->
+
         <div class="row my-3">
             <div class="col-6">
                 MT @ $ (Any Amount)
             </div>
             <div class="col-3">
-                <input type="number" class="qty" min="0" max="21" value="0" id="qty_vanilla" />
+                <input type="number" class="qty" min="0" max="21" value="0" id="qty_90MT" />
             </div>
             <div class="col-3">
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="date_Any1MT" name="date_Any1MT">
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_vanilla" />
             </div>
         </div>
+        <!-- Sixth item row (MT @ $90 & GST Each)  -->
+
         <div class="row my-3">
             <div class="col-6">
                 MT @ $ (Any Amount)
             </div>
             <div class="col-3">
-                <input type="number" class="qty" min="0" max="21" value="0" id="qty_vanilla" />
+                <input type="number" class="qty" min="0" max="21" value="0" id="qty_90MT" />
             </div>
             <div class="col-3">
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="date_Any2MT" name="date_Any2MT">
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_vanilla" />
             </div>
         </div>
-        -->
+
+        <!-- Seventh item row (CT @ $83 Each) -->
         <div class="row my-3">
             <div class="col-6">
                 CT @ $83 Each
@@ -175,12 +225,20 @@
                     id="qty_83CT" />
             </div>
             <div class="col-3">
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="date_83CT" name="date_83CT">
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_83CT" />
             </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
         </div>
+
+        <!-- Eighth item row (CT @ $41 Each) -->
         <div class="row my-3">
             <div class="col-6">
                 CT @ $41 Each
@@ -190,14 +248,20 @@
                     id="qty_41CT" />
             </div>
             <div class="col-3">
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="date_41CT" name="date_41CT">
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_41CT" />
             </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
         </div>
 
-
+        <!-- Ninth item row (ACUT @ $ (Any Amount)) -->
         <div class="row my-3">
             <div class="col-6">
                 ACUT @ $ (Any Amount)
@@ -206,28 +270,39 @@
                 <input type="number" class="qty" min="0" max="21" value="0" id="qty_vanilla" />
             </div>
             <div class="col-3">
-                <input type="text" id="fname" name="fname">
+                <input type="text" id="date_Acut" name="date_Acut">
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price_vanilla" />
             </div>
         </div>
 
+        <!-- Row for displaying the total calculation -->
         <div class="row my-3">
             <div class="col-6">
                 Total
             </div>
             <div class="col-3">
-                <input type="number" class="qty" readonly value="0" class="qty" id="total_quantity" />
+                <input type="number" class="qty" readonly value="0" class="qty" id="total_quantity" hidden />
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_vanilla" />
+                <input type="number" class="readOnly" readonly value="0" id="price_vanilla" hidden />
             </div>
             <div class="col-3 total-val">
                 <span id="total_value">0</span>
             </div>
+            <div class="col-3">
+                <input type="text" disabled hidden>
+            </div>
+            <div class="col-3">
+                <input type="text" hidden>
+            </div>
         </div>
+
+        <!-- A note section -->
         <div>Note:</div>
+
+        <!-- Box for displaying selected items -->
         <div class="selected-items-box">
             <div id="selected_items"></div>
         </div>
