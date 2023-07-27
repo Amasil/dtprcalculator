@@ -17,12 +17,13 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 95%;
   margin: 0 auto;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  border: 2px solid #0067ac;
 }
 
 h1 {
@@ -50,8 +51,9 @@ h1 {
   border-bottom: none;
 }
 
+/*Styling for No Of TX*/
 input.qty {
-  width: 70px;
+  width: 50px;
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -71,9 +73,8 @@ input[readonly] {
 }
 
 .col-3.total-val {
-  flex: 0.5;
+  flex: 1;
 }
-
 
 #total_value {
   font-size: 2rem;
@@ -123,9 +124,19 @@ input[readonly] {
   color: #333;
 }
 
+/*ReadOnly Value*/
+input.readOnly {
+  width: 65px; /* Keep the same width */
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 /* Styling for input[type="text"] and input[type="number"] elements */
-input[type="text"],
-input[type="number"] {
+input[type="text"] {
   width: 50%;
   padding: 8px;
   border: 1px solid #ddd;
@@ -133,8 +144,7 @@ input[type="number"] {
   color: #333;
 }
 
-input[type="text"]:focus,
-input[type="number"]:focus {
+input[type="text"]:focus {
   outline: none;
   border-color: #666;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
@@ -143,7 +153,7 @@ input[type="number"]:focus {
 /* Styling for the selected items display box */
 .selected-items-box {
   background-color: #f9f9f9;
-  border: 2px solid #ff0000;
+  border: 2px solid #0067ac;
   border-radius: 8px;
   padding: 10px;
   margin-top: 20px;
