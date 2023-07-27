@@ -189,6 +189,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Call calculateTotal to update the total price in the display box
     calculateTotal();
   }
+
   clientName.addEventListener("input", function () {
     displaySelectedItems();
   });
