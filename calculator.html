@@ -15,66 +15,84 @@
     <!-- The main container for the form with some top margin -->
     <div class="container mt-4">
 
+        <!-- First row - Claimant, Invoice Number, Clinic Name, Wad, and Date of Loss -->
         <div class="row">
             <div class="col-4">
+                <!-- Label for Claimant -->
                 <label for="claimant-name" class="form-label">Claimant:</label>
             </div>
             <div class="col-8">
+                <!-- Input field for Claimant's name -->
                 <input type="text" id="claimant-name" name="claimant-name" class="form-control">
             </div>
 
             <div class="col-4">
+                <!-- Label for Invoice Number -->
                 <label for="invoice-number" class="form-label">Invoice Number:</label>
             </div>
             <div class="col-8">
+                <!-- Input field for Invoice Number -->
                 <input type="text" id="invoice-number" name="invoice-number" class="form-control">
             </div>
             <div class="col-4">
+                <!-- Label for Clinic Name -->
                 <label for="clinic-name" class="form-label">Clinic Name:</label>
             </div>
             <div class="col-8">
+                <!-- Input field for Clinic Name -->
                 <input type="text" id="clinic-name" name="clinic-name" class="form-control">
             </div>
 
             <div class="col-8">
+                <!-- Label for Wad -->
                 <label for="wad-select" class="form-label">Wad:</label>
+                <!-- Dropdown menu for selecting Wad -->
                 <select id="wad-select" name="wad" class="form-control">
                     <option value="Wad 1">Wad 1</option>
                     <option value="Wad 2" selected>Wad 2</option>
                 </select>
             </div>
             <div class="col-4">
+                <!-- Label for Date of Loss -->
                 <label for="date-of-accident" class="form-label">Date of Loss:</label>
             </div>
-            <div class="col-4"><input type="date" id="dol" name="dol" min="2018-01-01">
+            <div class="col-4">
+                <!-- Input field for Date of Loss with a minimum date of 2018-01-01 -->
+                <input type="date" id="dol" name="dol" min="2018-01-01">
             </div>
-
-
         </div>
+
+        <!-- Second row - Previous TX, Previous Supplies, and Previous OT/PSYC/DENTAL -->
         <div class="row">
             <div class="col-4">
-                <label for="invoice-number" class="form-label">Previous TX:</label>
+                <!-- Label for Previous TX -->
+                <label for="previous-Tx" class="form-label">Previous TX:</label>
             </div>
             <div>
+                <!-- Input field for Previous TX quantity -->
                 <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0"
                     id="previous-Tx" name="previous-Tx" class="form-control">
             </div>
 
             <div class="col-4">
+                <!-- Label for Previous Supplies -->
                 <label for="previous-supplies" class="form-label">Previous Supplies:</label>
             </div>
             <div class="col-8">
+                <!-- Input field for Previous Supplies quantity -->
                 <input type="text" value="0" id="previous-Supplies" min="0" />
             </div>
             <div class="col-4">
-                <label for="previous-OtPsyc" class="form-label">Previous OT/PSYC/DENTAL: </label>
+                <!-- Label for Previous OT/PSYC/DENTAL -->
+                <label for="previous-OtPsyc" class="form-label">Previous OT/PSYC/DENTAL:</label>
             </div>
             <div class="col-8">
+                <!-- Input field for Previous OT/PSYC/DENTAL quantity -->
                 <input type="text" value="0" id="previous-OtPsyc" min="0" />
             </div>
         </div>
 
-
+        <!-- Third row - Table header for item details -->
         <div class="row">
             <div class="col-6 row-heading">Item</div>
             <div class="col-3 row-heading">No of TX</div>
@@ -84,25 +102,31 @@
             <div class="col-3 row-heading">Subtotal</div>
         </div>
 
-
+        <!-- Fourth row - Item details for AB1 -->
         <div class="row">
             <div class="col-6">
+                <!-- Item name: AB1 = $117 -->
                 AB1 = $117
             </div>
             <div class="col-3">
+                <!-- Input field for AB1 quantity -->
                 <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="2"
                     id="qty-ab1" />
             </div>
             <div class="col-3">
+                <!-- Disabled input field for date -->
                 <input type="text" disabled>
             </div>
             <div class="col-3">
+                <!-- Disabled input field for price -->
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <!-- Readonly input field for calculated price of AB1 -->
                 <input type="number" class="readOnly" readonly value="0" id="price-ab1" />
             </div>
             <div class="col-3">
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
+                <!-- Disabled input field for subtotal -->
                 <input type="text" disabled>
             </div>
         </div>
@@ -120,10 +144,10 @@
                 <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price-ab2" />
+                <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="text" disabled>
+                <input type="number" class="readOnly" readonly value="0" id="price-ab2" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -135,17 +159,17 @@
                 AB4 = $40
             </div>
             <div class="col-3">
-                <input type="number" class="qty" min="0" max="21" oninput="validity.valid||(value='');" value="0"
-                    id="qty-ab4" />
+                <input type="number" class="qty" min="0" max="21" oninput="validity.valid||(value='');" class="qty"
+                    min="0" max="21" value="0" id="qty-ab4" />
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
             </div>
             <div class="col-3">
                 <input type="text" disabled>
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price-ab4" />
-            </div>
-            <div class="col-3">
-                <input type="text" disabled>
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -159,16 +183,17 @@
                 PT @ $83 Each
             </div>
             <div class="col-3">
-                <input type="number" class="qty" oninput="validity.valid||(value='');" value="0" id="qty-83-pt" />
+                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                    id="qty-83-pt" value="0" />
             </div>
             <div class="col-3">
                 <input type="text" id="date-83-pt" name="date-83-pt">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price-83-pt" />
+                <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="text" disabled>
+                <input type="number" class="readOnly" readonly value="0" id="price-83-pt" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -181,16 +206,17 @@
                 PT @ $41 Each
             </div>
             <div class="col-3">
-                <input type="number" class="qty" oninput="validity.valid||(value='');" value="0" id="qty-41-pt" />
+                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                    value="0" id="qty-41-pt" />
             </div>
             <div class="col-3">
                 <input type="text" id="date-41-pt" name="date-41-pt">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price-41-pt" />
+                <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="text" disabled>
+                <input type="number" class="readOnly" readonly value="0" id="price-41-pt" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="physio-subtotal">
@@ -209,7 +235,7 @@
                 <input type="text" id="date-90-mt" name="date-90-mt">
             </div>
             <div class="col-3">
-                <input type="text" class="readOnly" readonly value="0" />
+                <input type="text" disabled />
             </div>
             <div class="col-3">
                 <input type="number" class="readOnly" readonly value="0" id="price-90-mt">
@@ -276,10 +302,10 @@
                 <input type="text" id="date-83-ct" name="date-83-ct">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price-83-ct" />
+                <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="text" disabled>
+                <input type="number" class="readOnly" readonly value="0" id="price-83-ct" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -298,10 +324,10 @@
                 <input type="text" id="date-41-ct" name="date-41-ct">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price-41-ct" />
+                <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="text" disabled>
+                <input type="number" class="readOnly" readonly value="0" id="price-41-ct" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="ct-subtotal">
@@ -393,7 +419,7 @@
                 <input type="text" id="date-psyc-ax" name="date-psyc-ax">
             </div>
             <div class="col-3">
-                <input type="text" id="price-psyc-ax" />
+                <input type="text" id="price-psyc-ax" value="0" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
@@ -416,7 +442,7 @@
                 <input type="text" id="date-psyc-tx" name="date-psyc-tx">
             </div>
             <div class="col-3">
-                <input type="text" id="price-psyc-tx" />
+                <input type="text" id="price-psyc-tx" value="0" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
@@ -442,6 +468,142 @@
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="display-price-dental" />
+            </div>
+            <div class="col-3">
+                <input type="text" class="readOnly" readonly value="0" id="dental-subtotal">
+            </div>
+        </div>
+        <div class="row my-3">Supplies:</div>
+
+
+        <div class="row my-3">
+            <div class="col-6">
+                <input type="text" name="supply-one" id="supply-one">
+            </div>
+            <div class="col-3">
+                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                    value="0" id="qty-supply-one">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" value="0" id="price-supply-one">
+            </div>
+            <div class="col-3">
+                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-one" />
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-6">
+                <input type="text" name="supply-two" id="supply-two">
+            </div>
+            <div class="col-3">
+                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                    value="0" id="qty-supply-two">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" value="0" id="price-supply-two">
+            </div>
+            <div class="col-3">
+                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-two" />
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-6">
+                <input type="text" name="supply-three" id="supply-three">
+            </div>
+            <div class="col-3">
+                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                    value="0" id="qty-supply-three">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" value="0" id="price-supply-three">
+            </div>
+            <div class="col-3">
+                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-three" />
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+        </div>
+
+        <div class="row my-3">
+            <div class="col-6">
+                <input type="text" name="supply-four" id="supply-four">
+            </div>
+            <div class="col-3">
+                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                    value="0" id="qty-supply-four">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" value="0" id="price-supply-four">
+            </div>
+            <div class="col-3">
+                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-four" />
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+        </div>
+
+
+        <div class="row my-3">
+            <div class="col-6">
+                <input type="text" name="supply-five" id="supply-five">
+            </div>
+            <div class="col-3">
+                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                    value="0" id="qty-supply-five">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" value="0" id="price-supply-five">
+            </div>
+            <div class="col-3">
+                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-five" />
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+        </div>
+
+
+        <div class="row my-3">
+            <div class="col-6">
+                <input type="text" name="supply-six" id="supply-six">
+            </div>
+            <div class="col-3">
+                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                    value="0" id="qty-supply-six">
+            </div>
+            <div class="col-3">
+                <input type="text" disabled>
+            </div>
+            <div class="col-3">
+                <input type="text" value="0" id="price-supply-six">
+            </div>
+            <div class="col-3">
+                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-six" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="dental-subtotal">

@@ -78,6 +78,36 @@ document.addEventListener("DOMContentLoaded", function () {
   const dateFieldDental = document.getElementById("date-dental");
   const displayDental = document.getElementById("display-price-dental");
 
+  const supply1Desc = document.getElementById("supply-one");
+  const qtySupply1 = document.getElementById("qty-supply-one");
+  const priceSupply1 = document.getElementById("price-supply-one");
+  const displaySupply1 = document.getElementById("display-price-supply-one");
+
+  const supply2Desc = document.getElementById("supply-two");
+  const qtySupply2 = document.getElementById("qty-supply-two");
+  const priceSupply2 = document.getElementById("price-supply-two");
+  const displaySupply2 = document.getElementById("display-price-supply-two");
+
+  const supply3Desc = document.getElementById("supply-three");
+  const qtySupply3 = document.getElementById("qty-supply-three");
+  const priceSupply3 = document.getElementById("price-supply-three");
+  const displaySupply3 = document.getElementById("display-price-supply-three");
+
+  const supply4Desc = document.getElementById("supply-four");
+  const qtySupply4 = document.getElementById("qty-supply-four");
+  const priceSupply4 = document.getElementById("price-supply-four");
+  const displaySupply4 = document.getElementById("display-price-supply-four");
+
+  const supply5Desc = document.getElementById("supply-five");
+  const qtySupply5 = document.getElementById("qty-supply-five");
+  const priceSupply5 = document.getElementById("price-supply-five");
+  const displaySupply5 = document.getElementById("display-price-supply-five");
+
+  const supply6Desc = document.getElementById("supply-six");
+  const qtySupply6 = document.getElementById("qty-supply-six");
+  const priceSupply6 = document.getElementById("price-supply-six");
+  const displaySupply6 = document.getElementById("display-price-supply-six");
+
   const totalValueElement = document.getElementById("total-value");
   const totalQuantityElement = document.getElementById("total-quantity");
   const selectedItemsContainer = document.getElementById("selected-items");
@@ -94,13 +124,18 @@ document.addEventListener("DOMContentLoaded", function () {
   let AnyMT1Price = 0;
   let AnyMT2Price = 0;
   let AnyAcutPrice = 0;
-  let suppliePrice = 0;
   let OtAxPrice = 0;
   let OtTxPrice = 0;
   let PsycAxPrice = 0;
   let PsycTxPrice = 0;
   let DentalPrice = 0;
   let dtprLimit = 0;
+  let Supply1 = 0;
+  let Supply2 = 0;
+  let Supply3 = 0;
+  let Supply4 = 0;
+  let Supply5 = 0;
+  let Supply6 = 0;
 
   // Function to calculate the total price and quantity
   function calculateTotal() {
@@ -120,7 +155,13 @@ document.addEventListener("DOMContentLoaded", function () {
       parseFloat(qtyOtTx.value) > 0 ||
       parseFloat(qtyPsycAx.value) > 0 ||
       parseFloat(qtyPsycTx.value) > 0 ||
-      parseFloat(qtyDental.value) > 0;
+      parseFloat(qtyDental.value) > 0 ||
+      parseFloat(qtySupply1.value) > 0 ||
+      parseFloat(qtySupply2.value) > 0 ||
+      parseFloat(qtySupply3.value) > 0 ||
+      parseFloat(qtySupply4.value) > 0 ||
+      parseFloat(qtySupply5.value) > 0 ||
+      parseFloat(qtySupply6.value) > 0;
 
     const itemQuantities = [
       parseFloat(qty83PT.value),
@@ -157,12 +198,17 @@ document.addEventListener("DOMContentLoaded", function () {
       parseFloat(AnyMT1Price),
       parseFloat(AnyMT2Price),
       parseFloat(AnyAcutPrice),
-      parseFloat(suppliePrice),
       parseFloat(OtAxPrice),
       parseFloat(OtTxPrice),
       parseFloat(PsycAxPrice),
       parseFloat(PsycTxPrice),
       parseFloat(DentalPrice),
+      parseFloat(Supply1),
+      parseFloat(Supply2),
+      parseFloat(Supply3),
+      parseFloat(Supply4),
+      parseFloat(Supply5),
+      parseFloat(Supply6),
     ];
 
     const physioSubTotal = [
@@ -188,7 +234,24 @@ document.addEventListener("DOMContentLoaded", function () {
     const psycSubTotal = [parseFloat(PsycAxPrice), parseFloat(PsycTxPrice)];
     const dentalSubTotal = [parseFloat(DentalPrice)];
 
-    const supplietotal = [parseFloat(suppliesPrevious.value)];
+    const otPsycDentalTotal = [
+      parseFloat(previousOtPsyc.value),
+      parseFloat(OtAxPrice),
+      parseFloat(OtTxPrice),
+      parseFloat(PsycAxPrice),
+      parseFloat(PsycTxPrice),
+      parseFloat(DentalPrice),
+    ];
+
+    const supplietotal = [
+      parseFloat(suppliesPrevious.value),
+      parseFloat(Supply1),
+      parseFloat(Supply2),
+      parseFloat(Supply3),
+      parseFloat(Supply4),
+      parseFloat(Supply5),
+      parseFloat(Supply6),
+    ];
 
     const totalQty = itemQuantities.reduce((acc, qty) => acc + qty, 0);
     const totalSupplies = supplietotal.reduce((acc, qty) => acc + qty, 0);
@@ -207,19 +270,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const otSubtotal = otSubTotal.reduce((acc, qty) => acc + qty, 0);
     const psycSubtotal = psycSubTotal.reduce((acc, qty) => acc + qty, 0);
     const dentalSubtotal = dentalSubTotal.reduce((acc, qty) => acc + qty, 0);
-
+    const OtPsycDentalTotal = otPsycDentalTotal.reduce(
+      (acc, qty) => acc + qty,
+      0
+    );
     // Hide "Total Quantity" if totalQty is 0
 
     if (wad.value == "Wad 1") {
       if (anyItemSelected > 0) {
         const totalQuantityDisplay = document.createElement("p");
-        totalQuantityDisplay.innerText = ` DTPR ${totalQtywithPrevious}/10 | Supplies:$${totalSupplies}/120.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $/$1000.00`;
+        totalQuantityDisplay.innerText = ` DTPR ${totalQtywithPrevious}/10 | Supplies:$${totalSupplies}/120.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
         selectedItemsContainer.appendChild(totalQuantityDisplay);
       }
     } else if (wad.value == "Wad 2") {
       if (anyItemSelected > 0) {
         const totalQuantityDisplay = document.createElement("p");
-        totalQuantityDisplay.innerText = ` DTPR ${totalQtywithPrevious}/21 | Supplies:$${totalSupplies}/160.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $/$1000.00`;
+        totalQuantityDisplay.innerText = ` DTPR ${totalQtywithPrevious}/21 | Supplies:$${totalSupplies}/160.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
         selectedItemsContainer.appendChild(totalQuantityDisplay);
       }
     }
@@ -470,6 +536,67 @@ document.addEventListener("DOMContentLoaded", function () {
       );
     }
 
+    const qtySupply1Value = parseFloat(qtySupply1.value);
+    const priceSupply1Value = parseFloat(priceSupply1.value);
+    if (qtySupply1Value > 0) {
+      addAnyValueItemToDisplay(
+        supply1Desc.value,
+        qtySupply1Value,
+        priceSupply1Value
+      );
+    }
+
+    const qtySupply2Value = parseFloat(qtySupply2.value);
+    const priceSupply2Value = parseFloat(priceSupply2.value);
+    if (qtySupply2Value > 0) {
+      addAnyValueItemToDisplay(
+        supply2Desc.value,
+        qtySupply2Value,
+        priceSupply2Value
+      );
+    }
+
+    const qtySupply3Value = parseFloat(qtySupply3.value);
+    const priceSupply3Value = parseFloat(priceSupply3.value);
+    if (qtySupply3Value > 0) {
+      addAnyValueItemToDisplay(
+        supply3Desc.value,
+        qtySupply3Value,
+        priceSupply3Value
+      );
+    }
+
+    const qtySupply4Value = parseFloat(qtySupply4.value);
+    const priceSupply4Value = parseFloat(priceSupply4.value);
+
+    if (qtySupply4Value > 0) {
+      addAnyValueItemToDisplay(
+        supply4Desc.value,
+        qtySupply4Value,
+        priceSupply4Value
+      );
+    }
+
+    const qtySupply5Value = parseFloat(qtySupply5.value);
+    const priceSupply5Value = parseFloat(priceSupply5.value);
+    if (qtySupply5Value > 0) {
+      addAnyValueItemToDisplay(
+        supply5Desc.value,
+        qtySupply5Value,
+        priceSupply5Value
+      );
+    }
+
+    const qtySupply6Value = parseFloat(qtySupply6.value);
+    const priceSupply6Value = parseFloat(priceSupply6.value);
+    if (qtySupply6Value > 0) {
+      addAnyValueItemToDisplay(
+        supply6Desc.value,
+        qtySupply6Value,
+        priceSupply6Value
+      );
+    }
+
     // Call calculateTotal to update the total price in the display box
     calculateTotal();
   }
@@ -488,8 +615,8 @@ document.addEventListener("DOMContentLoaded", function () {
     displaySelectedItems();
   });
 
-  dol.addEventListener("input", function () {
-    const daysToAdd = 90;
+  dateOfLoss.addEventListener("input", function () {
+    const daysToAdd = 91;
     const dolDate = new Date(dol.value);
     const dtprLimitDate = new Date(
       dolDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000
@@ -510,6 +637,10 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   suppliesPrevious.addEventListener("input", function () {
+    displaySelectedItems();
+  });
+
+  previousOtPsyc.addEventListener("input", function () {
     displaySelectedItems();
   });
 
@@ -833,6 +964,198 @@ document.addEventListener("DOMContentLoaded", function () {
   dateFieldDental.addEventListener("input", function () {
     displaySelectedItems();
   });
+
+  supply1Desc.addEventListener("input", function () {
+    displaySelectedItems();
+  });
+
+  qtySupply1.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply1.value);
+    let priceValue = parseFloat(priceSupply1.value);
+    if (priceSupply1.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+    displaySupply1.value = (qtyValue * priceValue).toFixed(2);
+    Supply1 = displaySupply1.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  priceSupply1.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply1.value);
+    let priceValue = parseFloat(priceSupply1.value);
+    if (priceSupply1.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+    displaySupply1.value = (qtyValue * priceValue).toFixed(2);
+    Supply1 = displaySupply1.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  supply2Desc.addEventListener("input", function () {
+    displaySelectedItems();
+  });
+
+  qtySupply2.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply2.value);
+    let priceValue = parseFloat(priceSupply2.value);
+    if (priceSupply2.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+    displaySupply2.value = (qtyValue * priceValue).toFixed(2);
+    Supply2 = displaySupply2.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  priceSupply2.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply2.value);
+    let priceValue = parseFloat(priceSupply2.value);
+
+    if (priceSupply2.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+    displaySupply2.value = (qtyValue * priceValue).toFixed(2);
+    Supply2 = displaySupply2.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  supply3Desc.addEventListener("input", function () {
+    displaySelectedItems();
+  });
+
+  qtySupply3.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply3.value);
+
+    let priceValue = parseFloat(priceSupply3.value);
+
+    if (priceSupply3.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+    displaySupply3.value = (qtyValue * priceValue).toFixed(2);
+    Supply3 = displaySupply3.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  priceSupply3.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply3.value);
+    let priceValue = parseFloat(priceSupply3.value);
+
+    if (priceSupply3.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+    displaySupply3.value = (qtyValue * priceValue).toFixed(2);
+
+    Supply3 = displaySupply3.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  supply4Desc.addEventListener("input", function () {
+    displaySelectedItems();
+  });
+
+  qtySupply4.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply4.value);
+    let priceValue = parseFloat(priceSupply4.value);
+
+    if (priceSupply4.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+    displaySupply4.value = (qtyValue * priceValue).toFixed(2);
+    Supply4 = displaySupply4.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  priceSupply4.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply4.value);
+    let priceValue = parseFloat(priceSupply4.value);
+
+    if (priceSupply4.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+    displaySupply4.value = (qtyValue * priceValue).toFixed(2);
+    Supply4 = displaySupply4.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  supply5Desc.addEventListener("input", function () {
+    displaySelectedItems();
+  });
+
+  qtySupply5.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply5.value);
+    let priceValue = parseFloat(priceSupply5.value);
+
+    if (priceSupply5.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+    displaySupply5.value = (qtyValue * priceValue).toFixed(2);
+    Supply5 = displaySupply5.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  priceSupply5.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply5.value);
+    let priceValue = parseFloat(priceSupply5.value);
+
+    if (priceSupply5.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+    displaySupply5.value = (qtyValue * priceValue).toFixed(2);
+    Supply5 = displaySupply5.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  supply6Desc.addEventListener("input", function () {
+    displaySelectedItems();
+  });
+
+  qtySupply6.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply6.value);
+    let priceValue = parseFloat(priceSupply6.value);
+
+    if (priceSupply6.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+    displaySupply6.value = (qtyValue * priceValue).toFixed(2);
+    Supply6 = displaySupply6.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+  priceSupply6.addEventListener("input", function () {
+    let qtyValue = parseFloat(qtySupply6.value);
+    let priceValue = parseFloat(priceSupply6.value);
+
+    if (priceSupply6.value.trim().toLowerCase().endsWith("g")) {
+      priceValue *= 1.05;
+    }
+
+
+    displaySupply6.value = (qtyValue * priceValue).toFixed(2);
+    Supply6 = displaySupply6.value;
+    calculateTotal();
+    displaySelectedItems();
+  });
+
+
+
 
   // Initial calculation on page load
   calculateTotal();
