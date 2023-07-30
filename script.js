@@ -120,6 +120,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const psycSubtotalElement = document.getElementById("psyc-subtotal");
   const dentalSubtotalElement = document.getElementById("dental-subtotal");
 
+  // Find the copy button element
+  const copyButton = document.getElementById("copy-btn");
+
   // New variable to keep track of whether both qty and price are entered for "MT Any1"
   let AnyMT1Price = 0;
   let AnyMT2Price = 0;
@@ -1147,15 +1150,35 @@ document.addEventListener("DOMContentLoaded", function () {
       priceValue *= 1.05;
     }
 
-
     displaySupply6.value = (qtyValue * priceValue).toFixed(2);
     Supply6 = displaySupply6.value;
     calculateTotal();
     displaySelectedItems();
   });
 
+  // Add a click event listener to the copy button
+  copyButton.addEventListener("click", function () {
+    // Get the selected-items container element
+    const selectedItemsContainer = document.getElementById("selected-items");
 
+    // Create a range object to select the content inside the selected-items container
+    const range = document.createRange();
+    range.selectNode(selectedItemsContainer);
 
+    // Create a new selection and add the range to it
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    // Copy the selected content as HTML with formatting to the clipboard
+    document.execCommand("copy");
+
+    // Clear the selection to avoid any unintended side effects
+    selection.removeAllRanges();
+
+    // Optionally, you can show a message or perform any other action after copying
+    alert("Selected items copied to clipboard!");
+  });
 
   // Initial calculation on page load
   calculateTotal();
