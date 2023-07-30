@@ -4,7 +4,7 @@
 
 <head>
     <!-- The title of the document shown in the browser tab -->
-    <title>DTPR Payment Calculator</title>
+    <title>Simple HTML Calculation form</title>
     <!-- Linking an external CSS file for styling -->
     <link rel="stylesheet" href="style.css">
     <!-- Including an external JavaScript file and deferring its execution until the document has loaded -->
@@ -46,17 +46,18 @@
             <div class="col-4">
                 <label for="date-of-accident" class="form-label">Date of Loss:</label>
             </div>
-            <div class="col-4"><input type="date" id="dol" name="dol" value="2018-01-01" min="2018-01-01">
+            <div class="col-4"><input type="date" id="dol" name="dol" min="2018-01-01">
             </div>
-        </div>
 
+
+        </div>
         <div class="row">
             <div class="col-4">
                 <label for="invoice-number" class="form-label">Previous TX:</label>
             </div>
             <div>
                 <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0"
-                    id="previous-tx" name="previous-tx" class="form-control">
+                    id="previous-Tx" name="previous-Tx" class="form-control">
             </div>
 
             <div class="col-4">
@@ -66,14 +67,14 @@
                 <input type="text" value="0" id="previous-Supplies" min="0" />
             </div>
             <div class="col-4">
-                <label for="previous-ot-psyc" class="form-label">Previous OT/PSYC/DENTAL: </label>
+                <label for="previous-OtPsyc" class="form-label">Previous OT/PSYC/DENTAL: </label>
             </div>
             <div class="col-8">
-                <input type="text" value="0" id="previous-ot-psyc" min="0" />
+                <input type="text" value="0" id="previous-OtPsyc" min="0" />
             </div>
         </div>
 
-        <!-- Table headers for item details -->
+
         <div class="row">
             <div class="col-6 row-heading">Item</div>
             <div class="col-3 row-heading">No of TX</div>
@@ -83,13 +84,12 @@
             <div class="col-3 row-heading">Subtotal</div>
         </div>
 
-        <!-- First item row (AB1) -->
+
         <div class="row">
             <div class="col-6">
                 AB1 = $117
             </div>
             <div class="col-3">
-                <!-- Input for quantity with minimum and maximum value constraints -->
                 <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="2"
                     id="qty-ab1" />
             </div>
@@ -97,7 +97,6 @@
                 <input type="text" disabled>
             </div>
             <div class="col-3">
-                <!-- Read-only input for displaying the calculated price -->
                 <input type="number" class="readOnly" readonly value="0" id="price-ab1" />
             </div>
             <div class="col-3">
@@ -108,7 +107,7 @@
             </div>
         </div>
 
-        <!-- Second item row (AB2) -->
+
         <div class="row my-3">
             <div class="col-6">
                 AB2 = $50
@@ -131,7 +130,6 @@
             </div>
         </div>
 
-        <!-- Third item row (AB4) -->
         <div class="row my-3">
             <div class="col-6">
                 AB4 = $40
@@ -155,7 +153,7 @@
 
         </div>
 
-        <!-- Fourth item row (PT @ $83 Each) -->
+
         <div class="row my-3">
             <div class="col-6">
                 PT @ $83 Each
@@ -167,7 +165,7 @@
                 <input type="text" id="date-83-pt" name="date-83-pt">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price-83PT" />
+                <input type="number" class="readOnly" readonly value="0" id="price-83-pt" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -177,7 +175,7 @@
             </div>
         </div>
 
-        <!-- Fifth item row (PT @ $41 Each) -->
+
         <div class="row my-3">
             <div class="col-6">
                 PT @ $41 Each
@@ -221,7 +219,7 @@
             </div>
         </div>
 
-        <!-- Sixth item row (MT @ $ (Any Amount) 1) -->
+
         <div class="row my-3">
             <div class="col-6">
                 MT @ $ (Any Amount)
@@ -244,7 +242,6 @@
             </div>
         </div>
 
-        <!-- Sixth item row (MT @ $ (Any Amount) 2) -->
         <div class="row my-3">
             <div class="col-6">
                 MT @ $ (Any Amount)
@@ -263,7 +260,7 @@
                 <input type="text" class="readOnly" readonly value="0" id="display-price-any2-mt" />
             </div>
             <div class="col-3">
-                <input type="text" class="readOnly" readonly value="0" id="mt-Subtotal">
+                <input type="text" class="readOnly" readonly value="0" id="mt-subtotal">
             </div>
         </div>
 
@@ -289,7 +286,6 @@
             </div>
         </div>
 
-
         <div class="row my-3">
             <div class="col-6">
                 CT @ $41 Each
@@ -313,6 +309,7 @@
         </div>
 
 
+        <!-- Sixth item row (MT @ $ (Any Amount) 2) -->
         <div class="row my-3">
             <div class="col-6">
                 AcuT @ $ (Any Amount)
@@ -328,7 +325,7 @@
                 <input type="text" value="0" id="price-acut">
             </div>
             <div class="col-3">
-                <input type="text" class="readOnly" readonly value="0" id="display_price-acut" />
+                <input type="text" class="readOnly" readonly value="0" id="display-price-acut" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="acut-subtotal">
@@ -346,7 +343,7 @@
                     value="0" id="qty-ot-ax">
             </div>
             <div class="col-3">
-                <input type="text" id="date_ot-ax" name="date-ot-ax">
+                <input type="text" id="date-ot-ax" name="date-ot-ax">
             </div>
             <div class="col-3">
                 <input type="text" value="0" id="price-ot-ax">
@@ -359,7 +356,7 @@
             </div>
         </div>
 
-
+        <!-- Eighth item row (CT @ $41 Each) -->
         <div class="row my-3">
             <div class="col-6">
                 OT TX @ $ (Any Amount)
@@ -369,13 +366,13 @@
                     value="0" id="qty-ot-tx">
             </div>
             <div class="col-3">
-                <input type="text" id="date_ot-tx" name="date_ot-tx">
+                <input type="text" id="date-ot-tx" name="date-ot-tx">
             </div>
             <div class="col-3">
-                <input type="text" value="0" id="price_ot-tx">
+                <input type="text" value="0" id="price-ot-tx">
             </div>
             <div class="col-3">
-                <input type="text" class="readOnly" readonly value="0" id="display-price_ot-tx" />
+                <input type="text" class="readOnly" readonly value="0" id="display-price-ot-tx" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="ot-subtotal">
@@ -396,7 +393,7 @@
                 <input type="text" id="date-psyc-ax" name="date-psyc-ax">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price-psyc-ax" />
+                <input type="text" id="price-psyc-ax" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
@@ -419,7 +416,7 @@
                 <input type="text" id="date-psyc-tx" name="date-psyc-tx">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price-psyc-tx" />
+                <input type="text" id="price-psyc-tx" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
@@ -435,22 +432,23 @@
             </div>
             <div class="col-3">
                 <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty_Dental">
+                    value="0" id="qty-dental">
             </div>
             <div class="col-3">
                 <input type="text" id="date-dental" name="date-dental">
             </div>
             <div class="col-3">
-                <input type="text" value="0" id="price_Dental">
+                <input type="text" value="0" id="price-dental">
             </div>
             <div class="col-3">
-                <input type="text" class="readOnly" readonly value="0" id="display-price-Dental" />
+                <input type="text" class="readOnly" readonly value="0" id="display-price-dental" />
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" id="dental-subtotal">
             </div>
         </div>
 
+        <!-- Row for displaying the total calculation -->
         <div class="row my-3">
             <div class="col-6">
                 Total
@@ -469,14 +467,16 @@
                 <input type="text" hidden>
             </div>
             <div class="col-3 total-val">
-                <span id="total_value">0</span>
+                <span id="total-value">0</span>
             </div>
         </div>
 
+        <!-- A note section -->
         <div>Note:</div>
 
+        <!-- Box for displaying selected items -->
         <div class="selected-items-box">
-            <div id="selected_items"></div>
+            <div id="selected-items"></div>
         </div>
 
     </div>

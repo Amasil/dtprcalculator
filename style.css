@@ -76,7 +76,7 @@ input[readonly] {
   flex: 1;
 }
 
-#total_value {
+#total-value {
   font-size: 2rem;
   margin-left: 0;
 }
