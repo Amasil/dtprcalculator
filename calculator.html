@@ -17,60 +17,59 @@
 
         <div class="row">
             <div class="col-4">
-                <label for="claimant_name" class="form-label">Claimant:</label>
+                <label for="claimant-name" class="form-label">Claimant:</label>
             </div>
             <div class="col-8">
-                <input type="text" id="claimant_name" name="claimant_name" class="form-control">
+                <input type="text" id="claimant-name" name="claimant-name" class="form-control">
             </div>
 
             <div class="col-4">
-                <label for="invoice_number" class="form-label">Invoice Number:</label>
+                <label for="invoice-number" class="form-label">Invoice Number:</label>
             </div>
             <div class="col-8">
-                <input type="text" id="invoice_number" name="invoice_number" class="form-control">
+                <input type="text" id="invoice-number" name="invoice-number" class="form-control">
             </div>
             <div class="col-4">
-                <label for="clinic_name" class="form-label">Clinic Name:</label>
+                <label for="clinic-name" class="form-label">Clinic Name:</label>
             </div>
             <div class="col-8">
-                <input type="text" id="clinic_name" name="clinic_name" class="form-control">
+                <input type="text" id="clinic-name" name="clinic-name" class="form-control">
             </div>
 
             <div class="col-8">
-                <label for="wad_select" class="form-label">Wad:</label>
-                <select id="wad_select" name="wad" class="form-control">
+                <label for="wad-select" class="form-label">Wad:</label>
+                <select id="wad-select" name="wad" class="form-control">
                     <option value="Wad 1">Wad 1</option>
                     <option value="Wad 2" selected>Wad 2</option>
                 </select>
             </div>
             <div class="col-4">
-                <label for="date_of_accident" class="form-label">Date of Loss:</label>
+                <label for="date-of-accident" class="form-label">Date of Loss:</label>
             </div>
-            <div class="col-4"><input type="date" id="dol" name="dol" min="2018-01-01">
+            <div class="col-4"><input type="date" id="dol" name="dol" value="2018-01-01" min="2018-01-01">
             </div>
-
-
         </div>
+
         <div class="row">
             <div class="col-4">
-                <label for="invoice_number" class="form-label">Previous TX:</label>
+                <label for="invoice-number" class="form-label">Previous TX:</label>
             </div>
             <div>
                 <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0"
-                    id="previous_Tx" name="previous_Tx" class="form-control">
+                    id="previous-tx" name="previous-tx" class="form-control">
             </div>
 
             <div class="col-4">
-                <label for="previous_supplies" class="form-label">Previous Supplies:</label>
+                <label for="previous-supplies" class="form-label">Previous Supplies:</label>
             </div>
             <div class="col-8">
-                <input type="text" value="0" id="previous_Supplies" min="0" />
+                <input type="text" value="0" id="previous-Supplies" min="0" />
             </div>
             <div class="col-4">
-                <label for="previous_OtPsyc" class="form-label">Previous OT/PSYC/DENTAL: </label>
+                <label for="previous-ot-psyc" class="form-label">Previous OT/PSYC/DENTAL: </label>
             </div>
             <div class="col-8">
-                <input type="text" value="0" id="previous_OtPsyc" min="0" />
+                <input type="text" value="0" id="previous-ot-psyc" min="0" />
             </div>
         </div>
 
@@ -92,14 +91,14 @@
             <div class="col-3">
                 <!-- Input for quantity with minimum and maximum value constraints -->
                 <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="2"
-                    id="qty_ab1" />
+                    id="qty-ab1" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
             </div>
             <div class="col-3">
                 <!-- Read-only input for displaying the calculated price -->
-                <input type="number" class="readOnly" readonly value="0" id="price_ab1" />
+                <input type="number" class="readOnly" readonly value="0" id="price-ab1" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -116,13 +115,13 @@
             </div>
             <div class="col-3">
                 <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    id="qty_ab2" />
+                    id="qty-ab2" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_ab2" />
+                <input type="number" class="readOnly" readonly value="0" id="price-ab2" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -139,13 +138,13 @@
             </div>
             <div class="col-3">
                 <input type="number" class="qty" min="0" max="21" oninput="validity.valid||(value='');" value="0"
-                    id="qty_ab4" />
+                    id="qty-ab4" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_ab4" />
+                <input type="number" class="readOnly" readonly value="0" id="price-ab4" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -162,13 +161,13 @@
                 PT @ $83 Each
             </div>
             <div class="col-3">
-                <input type="number" class="qty" oninput="validity.valid||(value='');" value="0" id="qty_83PT" />
+                <input type="number" class="qty" oninput="validity.valid||(value='');" value="0" id="qty-83-pt" />
             </div>
             <div class="col-3">
-                <input type="text" id="date_83PT" name="date_83PT">
+                <input type="text" id="date-83-pt" name="date-83-pt">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_83PT" />
+                <input type="number" class="readOnly" readonly value="0" id="price-83PT" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -184,19 +183,19 @@
                 PT @ $41 Each
             </div>
             <div class="col-3">
-                <input type="number" class="qty" oninput="validity.valid||(value='');" value="0" id="qty_41PT" />
+                <input type="number" class="qty" oninput="validity.valid||(value='');" value="0" id="qty-41-pt" />
             </div>
             <div class="col-3">
-                <input type="text" id="date_41PT" name="date_41PT">
+                <input type="text" id="date-41-pt" name="date-41-pt">
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_41PT" />
+                <input type="number" class="readOnly" readonly value="0" id="price-41-pt" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
             </div>
             <div class="col-3">
-                <input type="text" class="readOnly" readonly value="0" id="physio_Subtotal">
+                <input type="text" class="readOnly" readonly value="0" id="physio-subtotal">
             </div>
         </div>
 
@@ -205,17 +204,17 @@
                 MT @ $90 & GST Each
             </div>
             <div class="col-3">
-                <input type="number" class="qty" value="0" id="qty_90MT" oninput="validity.valid||(value='');"
+                <input type="number" class="qty" value="0" id="qty-90-mt" oninput="validity.valid||(value='');"
                     class="qty" min="0" max="21">
             </div>
             <div class="col-3">
-                <input type="text" id="date_90MT" name="date_90MT">
+                <input type="text" id="date-90-mt" name="date-90-mt">
             </div>
             <div class="col-3">
                 <input type="text" class="readOnly" readonly value="0" />
             </div>
             <div class="col-3">
-                <input type="number" class="readOnly" readonly value="0" id="price_90MT">
+                <input type="number" class="readOnly" readonly value="0" id="price-90-mt">
             </div>
             <div class="col-3">
                 <input type="text" disabled>
@@ -229,16 +228,16 @@
             </div>
             <div class="col-3">
                 <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty_Any1MT">
+                    value="0" id="qty-Any1MT">
             </div>
             <div class="col-3">
-                <input type="text" id="date_Any1MT" name="date_Any1MT">
+                <input type="text" id="date-Any1MT" name="date-Any1MT">
             </div>
             <div class="col-3">
-                <input type="text" value="0" id="price_Any1MT">
+                <input type="text" value="0" id="price-Any1MT">
             </div>
             <div class="col-3">
-                <input type="text" class="readOnly" readonly value="0" id="display_price_Any1MT" />
+                <input type="text" class="readOnly" readonly value="0" id="display-price-Any1MT" />
             </div>
             <div class="col-3">
                 <input type="text" disabled>
