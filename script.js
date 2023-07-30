@@ -1,94 +1,94 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const clientName = document.getElementById("claimant_name");
-  const clientClinic = document.getElementById("clinic_name");
-  const invNum = document.getElementById("invoice_number");
+  const clientName = document.getElementById("claimant-name");
+  const clientClinic = document.getElementById("clinic-name");
+  const invNum = document.getElementById("invoice-number");
 
-  const wad = document.getElementById("wad_select");
+  const wad = document.getElementById("wad-select");
   const dateOfLoss = document.getElementById("dol");
-  const qtyPrevious = document.getElementById("previous_Tx");
-  const suppliesPrevious = document.getElementById("previous_Supplies");
-  const previousOtPsyc = document.getElementById("previous_OtPsyc");
+  const qtyPrevious = document.getElementById("previous-Tx");
+  const suppliesPrevious = document.getElementById("previous-Supplies");
+  const previousOtPsyc = document.getElementById("previous-OtPsyc");
 
-  const qtyAB1 = document.getElementById("qty_ab1");
-  const priceAB1 = document.getElementById("price_ab1");
+  const qtyAB1 = document.getElementById("qty-ab1");
+  const priceAB1 = document.getElementById("price-ab1");
 
-  const qtyAB2 = document.getElementById("qty_ab2");
-  const priceAB2 = document.getElementById("price_ab2");
+  const qtyAB2 = document.getElementById("qty-ab2");
+  const priceAB2 = document.getElementById("price-ab2");
 
-  const qtyAB4 = document.getElementById("qty_ab4");
-  const priceAB4 = document.getElementById("price_ab4");
+  const qtyAB4 = document.getElementById("qty-ab4");
+  const priceAB4 = document.getElementById("price-ab4");
 
-  const qty83PT = document.getElementById("qty_83PT");
-  const price83PT = document.getElementById("price_83PT");
-  const dateField83PT = document.getElementById("date_83PT");
+  const qty83PT = document.getElementById("qty-83PT");
+  const price83PT = document.getElementById("price-83PT");
+  const dateField83PT = document.getElementById("date-83PT");
 
-  const qty41PT = document.getElementById("qty_41PT");
-  const price41PT = document.getElementById("price_41PT");
-  const dateField41PT = document.getElementById("date_41PT");
+  const qty41PT = document.getElementById("qty-41PT");
+  const price41PT = document.getElementById("price-41PT");
+  const dateField41PT = document.getElementById("date-41PT");
 
-  const qty83CT = document.getElementById("qty_83CT");
-  const price83CT = document.getElementById("price_83CT");
-  const dateField83CT = document.getElementById("date_83CT");
+  const qty83CT = document.getElementById("qty-83CT");
+  const price83CT = document.getElementById("price-83CT");
+  const dateField83CT = document.getElementById("date-83CT");
 
-  const qty41CT = document.getElementById("qty_41CT");
-  const price41CT = document.getElementById("price_41CT");
-  const dateField41CT = document.getElementById("date_41CT");
+  const qty41CT = document.getElementById("qty-41CT");
+  const price41CT = document.getElementById("price-41CT");
+  const dateField41CT = document.getElementById("date-41CT");
 
-  const qty90MT = document.getElementById("qty_90MT");
-  const price90MT = document.getElementById("price_90MT");
-  const dateField90MT = document.getElementById("date_90MT");
+  const qty90MT = document.getElementById("qty-90MT");
+  const price90MT = document.getElementById("price-90MT");
+  const dateField90MT = document.getElementById("date-90MT");
 
-  const qtyMTAny1 = document.getElementById("qty_Any1MT");
-  const priceMTAny1 = document.getElementById("price_Any1MT");
-  const dateFieldMTAny1 = document.getElementById("date_Any1MT");
-  const displayAny1MT = document.getElementById("display_price_Any1MT");
+  const qtyMTAny1 = document.getElementById("qty-Any1MT");
+  const priceMTAny1 = document.getElementById("price-Any1MT");
+  const dateFieldMTAny1 = document.getElementById("date-Any1MT");
+  const displayAny1MT = document.getElementById("display-price-Any1MT");
 
-  const qtyMTAny2 = document.getElementById("qty_Any2MT");
-  const priceMTAny2 = document.getElementById("price_Any2MT");
-  const dateFieldMTAny2 = document.getElementById("date_Any2MT");
-  const displayAny2MT = document.getElementById("display_price_Any2MT");
+  const qtyMTAny2 = document.getElementById("qty-Any2MT");
+  const priceMTAny2 = document.getElementById("price-Any2MT");
+  const dateFieldMTAny2 = document.getElementById("date-Any2MT");
+  const displayAny2MT = document.getElementById("display-price-Any2MT");
 
-  const qtyAcut = document.getElementById("qty_Acut");
-  const priceAcut = document.getElementById("price_Acut");
-  const dateFieldAcut = document.getElementById("date_Acut");
-  const displayAcut = document.getElementById("display_price_Acut");
+  const qtyAcut = document.getElementById("qty-Acut");
+  const priceAcut = document.getElementById("price-Acut");
+  const dateFieldAcut = document.getElementById("date-Acut");
+  const displayAcut = document.getElementById("display-price-Acut");
 
-  const qtyOtax = document.getElementById("qty_Otax");
-  const priceOtax = document.getElementById("price_Otax");
-  const dateFieldOtax = document.getElementById("date_Otax");
-  const displayOtax = document.getElementById("display_price_Otax");
+  const qtyOtax = document.getElementById("qty-Otax");
+  const priceOtax = document.getElementById("price-Otax");
+  const dateFieldOtax = document.getElementById("date-Otax");
+  const displayOtax = document.getElementById("display-price-Otax");
 
-  const qtyOtTx = document.getElementById("qty_Ottx");
-  const priceOtTx = document.getElementById("price_Ottx");
-  const dateFieldOtTx = document.getElementById("date_Ottx");
-  const displayOtTx = document.getElementById("display_price_Ottx");
+  const qtyOtTx = document.getElementById("qty-Ottx");
+  const priceOtTx = document.getElementById("price-Ottx");
+  const dateFieldOtTx = document.getElementById("date-Ottx");
+  const displayOtTx = document.getElementById("display-price-Ottx");
 
-  const qtyPsycAx = document.getElementById("qty_Psycax");
-  const pricePsycAx = document.getElementById("price_Psycax");
-  const dateFieldPsycAx = document.getElementById("date_Psycax");
-  const displayPsycAx = document.getElementById("display_price_psycax");
+  const qtyPsycAx = document.getElementById("qty-Psycax");
+  const pricePsycAx = document.getElementById("price-Psycax");
+  const dateFieldPsycAx = document.getElementById("date-Psycax");
+  const displayPsycAx = document.getElementById("display-price-psycax");
 
-  const qtyPsycTx = document.getElementById("qty_Psyctx");
-  const pricePsycTx = document.getElementById("price_Psyctx");
-  const dateFieldPsycTx = document.getElementById("date_Psyctx");
-  const displayPsycTx = document.getElementById("display_price_psyctx");
+  const qtyPsycTx = document.getElementById("qty-Psyctx");
+  const pricePsycTx = document.getElementById("price-Psyctx");
+  const dateFieldPsycTx = document.getElementById("date-Psyctx");
+  const displayPsycTx = document.getElementById("display-price-psyctx");
 
-  const qtyDental = document.getElementById("qty_Dental");
-  const priceDental = document.getElementById("price_Dental");
-  const dateFieldDental = document.getElementById("date_Dental");
-  const displayDental = document.getElementById("display_price_Dental");
+  const qtyDental = document.getElementById("qty-Dental");
+  const priceDental = document.getElementById("price-Dental");
+  const dateFieldDental = document.getElementById("date-Dental");
+  const displayDental = document.getElementById("display-price-Dental");
 
-  const totalValueElement = document.getElementById("total_value");
-  const totalQuantityElement = document.getElementById("total_quantity");
-  const selectedItemsContainer = document.getElementById("selected_items");
+  const totalValueElement = document.getElementById("total-value");
+  const totalQuantityElement = document.getElementById("total-quantity");
+  const selectedItemsContainer = document.getElementById("selected-items");
 
-  const physioSubTotalElement = document.getElementById("physio_Subtotal");
-  const mtsubtotalElement = document.getElementById("mt_Subtotal");
-  const ctsubtotalElement = document.getElementById("ct_Subtotal");
-  const acutSubtotalElement = document.getElementById("acut_Subtotal");
-  const otSubtotalElement = document.getElementById("ot_Subtotal");
-  const psycSubtotalElement = document.getElementById("psyc_Subtotal");
-  const dentalSubtotalElement = document.getElementById("dental_Subtotal");
+  const physioSubTotalElement = document.getElementById("physio-Subtotal");
+  const mtsubtotalElement = document.getElementById("mt-Subtotal");
+  const ctsubtotalElement = document.getElementById("ct-Subtotal");
+  const acutSubtotalElement = document.getElementById("acut-Subtotal");
+  const otSubtotalElement = document.getElementById("ot-Subtotal");
+  const psycSubtotalElement = document.getElementById("psyc-Subtotal");
+  const dentalSubtotalElement = document.getElementById("dental-Subtotal");
 
   // New variable to keep track of whether both qty and price are entered for "MT Any1"
   let AnyMT1Price = 0;
@@ -264,9 +264,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Calculate total value
     const totalValue = parseFloat(totalValueElement.innerText);
     const totalValueDisplay = document.createElement("p");
-    const clientName = document.getElementById("claimant_name").value;
-    const invNum = document.getElementById("invoice_number").value;
-    const clientClinic = document.getElementById("clinic_name").value;
+    const clientName = document.getElementById("claimant-name").value;
+    const invNum = document.getElementById("invoice-number").value;
+    const clientClinic = document.getElementById("clinic-name").value;
     totalValueDisplay.innerText = `Claimant: ${clientName} \n Paid Inv. ${invNum} to ${clientClinic} for $${totalValue.toFixed(
       2
     )}`;
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get values of selected items
     const qty83PTValue = parseFloat(qty83PT.value);
     const price83PTValue = parseFloat(price83PT.value);
-    const date83PTValue = document.getElementById("date_83PT").value;
+    const date83PTValue = document.getElementById("date-83PT").value;
     if (qty83PTValue > 0) {
       addItemToDisplay(
         "PT @ $83 Each",
@@ -331,7 +331,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const qty41PTValue = parseFloat(qty41PT.value);
     const price41PTValue = parseFloat(price41PT.value);
-    const date41PTValue = document.getElementById("date_41PT").value;
+    const date41PTValue = document.getElementById("date-41PT").value;
     if (qty41PTValue > 0) {
       addItemToDisplay(
         "PT @ $41 Each",
@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Get values of selected items
     const qty83CTValue = parseFloat(qty83CT.value);
     const price83CTValue = parseFloat(price83CT.value);
-    const date83CTValue = document.getElementById("date_83CT").value;
+    const date83CTValue = document.getElementById("date-83CT").value;
     if (qty83CTValue > 0) {
       addItemToDisplay(
         "CT @ $83 Each",
@@ -356,7 +356,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const qty41CTValue = parseFloat(qty41CT.value);
     const price41CTValue = parseFloat(price41CT.value);
-    const date41CTValue = document.getElementById("date_41CT").value;
+    const date41CTValue = document.getElementById("date-41CT").value;
     if (qty41CTValue > 0) {
       addItemToDisplay(
         "CT @ $41 Each",
@@ -368,7 +368,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const qty90MTValue = parseFloat(qty90MT.value);
     const price90MTValue = parseFloat(price90MT.value);
-    const date90MTValue = document.getElementById("date_90MT").value;
+    const date90MTValue = document.getElementById("date-90MT").value;
     if (qty90MTValue > 0) {
       addItemToDisplay(
         "MT @ $90 Each",
@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const qtyMTAny1Value = parseFloat(qtyMTAny1.value);
     const priceMTAny1Value = parseFloat(priceMTAny1.value);
-    const dateMTAny1Value = document.getElementById("date_Any1MT").value;
+    const dateMTAny1Value = document.getElementById("date-Any1MT").value;
     if (qtyMTAny1Value > 0) {
       addAnyValueItemToDisplay(
         "MT @ ",
@@ -392,7 +392,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const qtyMTAny2Value = parseFloat(qtyMTAny2.value);
     const priceMTAny2Value = parseFloat(priceMTAny2.value);
-    const dateMTAny2Value = document.getElementById("date_Any2MT").value;
+    const dateMTAny2Value = document.getElementById("date-Any2MT").value;
     if (qtyMTAny2Value > 0) {
       addAnyValueItemToDisplay(
         "MT @ ",
@@ -404,7 +404,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const qtyAcutValue = parseFloat(qtyAcut.value);
     const priceAcutValue = parseFloat(priceAcut.value);
-    const dateAcutValue = document.getElementById("date_Acut").value;
+    const dateAcutValue = document.getElementById("date-Acut").value;
     if (qtyAcutValue > 0) {
       addAnyValueItemToDisplay(
         "Acut @ ",
