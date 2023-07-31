@@ -124,6 +124,21 @@ document.addEventListener("DOMContentLoaded", function () {
   // Find the copy button element
   const copyButton = document.getElementById("copy-btn");
 
+  let selectedAny1MT = 0;
+  let selectedAny2MT = 0;
+  let selectedAcut = 0;
+  let selectedOtax = 0;
+  let selectedOtTx = 0;
+  let selectedPsycAx = 0;
+  let selectedPsycTx = 0;
+  let selectedDental = 0;
+  let selectedSupply1 = 0;
+  let selectedSupply2 = 0;
+  let selectedSupply3 = 0;
+  let selectedSupply4 = 0;
+  let selectedSupply5 = 0;
+  let selectedSupply6 = 0;
+
   // New variable to keep track of whether both qty and price are entered for "MT Any1"
   let AnyMT1Price = 0;
   let AnyMT2Price = 0;
@@ -140,6 +155,8 @@ document.addEventListener("DOMContentLoaded", function () {
   let Supply4 = 0;
   let Supply5 = 0;
   let Supply6 = 0;
+
+  let isGSTIncluded = false; // Assume GST is included by default
 
   // Function to calculate the total price and quantity
   function calculateTotal() {
@@ -358,17 +375,30 @@ document.addEventListener("DOMContentLoaded", function () {
       itemName,
       qtyValue,
       priceValue,
-      dateValue
+      dateValue,
+      gstCheck
     ) {
-      const itemDisplay = document.createElement("p");
-      itemDisplay.innerText = `${qtyValue} ${itemName} $${priceValue} Each - Date: ${dateValue}`;
-      selectedItemsContainer.appendChild(itemDisplay);
+      if (gstCheck) {
+        const itemDisplay = document.createElement("p");
+        itemDisplay.innerText = `${qtyValue} ${itemName} $${priceValue} Each (GST Incl.)- Date: ${dateValue}`;
+        selectedItemsContainer.appendChild(itemDisplay);
+      } else {
+        const itemDisplay = document.createElement("p");
+        itemDisplay.innerText = `${qtyValue} ${itemName} $${priceValue} Each - Date: ${dateValue}`;
+        selectedItemsContainer.appendChild(itemDisplay);
+      }
     }
 
-    function addSupliesToDisplay(itemName, qtyValue, priceValue) {
-      const itemDisplay = document.createElement("p");
-      itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${priceValue} Each`;
-      selectedItemsContainer.appendChild(itemDisplay);
+    function addSupliesToDisplay(itemName, qtyValue, priceValue, gstCheck) {
+      if (gstCheck) {
+        const itemDisplay = document.createElement("p");
+        itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${priceValue} Each GST Incl.`;
+        selectedItemsContainer.appendChild(itemDisplay);
+      } else {
+        const itemDisplay = document.createElement("p");
+        itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${priceValue} Each `;
+        selectedItemsContainer.appendChild(itemDisplay);
+      }
     }
 
     const qtyAB1Value = parseFloat(qtyAB1.value);
@@ -458,8 +488,9 @@ document.addEventListener("DOMContentLoaded", function () {
       addAnyValueItemToDisplay(
         "MT @ ",
         qtyMTAny1Value,
-        displayAny1MT.value,
-        dateMTAny1Value
+        selectedAny1MT,
+        dateMTAny1Value,
+        priceMTAny1.value.trim().toLowerCase().endsWith("g")
       );
     }
 
@@ -470,8 +501,9 @@ document.addEventListener("DOMContentLoaded", function () {
       addAnyValueItemToDisplay(
         "MT @ ",
         qtyMTAny2Value,
-        displayAny2MT.value,
-        dateMTAny2Value
+        selectedAny2MT,
+        dateMTAny2Value,
+        priceMTAny2.value.trim().toLowerCase().endsWith("g")
       );
     }
 
@@ -482,8 +514,9 @@ document.addEventListener("DOMContentLoaded", function () {
       addAnyValueItemToDisplay(
         "Acut @ ",
         qtyAcutValue,
-        displayAcut.value,
-        dateAcutValue
+        selectedAcut,
+        dateAcutValue,
+        priceAcut.value.trim().toLowerCase().endsWith("g")
       );
     }
 
@@ -494,8 +527,9 @@ document.addEventListener("DOMContentLoaded", function () {
       addAnyValueItemToDisplay(
         "OT AX @ ",
         qtyOtaxValue,
-        displayOtax.value,
-        dateOtaxValue
+        selectedOtax,
+        dateOtaxValue,
+        priceOtax.value.trim().toLowerCase().endsWith("g")
       );
     }
 
@@ -506,8 +540,9 @@ document.addEventListener("DOMContentLoaded", function () {
       addAnyValueItemToDisplay(
         "OT TX @ ",
         qtyOtTxValue,
-        displayOtTx.value,
-        dateOtTxValue
+        selectedOtTx,
+        dateOtTxValue,
+        priceOtTx.value.trim().toLowerCase().endsWith("g")
       );
     }
 
@@ -518,8 +553,9 @@ document.addEventListener("DOMContentLoaded", function () {
       addAnyValueItemToDisplay(
         "PSYC AX @ ",
         qtyPsycAxValue,
-        displayPsycAx.value,
-        datePsycAxValue
+        selectedPsycAx,
+        datePsycAxValue,
+        pricePsycAx.value.trim().toLowerCase().endsWith("g")
       );
     }
 
@@ -530,8 +566,9 @@ document.addEventListener("DOMContentLoaded", function () {
       addAnyValueItemToDisplay(
         "PSYC TX @ ",
         qtyPsycTxValue,
-        displayPsycTx.value,
-        datePsycTxValue
+        selectedPsycTx,
+        datePsycTxValue,
+        pricePsycTx.value.trim().toLowerCase().endsWith("g")
       );
     }
 
@@ -542,69 +579,71 @@ document.addEventListener("DOMContentLoaded", function () {
       addAnyValueItemToDisplay(
         "Dental @ ",
         qtyDentalValue,
-        displayDental.value,
-        dateDentalValue
+        selectedDental,
+        dateDentalValue,
+        priceDental.value.trim().toLowerCase().endsWith("g")
       );
     }
 
     const qtySupply1Value = parseFloat(qtySupply1.value);
-    const priceSupply1Value = parseFloat(priceSupply1.value);
     if (qtySupply1Value > 0) {
       addSupliesToDisplay(
         supply1Desc.value,
-        displaySupply1.value,
-        priceSupply1Value
+        qtySupply1Value,
+        selectedSupply1,
+        priceSupply1.value.trim().toLowerCase().endsWith("g")
       );
     }
 
     const qtySupply2Value = parseFloat(qtySupply2.value);
-    const priceSupply2Value = parseFloat(priceSupply2.value);
     if (qtySupply2Value > 0) {
       addSupliesToDisplay(
         supply2Desc.value,
-        displaySupply2.value,
-        priceSupply2Value
+        qtySupply2Value,
+
+        selectedSupply2,
+        priceSupply2.value.trim().toLowerCase().endsWith("g")
       );
     }
 
     const qtySupply3Value = parseFloat(qtySupply3.value);
-    const priceSupply3Value = parseFloat(priceSupply3.value);
     if (qtySupply3Value > 0) {
       addSupliesToDisplay(
         supply3Desc.value,
+        qtySupply3Value,
         displaySupply3.value,
-        priceSupply3Value
+        priceSupply3.value.trim().toLowerCase().endsWith("g")
       );
     }
 
     const qtySupply4Value = parseFloat(qtySupply4.value);
-    const priceSupply4Value = parseFloat(priceSupply4.value);
 
     if (qtySupply4Value > 0) {
       addSupliesToDisplay(
         supply4Desc.value,
+        qtySupply4Value,
         displaySupply4.value,
-        priceSupply4Value
+        priceSupply4.value.trim().toLowerCase().endsWith("g")
       );
     }
 
     const qtySupply5Value = parseFloat(qtySupply5.value);
-    const priceSupply5Value = parseFloat(priceSupply5.value);
     if (qtySupply5Value > 0) {
       addSupliesToDisplay(
         supply5Desc.value,
+        qtySupply5Value,
         displaySupply5.value,
-        priceSupply5Value
+        priceSupply5.value.trim().toLowerCase().endsWith("g")
       );
     }
 
     const qtySupply6Value = parseFloat(qtySupply6.value);
-    const priceSupply6Value = parseFloat(priceSupply6.value);
     if (qtySupply6Value > 0) {
       addSupliesToDisplay(
         supply6Desc.value,
+        qtySupply6Value,
         displaySupply6.value,
-        priceSupply6Value
+        priceSupply6.value.trim().toLowerCase().endsWith("g")
       );
     }
 
@@ -732,6 +771,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceMTAny1.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedAny1MT = priceValue;
 
     displayAny1MT.value = (qtyValue * priceValue).toFixed(2);
     AnyMT1Price = displayAny1MT.value;
@@ -746,8 +786,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceMTAny1.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      isGSTIncluded = true;
     }
-
+    selectedAny1MT = priceValue;
     displayAny1MT.value = (qtyValue * priceValue).toFixed(2);
     AnyMT1Price = displayAny1MT.value;
     calculateTotal();
@@ -766,6 +807,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceMTAny2.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedAny2MT = priceValue;
 
     displayAny2MT.value = (qtyValue * priceValue).toFixed(2);
     AnyMT2Price = displayAny2MT.value;
@@ -781,6 +823,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceMTAny2.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedAny2MT = priceValue;
 
     displayAny2MT.value = (qtyValue * priceValue).toFixed(2);
     AnyMT2Price = displayAny2MT.value;
@@ -800,7 +843,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceAcut.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
-
+    selectedAcut = priceValue;
     displayAny2MT.value = (qtyValue * priceValue).toFixed(2);
     AnyAcutPrice = displayAcut.value;
     calculateTotal();
@@ -815,6 +858,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceAcut.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedAcut = priceValue;
     displayAcut.value = (qtyValue * priceValue).toFixed(2);
     AnyAcutPrice = displayAcut.value;
     calculateTotal();
@@ -833,6 +877,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceOtax.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedOtax = priceValue;
     displayOtax.value = (qtyValue * priceValue).toFixed(2);
     OtAxPrice = displayOtax.value;
     calculateTotal();
@@ -847,6 +892,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceOtax.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedOtax = priceValue;
     displayOtax.value = (qtyValue * priceValue).toFixed(2);
     OtAxPrice = displayOtax.value;
     calculateTotal();
@@ -865,6 +911,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceOtTx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedOtTx = priceValue;
     displayOtTx.value = (qtyValue * priceValue).toFixed(2);
     OtTxPrice = displayOtTx.value;
     calculateTotal();
@@ -879,6 +926,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceOtTx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedOtTx = priceValue;
     displayOtTx.value = (qtyValue * priceValue).toFixed(2);
     OtTxPrice = displayOtTx.value;
 
@@ -897,6 +945,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (pricePsycAx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedPsycAx = priceValue;
     displayPsycAx.value = (qtyValue * priceValue).toFixed(2);
     PsycAxPrice = displayPsycAx.value;
     calculateTotal();
@@ -910,6 +959,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (pricePsycAx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedPsycAx = priceValue;
     displayPsycAx.value = (qtyValue * priceValue).toFixed(2);
     PsycAxPrice = displayPsycAx.value;
     calculateTotal();
@@ -926,6 +976,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (pricePsycTx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedPsycTx = priceValue;
     displayPsycTx.value = (qtyValue * priceValue).toFixed(2);
     PsycTxPrice = displayPsycTx.value;
     calculateTotal();
@@ -938,6 +989,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (pricePsycTx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedPsycTx = priceValue;
     displayPsycTx.value = (qtyValue * priceValue).toFixed(2);
     PsycTxPrice = displayPsycTx.value;
     calculateTotal();
@@ -954,6 +1006,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceDental.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedDental = priceValue;
     displayDental.value = (qtyValue * priceValue).toFixed(2);
     DentalPrice = displayDental.value;
     calculateTotal();
@@ -966,6 +1019,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceDental.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedDental = priceValue;
     displayDental.value = (qtyValue * priceValue).toFixed(2);
     DentalPrice = displayDental.value;
     calculateTotal();
@@ -986,6 +1040,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSupply1.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedSupply1 = priceValue;
     displaySupply1.value = (qtyValue * priceValue).toFixed(2);
     Supply1 = displaySupply1.value;
     calculateTotal();
@@ -998,6 +1053,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSupply1.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedSupply1 = priceValue;
     displaySupply1.value = (qtyValue * priceValue).toFixed(2);
     Supply1 = displaySupply1.value;
     calculateTotal();
@@ -1014,6 +1070,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSupply2.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedSupply2 = priceValue;
     displaySupply2.value = (qtyValue * priceValue).toFixed(2);
     Supply2 = displaySupply2.value;
     calculateTotal();
@@ -1027,6 +1084,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSupply2.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedSupply2 = priceValue;
 
     displaySupply2.value = (qtyValue * priceValue).toFixed(2);
     Supply2 = displaySupply2.value;
@@ -1047,6 +1105,8 @@ document.addEventListener("DOMContentLoaded", function () {
       priceValue *= 1.05;
     }
 
+    selectedSupply3 = priceValue;
+
     displaySupply3.value = (qtyValue * priceValue).toFixed(2);
     Supply3 = displaySupply3.value;
     calculateTotal();
@@ -1060,7 +1120,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSupply3.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
-
+    selectedSupply3 = priceValue;
     displaySupply3.value = (qtyValue * priceValue).toFixed(2);
 
     Supply3 = displaySupply3.value;
@@ -1079,7 +1139,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSupply4.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
-
+    selectedSupply4 = priceValue;
     displaySupply4.value = (qtyValue * priceValue).toFixed(2);
     Supply4 = displaySupply4.value;
     calculateTotal();
@@ -1094,6 +1154,7 @@ document.addEventListener("DOMContentLoaded", function () {
       priceValue *= 1.05;
     }
 
+    selectedSupply4 = priceValue;
     displaySupply4.value = (qtyValue * priceValue).toFixed(2);
     Supply4 = displaySupply4.value;
     calculateTotal();
@@ -1112,6 +1173,8 @@ document.addEventListener("DOMContentLoaded", function () {
       priceValue *= 1.05;
     }
 
+    selectedSupply5 = priceValue;
+
     displaySupply5.value = (qtyValue * priceValue).toFixed(2);
     Supply5 = displaySupply5.value;
     calculateTotal();
@@ -1126,6 +1189,7 @@ document.addEventListener("DOMContentLoaded", function () {
       priceValue *= 1.05;
     }
 
+    selectedSupply5 = priceValue;
     displaySupply5.value = (qtyValue * priceValue).toFixed(2);
     Supply5 = displaySupply5.value;
     calculateTotal();
@@ -1143,6 +1207,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSupply6.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedSupply6 = priceValue;
 
     displaySupply6.value = (qtyValue * priceValue).toFixed(2);
     Supply6 = displaySupply6.value;
@@ -1157,6 +1222,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (priceSupply6.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
     }
+    selectedSupply6 = priceValue;
 
     displaySupply6.value = (qtyValue * priceValue).toFixed(2);
     Supply6 = displaySupply6.value;
