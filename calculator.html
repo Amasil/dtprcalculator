@@ -6,6 +6,9 @@
     <!-- The title of the document shown in the browser tab -->
     <title>Simple HTML Calculation form</title>
     <!-- Linking an external CSS file for styling -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!-- Including an external JavaScript file and deferring its execution until the document has loaded -->
     <script src="script.js" defer></script>
@@ -42,6 +45,10 @@
                 <!-- Input field for Clinic Name -->
                 <input type="text" id="clinic-name" name="clinic-name" class="form-control">
             </div>
+        </div>
+
+        <!-- Second row - Previous TX, Previous Supplies, and Previous OT/PSYC/DENTAL -->
+        <div class="row">
 
             <div class="col-8">
                 <!-- Label for Wad -->
@@ -58,12 +65,9 @@
             </div>
             <div class="col-4">
                 <!-- Input field for Date of Loss with a minimum date of 2018-01-01 -->
-                <input type="date" id="dol" name="dol" min="2018-01-01">
+                <input type="date" id="dol" name="dol" value="2018-01-01">
             </div>
-        </div>
 
-        <!-- Second row - Previous TX, Previous Supplies, and Previous OT/PSYC/DENTAL -->
-        <div class="row">
             <div class="col-4">
                 <!-- Label for Previous TX -->
                 <label for="previous-Tx" class="form-label">Previous TX:</label>
@@ -97,8 +101,8 @@
             <div class="col-6 row-heading">Item</div>
             <div class="col-3 row-heading">No of TX</div>
             <div class="col-3 row-heading">Date of TX</div>
-            <div class="col-3 row-heading">Price</div>
             <div class="col-3 row-heading">Cost G if GST</div>
+            <div class="col-3 row-heading">Price</div>
             <div class="col-3 row-heading">Subtotal</div>
         </div>
 
@@ -127,7 +131,7 @@
             </div>
             <div class="col-3">
                 <!-- Disabled input field for subtotal -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
         <!-- Row for AB2 -->
@@ -155,7 +159,7 @@
             </div>
             <div class="col-3">
                 <!-- Disabled input field for subtotal -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -176,7 +180,7 @@
             </div>
             <div class="col-3">
                 <!-- Disabled input field for price -->
-                <input type="text" disabled>
+                <input type="text" class="readOnly" disabled>
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of AB4 -->
@@ -184,7 +188,7 @@
             </div>
             <div class="col-3">
                 <!-- Disabled input field for subtotal -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -213,7 +217,7 @@
             </div>
             <div class="col-3">
                 <!-- Disabled input field for subtotal -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -242,7 +246,7 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for subtotal of PT items -->
-                <input type="text" class="readOnly" readonly value="0" id="physio-subtotal">
+                <input type="number" class="readOnly" readonly value="0" id="physio-subtotal">
             </div>
         </div>
 
@@ -271,7 +275,7 @@
             </div>
             <div class="col-3">
                 <!-- Disabled input field for subtotal -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -296,11 +300,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of MT @ $ (Any Amount) -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-any1-mt" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-any1-mt" />
             </div>
             <div class="col-3">
                 <!-- Disabled input field for subtotal -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -325,11 +329,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of MT @ $ (Any Amount) -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-any2-mt" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-any2-mt" />
             </div>
             <div class="col-3">
                 <!-- Readonly input field for subtotal of MT (Any Amount) -->
-                <input type="text" class="readOnly" readonly value="0" id="mt-subtotal">
+                <input type="number" class="readOnly" readonly value="0" id="mt-subtotal">
             </div>
         </div>
 
@@ -358,7 +362,7 @@
             </div>
             <div class="col-3">
                 <!-- Disabled input field for subtotal -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -387,7 +391,7 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for subtotal of CT items -->
-                <input type="text" class="readOnly" readonly value="0" id="ct-subtotal">
+                <input type="number" class="readOnly" readonly value="0" id="ct-subtotal">
             </div>
         </div>
 
@@ -412,11 +416,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of AcuT -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-acut" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-acut" />
             </div>
             <div class="col-3">
                 <!-- Readonly input field for subtotal of AcuT items -->
-                <input type="text" class="readOnly" readonly value="0" id="acut-subtotal">
+                <input type="number" class="readOnly" readonly value="0" id="acut-subtotal">
             </div>
         </div>
 
@@ -441,11 +445,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of OT AX -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-ot-ax" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-ot-ax" />
             </div>
             <div class="col-3">
                 <!-- Disabled input field -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -470,11 +474,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of OT TX -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-ot-tx" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-ot-tx" />
             </div>
             <div class="col-3">
                 <!-- Readonly input field for subtotal of OT TX items -->
-                <input type="text" class="readOnly" readonly value="0" id="ot-subtotal">
+                <input type="number" class="readOnly" readonly value="0" id="ot-subtotal">
             </div>
         </div>
 
@@ -499,11 +503,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of PSYCH AX -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
             </div>
             <div class="col-3">
                 <!-- Disabled input field -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -528,11 +532,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of PSYCH TX -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
             </div>
             <div class="col-3">
                 <!-- Readonly input field for subtotal of PSYCH TX items -->
-                <input type="text" class="readOnly" readonly value="0" id="psyc-subtotal">
+                <input type="number" class="readOnly" readonly value="0" id="psyc-subtotal">
             </div>
         </div>
 
@@ -557,11 +561,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of Dental -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-dental" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-dental" />
             </div>
             <div class="col-3">
                 <!-- Readonly input field for subtotal of Dental items -->
-                <input type="text" class="readOnly" readonly value="0" id="dental-subtotal">
+                <input type="number" class="readOnly" readonly value="0" id="dental-subtotal">
             </div>
         </div>
 
@@ -591,11 +595,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of the first supply -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-one" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-one" />
             </div>
             <div class="col-3">
                 <!-- Disabled input field -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -620,11 +624,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of the supply -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-two" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-two" />
             </div>
             <div class="col-3">
                 <!-- Disabled input field -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
         <!-- Supply Item (Supply Three) -->
@@ -648,11 +652,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of Supply Three -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-three" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-three" />
             </div>
             <div class="col-3">
                 <!-- Disabled input field -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -677,11 +681,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of Supply Four -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-four" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-four" />
             </div>
             <div class="col-3">
                 <!-- Disabled input field -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -707,11 +711,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of Supply Five -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-five" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-five" />
             </div>
             <div class="col-3">
                 <!-- Disabled input field -->
-                <input type="text" disabled>
+                <input type="number" class="readOnly" disabled>
             </div>
         </div>
 
@@ -737,11 +741,11 @@
             </div>
             <div class="col-3">
                 <!-- Readonly input field for calculated price of Supply Six -->
-                <input type="text" class="readOnly" readonly value="0" id="display-price-supply-six" />
+                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-six" />
             </div>
             <div class="col-3">
                 <!-- Readonly input field for the subtotal of all dental supplies -->
-                <input type="text" class="readOnly" readonly value="0" id="dental-subtotal">
+                <input type="number" class="readOnly" readonly value="0" id="supply-subtotal">
             </div>
         </div>
 
@@ -778,7 +782,7 @@
         <!-- A note section -->
         <div>Note:
             <!-- Copy button to copy selected items to clipboard -->
-            <button id="copy-btn">Copy</button>
+            <button id="copy-btn" class="button-17" role="button">Copy</button>
         </div>
         <!-- Box for displaying selected items -->
         <div class="selected-items-box">
