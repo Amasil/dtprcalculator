@@ -232,23 +232,94 @@ document.addEventListener("DOMContentLoaded", function () {
       parseFloat(Supply6),
     ];
 
-    const physioSubTotal = [
-      parseFloat(priceAB1.value),
-      parseFloat(priceAB2.value),
-      parseFloat(priceAB4.value),
-      parseFloat(price83PT.value),
-      parseFloat(price41PT.value),
-    ];
+    let physioSubTotal = [];
+    let ctSubTotal = [];
+
+    if (
+      (parseFloat(qty83PT.value) == 0) &
+      (parseFloat(qty41PT.value) == 0) &
+      (parseFloat(qty83CT.value) == 0) &
+      (parseFloat(qty41CT.value) == 0)
+    ) {
+      physioSubTotal = [
+        parseFloat(priceAB1.value),
+        parseFloat(priceAB2.value),
+        parseFloat(priceAB4.value),
+      ];
+      ctSubTotal = [0];
+    } else {
+      if (parseFloat(qty83PT.value) != 0 || parseFloat(qty41PT.value) != 0) {
+        physioSubTotal = [
+          parseFloat(priceAB1.value),
+          parseFloat(priceAB2.value),
+          parseFloat(priceAB4.value),
+          parseFloat(price83PT.value),
+          parseFloat(price41PT.value),
+        ];
+
+        ctSubTotal = [parseFloat(price83CT.value), parseFloat(price41CT.value)];
+      }
+      if (
+        (parseFloat(qty83PT.value) == 0) & (parseFloat(qty41PT.value) == 0) ||
+        parseFloat(qty83CT.value) != 0 ||
+        parseFloat(qty41CT.value) != 0
+      ) {
+        physioSubTotal = [0];
+
+        ctSubTotal = [
+          parseFloat(priceAB1.value),
+          parseFloat(priceAB2.value),
+          parseFloat(priceAB4.value),
+          parseFloat(price83CT.value),
+          parseFloat(price41CT.value),
+        ];
+      }
+    }
+    // if (parseFloat(qty83PT.value) != 0 || parseFloat(qty41PT.value) != 0) {
+    //   physioSubTotal = [
+    //     parseFloat(priceAB1.value),
+    //     parseFloat(priceAB2.value),
+    //     parseFloat(priceAB4.value),
+    //     parseFloat(price83PT.value),
+    //     parseFloat(price41PT.value),
+    //   ];
+
+    //   ctSubTotal = [parseFloat(price83CT.value), parseFloat(price41CT.value)];
+    // }
+
+    // if (
+    //   parseFloat(qty83PT.value) == 0 ||
+    //   parseFloat(qty41PT.value) == 0 ||
+    //   parseFloat(qty83CT.value) != 0 ||
+    //   parseFloat(qty41CT.value) != 0
+    // ) {
+    //   physioSubTotal = [0];
+
+    //   ctSubTotal = [
+    //     parseFloat(priceAB1.value),
+    //     parseFloat(priceAB2.value),
+    //     parseFloat(priceAB4.value),
+    //     parseFloat(price83CT.value),
+    //     parseFloat(price41CT.value),
+    //   ];
+    // }
+
+    // else {
+    //   ctSubTotal = [
+    //     parseFloat(price83CT.value),
+    //     parseFloat(price41CT.value),
+    //     parseFloat(priceAB1.value),
+    //     parseFloat(priceAB2.value),
+    //     parseFloat(priceAB4.value),
+    //   ];
+    // }
 
     const mtSubTotal = [
       parseFloat(price90MT.value),
       parseFloat(AnyMT1Price),
       parseFloat(AnyMT2Price),
     ];
-    const ctSubTotal = [
-      parseFloat(price83CT.value),
-      parseFloat(price41CT.value),
-    ];
+
     const acutSubTotal = [parseFloat(AnyAcutPrice)];
 
     const otSubTotal = [parseFloat(OtAxPrice), parseFloat(OtTxPrice)];
@@ -300,13 +371,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (wad.value == "Wad 1") {
       if (anyItemSelected > 0) {
         const totalQuantityDisplay = document.createElement("p");
-        totalQuantityDisplay.innerText = ` DTPR ${totalQtywithPrevious}/10 | Supplies:$${totalSupplies}/120.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
+        totalQuantityDisplay.innerText = ` ================================================= \n DTPR ${totalQtywithPrevious}/10 | Supplies:$${totalSupplies}/120.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
         selectedItemsContainer.appendChild(totalQuantityDisplay);
       }
     } else if (wad.value == "Wad 2") {
       if (anyItemSelected > 0) {
         const totalQuantityDisplay = document.createElement("p");
-        totalQuantityDisplay.innerText = ` DTPR ${totalQtywithPrevious}/21 | Supplies:$${totalSupplies}/160.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
+        totalQuantityDisplay.innerText = ` ================================================= \n DTPR ${totalQtywithPrevious}/21 | Supplies:$${totalSupplies}/160.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
         selectedItemsContainer.appendChild(totalQuantityDisplay);
       }
     }
@@ -600,7 +671,6 @@ document.addEventListener("DOMContentLoaded", function () {
       addSupliesToDisplay(
         supply2Desc.value,
         qtySupply2Value,
-
         selectedSupply2,
         priceSupply2.value.trim().toLowerCase().endsWith("g")
       );
@@ -611,7 +681,7 @@ document.addEventListener("DOMContentLoaded", function () {
       addSupliesToDisplay(
         supply3Desc.value,
         qtySupply3Value,
-        displaySupply3.value,
+        selectedSupply3,
         priceSupply3.value.trim().toLowerCase().endsWith("g")
       );
     }
@@ -622,7 +692,7 @@ document.addEventListener("DOMContentLoaded", function () {
       addSupliesToDisplay(
         supply4Desc.value,
         qtySupply4Value,
-        displaySupply4.value,
+        selectedSupply4,
         priceSupply4.value.trim().toLowerCase().endsWith("g")
       );
     }
@@ -632,7 +702,7 @@ document.addEventListener("DOMContentLoaded", function () {
       addSupliesToDisplay(
         supply5Desc.value,
         qtySupply5Value,
-        displaySupply5.value,
+        selectedSupply5,
         priceSupply5.value.trim().toLowerCase().endsWith("g")
       );
     }
@@ -642,7 +712,8 @@ document.addEventListener("DOMContentLoaded", function () {
       addSupliesToDisplay(
         supply6Desc.value,
         qtySupply6Value,
-        displaySupply6.value,
+
+        selectedSupply6,
         priceSupply6.value.trim().toLowerCase().endsWith("g")
       );
     }
