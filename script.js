@@ -451,11 +451,15 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
       if (gstCheck) {
         const itemDisplay = document.createElement("p");
-        itemDisplay.innerText = `${qtyValue} ${itemName} $${priceValue} Each (GST Incl.)- Date: ${dateValue}`;
+        itemDisplay.innerText = `${qtyValue} ${itemName} $${
+          Math.round((priceValue + Number.EPSILON) * 100) / 100
+        } Each (GST Incl.)- Date: ${dateValue}`;
         selectedItemsContainer.appendChild(itemDisplay);
       } else {
         const itemDisplay = document.createElement("p");
-        itemDisplay.innerText = `${qtyValue} ${itemName} $${priceValue} Each - Date: ${dateValue}`;
+        itemDisplay.innerText = `${qtyValue} ${itemName} $${
+          Math.round((priceValue + Number.EPSILON) * 100) / 100
+        } Each - Date: ${dateValue}`;
         selectedItemsContainer.appendChild(itemDisplay);
       }
     }
@@ -463,11 +467,15 @@ document.addEventListener("DOMContentLoaded", function () {
     function addSupliesToDisplay(itemName, qtyValue, priceValue, gstCheck) {
       if (gstCheck) {
         const itemDisplay = document.createElement("p");
-        itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${priceValue} Each GST Incl.`;
+        itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${
+          Math.round((priceValue + Number.EPSILON) * 100) / 100
+        } Each GST Incl.`;
         selectedItemsContainer.appendChild(itemDisplay);
       } else {
         const itemDisplay = document.createElement("p");
-        itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${priceValue} Each `;
+        itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${
+          Math.round((priceValue + Number.EPSILON) * 100) / 100
+        } Each `;
         selectedItemsContainer.appendChild(itemDisplay);
       }
     }
@@ -841,6 +849,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceMTAny1.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedAny1MT = priceValue;
 
@@ -857,6 +866,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceMTAny1.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
       isGSTIncluded = true;
     }
     selectedAny1MT = priceValue;
@@ -877,6 +887,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceMTAny2.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedAny2MT = priceValue;
 
@@ -893,6 +904,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceMTAny2.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedAny2MT = priceValue;
 
@@ -913,6 +925,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceAcut.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedAcut = priceValue;
     displayAny2MT.value = (qtyValue * priceValue).toFixed(2);
@@ -928,6 +941,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceAcut.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedAcut = priceValue;
     displayAcut.value = (qtyValue * priceValue).toFixed(2);
@@ -947,6 +961,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceOtax.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedOtax = priceValue;
     displayOtax.value = (qtyValue * priceValue).toFixed(2);
@@ -962,6 +977,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceOtax.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedOtax = priceValue;
     displayOtax.value = (qtyValue * priceValue).toFixed(2);
@@ -981,6 +997,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceOtTx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedOtTx = priceValue;
     displayOtTx.value = (qtyValue * priceValue).toFixed(2);
@@ -996,6 +1013,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (priceOtTx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedOtTx = priceValue;
     displayOtTx.value = (qtyValue * priceValue).toFixed(2);
@@ -1015,6 +1033,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (pricePsycAx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedPsycAx = priceValue;
     displayPsycAx.value = (qtyValue * priceValue).toFixed(2);
@@ -1029,6 +1048,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the price has the "g" suffix, if so, multiply by 1.05
     if (pricePsycAx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedPsycAx = priceValue;
     displayPsycAx.value = (qtyValue * priceValue).toFixed(2);
@@ -1046,6 +1066,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let priceValue = parseFloat(pricePsycTx.value);
     if (pricePsycTx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedPsycTx = priceValue;
     displayPsycTx.value = (qtyValue * priceValue).toFixed(2);
@@ -1059,6 +1080,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let priceValue = parseFloat(pricePsycTx.value);
     if (pricePsycTx.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedPsycTx = priceValue;
     displayPsycTx.value = (qtyValue * priceValue).toFixed(2);
@@ -1076,6 +1098,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let priceValue = parseFloat(priceDental.value);
     if (priceDental.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedDental = priceValue;
     displayDental.value = (qtyValue * priceValue).toFixed(2);
@@ -1089,6 +1112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let priceValue = parseFloat(priceDental.value);
     if (priceDental.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedDental = priceValue;
     displayDental.value = (qtyValue * priceValue).toFixed(2);
@@ -1110,6 +1134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let priceValue = parseFloat(priceSupply1.value);
     if (priceSupply1.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedSupply1 = priceValue;
     displaySupply1.value = (qtyValue * priceValue).toFixed(2);
@@ -1123,6 +1148,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let priceValue = parseFloat(priceSupply1.value);
     if (priceSupply1.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedSupply1 = priceValue;
     displaySupply1.value = (qtyValue * priceValue).toFixed(2);
@@ -1140,6 +1166,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let priceValue = parseFloat(priceSupply2.value);
     if (priceSupply2.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedSupply2 = priceValue;
     displaySupply2.value = (qtyValue * priceValue).toFixed(2);
@@ -1154,6 +1181,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply2.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedSupply2 = priceValue;
 
@@ -1174,6 +1202,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply3.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
 
     selectedSupply3 = priceValue;
@@ -1190,6 +1219,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply3.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedSupply3 = priceValue;
     displaySupply3.value = (qtyValue * priceValue).toFixed(2);
@@ -1209,6 +1239,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply4.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedSupply4 = priceValue;
     displaySupply4.value = (qtyValue * priceValue).toFixed(2);
@@ -1223,6 +1254,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply4.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
 
     selectedSupply4 = priceValue;
@@ -1242,6 +1274,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply5.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
 
     selectedSupply5 = priceValue;
@@ -1258,6 +1291,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply5.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
 
     selectedSupply5 = priceValue;
@@ -1277,6 +1311,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply6.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedSupply6 = priceValue;
 
@@ -1292,6 +1327,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (priceSupply6.value.trim().toLowerCase().endsWith("g")) {
       priceValue *= 1.05;
+      priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
     }
     selectedSupply6 = priceValue;
 
