@@ -9,2460 +9,797 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
     <!-- Including an external JavaScript file and deferring its execution until the document has loaded -->
-    <!-- <script src="script.js" defer></script> -->
-
-
-
-    <style>
-        /* Reset some default browser styles */
-        body,
-        h1,
-        h2,
-        h3,
-        p,
-        ul,
-        li {
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: "Roboto", sans-serif;
-            line-height: 1.6;
-            background-color: #f9f9f9;
-        }
-
-        .container {
-            max-width: 90%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            /* White background */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            border: 2px solid #0067ac;
-        }
-
-        h1 {
-            font-size: 2rem;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .row-heading {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #333;
-            padding: 10px 0;
-        }
-
-        .row {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-            display: flex;
-            align-items: center;
-        }
-
-        .row:last-child {
-            border-bottom: none;
-        }
-
-        /*Styling for No Of TX*/
-        input.qty {
-            width: 30px;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        input[readonly] {
-            background-color: #f9f9f9;
-        }
-
-        .col-6,
-        .col-3 {
-            flex: 1;
-        }
-
-        .col-9.total {
-            flex: 3;
-        }
-
-        .col-3.total-val {
-            flex: 1;
-        }
-
-        #total-value {
-            font-size: 2rem;
-            margin-left: 0;
-        }
-
-        .text-right {
-            text-align: right;
-        }
-
-        .my-4 {
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-
-        /* Additional styles for a more visually appealing form */
-        .label {
-            font-weight: bold;
-        }
-
-        .row:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        /* Styling for the right-side display box */
-        .display-box {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .display-box h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .display-box p {
-            margin-bottom: 5px;
-            color: #333;
-        }
-
-        /*ReadOnly Value*/
-        input.readOnly {
-            width: 65px;
-            /* Keep the same width */
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            border-radius: 8px;
-        }
-
-        /* Styling for input[type="text"] and input[type="number"] elements */
-        input[type="text"] {
-            width: 50%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            color: #333;
-        }
-
-        input[type="text"]:focus {
-            outline: none;
-            border-color: #666;
-            box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Styling for the selected items display box */
-        .selected-items-box {
-            background-color: #f9f9f9;
-            border: 2px solid #0067ac;
-            border-radius: 8px;
-            padding: 10px;
-            margin-top: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .selected-items-box h3 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        /* Add spacing between elements */
-        #claimant-name,
-        #invoice-number,
-        #clinic-name {
-            margin-left: 10px;
-            width: 200px;
-            margin-right: 10px;
-            border: 2px solid #0067ac;
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        #wad-select,
-        #dol {
-            margin-left: 10px;
-            margin-right: 10px;
-            border: 2px solid #0067ac;
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        #previous-Tx,
-        #previous-Supplies,
-        #previous-OtPsyc {
-            margin-left: 10px;
-            margin-right: 10px;
-            width: 30px;
-            border: 2px solid #0067ac;
-            border-radius: 8px;
-            padding: 8px;
-        }
-
-        /* CSS */
-        .button-17 {
-            align-items: center;
-            appearance: none;
-            background-color: #0067ac;
-            border-radius: 24px;
-            border-style: none;
-            box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
-                rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
-            box-sizing: border-box;
-            color: #ffffff;
-            cursor: pointer;
-            display: inline-flex;
-            fill: currentcolor;
-            font-family: "Google Sans", Roboto, Arial, sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            height: 30px;
-            justify-content: center;
-            letter-spacing: 0.25px;
-            line-height: normal;
-            max-width: 100%;
-            overflow: visible;
-            margin-top: 10px;
-            padding: 2px 24px;
-            position: relative;
-            text-align: center;
-            text-transform: none;
-            transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            width: auto;
-            will-change: transform, opacity;
-            z-index: 0;
-        }
-
-        .button-17:hover {
-            background: #f6f9fe;
-            color: #174ea6;
-        }
-
-        .button-17:active {
-            box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
-                0 8px 12px 6px rgb(60 64 67 / 15%);
-            outline: none;
-        }
-
-        .button-17:focus {
-            outline: none;
-            border: 2px solid #4285f4;
-        }
-
-        .button-17:not(:disabled) {
-            box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
-                rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
-        }
-
-        .button-17:not(:disabled):hover {
-            box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
-                rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
-        }
-
-        .button-17:not(:disabled):focus {
-            box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
-                rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
-        }
-
-        .button-17:not(:disabled):active {
-            box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0,
-                rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
-        }
-
-        .button-17:disabled {
-            box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
-                rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
-        }
-    </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <!-- The main container for the form with some top margin -->
     <div class="container mt-4">
 
-        <!-- First row - Claimant, Invoice Number, Clinic Name, Wad, and Date of Loss -->
-        <div class="row">
-            <div class="col-4">
-                <!-- Label for Claimant -->
-                <label for="claimant-name" class="form-label">Claimant:</label>
-            </div>
-            <div class="col-8">
-                <!-- Input field for Claimant's name -->
-                <input type="text" id="claimant-name" name="claimant-name" class="form-control">
-            </div>
-
-            <div class="col-4">
-                <!-- Label for Invoice Number -->
-                <label for="invoice-number" class="form-label">Invoice Number:</label>
-            </div>
-            <div class="col-8">
-                <!-- Input field for Invoice Number -->
-                <input type="text" id="invoice-number" name="invoice-number" class="form-control">
-            </div>
-            <div class="col-4">
-                <!-- Label for Clinic Name -->
-                <label for="clinic-name" class="form-label">Clinic Name:</label>
-            </div>
-            <div class="col-8">
-                <!-- Input field for Clinic Name -->
-                <input type="text" id="clinic-name" name="clinic-name" class="form-control">
-            </div>
-        </div>
-
-        <!-- Second row - Previous TX, Previous Supplies, and Previous OT/PSYC/DENTAL -->
-        <div class="row">
-
-            <div class="col-8">
-                <!-- Label for Wad -->
-                <label for="wad-select" class="form-label">Wad:</label>
-                <!-- Dropdown menu for selecting Wad -->
-                <select id="wad-select" name="wad" class="form-control">
-                    <option value="Wad 1">Wad 1</option>
-                    <option value="Wad 2" selected>Wad 2</option>
-                </select>
-            </div>
-            <div class="col-4">
-                <!-- Label for Date of Loss -->
-                <label for="date-of-accident" class="form-label">Date of Loss:</label>
-            </div>
-            <div class="col-4">
-                <!-- Input field for Date of Loss with a minimum date of 2018-01-01 -->
-                <input type="date" id="dol" name="dol" value="2018-01-01">
-            </div>
-
-            <div class="col-4">
-                <!-- Label for Previous TX -->
-                <label for="previous-Tx" class="form-label">Previous TX:</label>
-            </div>
-            <div>
-                <!-- Input field for Previous TX quantity -->
-                <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0"
-                    id="previous-Tx" name="previous-Tx" class="form-control">
-            </div>
-
-            <div class="col-4">
-                <!-- Label for Previous Supplies -->
-                <label for="previous-supplies" class="form-label">Previous Supplies:</label>
-            </div>
-            <div class="col-8">
-                <!-- Input field for Previous Supplies quantity -->
-                <input type="text" value="0" id="previous-Supplies" min="0" />
-            </div>
-            <div class="col-4">
-                <!-- Label for Previous OT/PSYC/DENTAL -->
-                <label for="previous-OtPsyc" class="form-label">Previous OT/PSYC/DENTAL:</label>
-            </div>
-            <div class="col-8">
-                <!-- Input field for Previous OT/PSYC/DENTAL quantity -->
-                <input type="text" value="0" id="previous-OtPsyc" min="0" />
-            </div>
-        </div>
-
-        <!-- Third row - Table header for item details -->
-        <div class="row">
-            <div class="col-6 row-heading">Item</div>
-            <div class="col-3 row-heading">No of TX</div>
-            <div class="col-3 row-heading">Date of TX</div>
-            <div class="col-3 row-heading">Cost G if GST</div>
-            <div class="col-3 row-heading">Price</div>
-            <div class="col-3 row-heading">Subtotal</div>
-        </div>
-
-        <!-- Fourth row - Item details for AB1 -->
-        <div class="row">
-            <div class="col-6">
-                <!-- Item name: AB1 = $117 -->
-                AB1 = $117
-            </div>
-            <div class="col-3">
-                <!-- Input field for AB1 quantity -->
-                <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="2"
-                    id="qty-ab1" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for date -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for price -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of AB1 -->
-                <input type="number" class="readOnly" readonly value="0" id="price-ab1" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for subtotal -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-        <!-- Row for AB2 -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: AB2 = $50 -->
-                AB2 = $50
-            </div>
-            <div class="col-3">
-                <!-- Input field for AB2 quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    id="qty-ab2" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for date -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for price -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of AB2 -->
-                <input type="number" class="readOnly" readonly value="0" id="price-ab2" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for subtotal -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Row for AB4 -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: AB4 = $40 -->
-                AB4 = $40
-            </div>
-            <div class="col-3">
-                <!-- Input field for AB4 quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" min="0" max="21" oninput="validity.valid||(value='');" class="qty"
-                    min="0" max="21" value="0" id="qty-ab4" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for date -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for price -->
-                <input type="text" class="readOnly" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of AB4 -->
-                <input type="number" class="readOnly" readonly value="0" id="price-ab4" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for subtotal -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Row for PT @ $83 Each -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: PT @ $83 Each -->
-                PT @ $83 Each
-            </div>
-            <div class="col-3">
-                <!-- Input field for PT quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    id="qty-83-pt" value="0" />
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of PT -->
-                <input type="text" id="date-83-pt" name="date-83-pt">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for price -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of PT @ $83 Each -->
-                <input type="number" class="readOnly" readonly value="0" id="price-83-pt" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for subtotal -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Row for PT @ $41 Each -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: PT @ $41 Each -->
-                PT @ $41 Each
-            </div>
-            <div class="col-3">
-                <!-- Input field for PT quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-41-pt" />
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of PT -->
-                <input type="text" id="date-41-pt" name="date-41-pt">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for price -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of PT @ $41 Each -->
-                <input type="number" class="readOnly" readonly value="0" id="price-41-pt" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for subtotal of PT items -->
-                <input type="number" class="readOnly" readonly value="0" id="physio-subtotal">
-            </div>
-        </div>
-
-        <!-- Row for MT @ $90 & GST Each -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: MT @ $90 & GST Each -->
-                MT @ $90 & GST Each
-            </div>
-            <div class="col-3">
-                <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" value="0" id="qty-90-mt" oninput="validity.valid||(value='');"
-                    class="qty" min="0" max="21">
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of MT -->
-                <input type="text" id="date-90-mt" name="date-90-mt">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of MT @ $90 & GST Each -->
-                <input type="number" class="readOnly" readonly value="0" id="price-90-mt">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for subtotal -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Row for MT @ $ (Any Amount) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: MT @ $ (Any Amount) -->
-                MT @ $ (Any Amount)
-            </div>
-            <div class="col-3">
-                <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-any1-mt">
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of MT -->
-                <input type="text" id="date-any1-mt" name="date-any1-mt">
-            </div>
-            <div class="col-3">
-                <!-- Input field for price of MT (Any Amount) -->
-                <input type="text" value="0" id="price-any1-mt">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of MT @ $ (Any Amount) -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-any1-mt" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for subtotal -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Row for MT @ $ (Any Amount) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: MT @ $ (Any Amount) -->
-                MT @ $ (Any Amount)
-            </div>
-            <div class="col-3">
-                <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-any2-mt">
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of MT -->
-                <input type="text" id="date-any2-mt" name="date-any2-mt">
-            </div>
-            <div class="col-3">
-                <!-- Input field for price of MT (Any Amount) -->
-                <input type="text" value="0" id="price-any2-mt">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of MT @ $ (Any Amount) -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-any2-mt" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for subtotal of MT (Any Amount) -->
-                <input type="number" class="readOnly" readonly value="0" id="mt-subtotal">
-            </div>
-        </div>
-
-        <!-- Row for CT @ $83 Each -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: CT @ $83 Each -->
-                CT @ $83 Each
-            </div>
-            <div class="col-3">
-                <!-- Input field for CT quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-83-ct" />
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of CT -->
-                <input type="text" id="date-83-ct" name="date-83-ct">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for price -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of CT @ $83 Each -->
-                <input type="number" class="readOnly" readonly value="0" id="price-83-ct" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field for subtotal -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Row for CT @ $41 Each -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: CT @ $41 Each -->
-                CT @ $41 Each
-            </div>
-            <div class="col-3">
-                <!-- Input field for CT quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-41-ct" />
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of CT -->
-                <input type="text" id="date-41-ct" name="date-41-ct">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of CT @ $41 Each -->
-                <input type="number" class="readOnly" readonly value="0" id="price-41-ct" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for subtotal of CT items -->
-                <input type="number" class="readOnly" readonly value="0" id="ct-subtotal">
-            </div>
-        </div>
-
-        <!-- Sixth item row (AcuT @ $ (Any Amount)) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: AcuT @ $ (Any Amount) -->
-                AcuT @ $ (Any Amount)
-            </div>
-            <div class="col-3">
-                <!-- Input field for AcuT quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-acut">
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of AcuT -->
-                <input type="text" id="date-acut" name="date-acut">
-            </div>
-            <div class="col-3">
-                <!-- Input field for price of AcuT -->
-                <input type="text" value="0" id="price-acut">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of AcuT -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-acut" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for subtotal of AcuT items -->
-                <input type="number" class="readOnly" readonly value="0" id="acut-subtotal">
-            </div>
-        </div>
-
-        <!-- Row for OT AX @ $ (Any Amount) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: OT AX @ $ (Any Amount) -->
-                OT AX @ $ (Any Amount)
-            </div>
-            <div class="col-3">
-                <!-- Input field for OT AX quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-ot-ax">
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of OT AX -->
-                <input type="text" id="date-ot-ax" name="date-ot-ax">
-            </div>
-            <div class="col-3">
-                <!-- Input field for price of OT AX -->
-                <input type="text" value="0" id="price-ot-ax">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of OT AX -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-ot-ax" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Eighth item row (OT TX @ $ (Any Amount)) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: OT TX @ $ (Any Amount) -->
-                OT TX @ $ (Any Amount)
-            </div>
-            <div class="col-3">
-                <!-- Input field for OT TX quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-ot-tx">
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of OT TX -->
-                <input type="text" id="date-ot-tx" name="date-ot-tx">
-            </div>
-            <div class="col-3">
-                <!-- Input field for price of OT TX -->
-                <input type="text" value="0" id="price-ot-tx">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of OT TX -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-ot-tx" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for subtotal of OT TX items -->
-                <input type="number" class="readOnly" readonly value="0" id="ot-subtotal">
-            </div>
-        </div>
-
-        <!-- Row for PSYCH AX @ $ (Any Amount) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: PSYCH AX @ $ (Any Amount) -->
-                PSYCH AX @ $ (Any Amount)
-            </div>
-            <div class="col-3">
-                <!-- Input field for PSYCH AX quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-psyc-ax" />
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of PSYCH AX -->
-                <input type="text" id="date-psyc-ax" name="date-psyc-ax">
-            </div>
-            <div class="col-3">
-                <!-- Input field for price of PSYCH AX -->
-                <input type="text" id="price-psyc-ax" value="0" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of PSYCH AX -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Eighth item row (PSYCH TX @ $ (Any Amount)) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: PSYCH TX @ $ (Any Amount) -->
-                PSYCH TX @ $ (Any Amount)
-            </div>
-            <div class="col-3">
-                <!-- Input field for PSYCH TX quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-psyc-tx" />
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of PSYCH TX -->
-                <input type="text" id="date-psyc-tx" name="date-psyc-tx">
-            </div>
-            <div class="col-3">
-                <!-- Input field for price of PSYCH TX -->
-                <input type="text" id="price-psyc-tx" value="0" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of PSYCH TX -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for subtotal of PSYCH TX items -->
-                <input type="number" class="readOnly" readonly value="0" id="psyc-subtotal">
-            </div>
-        </div>
-
-        <!-- Row for Dental @ $ (Any Amount) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Item name and price: Dental @ $ (Any Amount) -->
-                Dental @ $ (Any Amount)
-            </div>
-            <div class="col-3">
-                <!-- Input field for Dental quantity with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-dental">
-            </div>
-            <div class="col-3">
-                <!-- Input field for date of Dental -->
-                <input type="text" id="date-dental" name="date-dental">
-            </div>
-            <div class="col-3">
-                <!-- Input field for price of Dental -->
-                <input type="text" value="0" id="price-dental">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of Dental -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-dental" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for subtotal of Dental items -->
-                <input type="number" class="readOnly" readonly value="0" id="dental-subtotal">
-            </div>
-        </div>
-
-        <!-- Supplies heading -->
-        <div class="row my-3">
-            Supplies:
-        </div>
-
-        <!-- First supply item row -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Input field for the name of the first supply -->
-                <input type="text" name="supply-one" id="supply-one">
-            </div>
-            <div class="col-3">
-                <!-- Input field for the quantity of the first supply with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-supply-one">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Input field for the price of the first supply -->
-                <input type="text" value="0" id="price-supply-one">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of the first supply -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-one" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Supply Item (Supply Two) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Input field for the name of the supply -->
-                <input type="text" name="supply-two" id="supply-two">
-            </div>
-            <div class="col-3">
-                <!-- Input field for the quantity of the supply with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-supply-two">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Input field for the price of the supply -->
-                <input type="text" value="0" id="price-supply-two">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of the supply -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-two" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-        <!-- Supply Item (Supply Three) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Input field for the name of the supply (Supply Three) -->
-                <input type="text" name="supply-three" id="supply-three">
-            </div>
-            <div class="col-3">
-                <!-- Input field for the quantity of Supply Three with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-supply-three">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Input field for the price of Supply Three -->
-                <input type="text" value="0" id="price-supply-three">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of Supply Three -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-three" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-        <!-- Supply Item (Supply Four) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Input field for the name of the supply (Supply Four) -->
-                <input type="text" name="supply-four" id="supply-four">
-            </div>
-            <div class="col-3">
-                <!-- Input field for the quantity of Supply Four with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-supply-four">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Input field for the price of Supply Four -->
-                <input type="text" value="0" id="price-supply-four">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of Supply Four -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-four" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-
-        <!-- Supply Item (Supply Five) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Input field for the name of the supply (Supply Five) -->
-                <input type="text" name="supply-five" id="supply-five">
-            </div>
-            <div class="col-3">
-                <!-- Input field for the quantity of Supply Five with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-supply-five">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Input field for the price of Supply Five -->
-                <input type="text" value="0" id="price-supply-five">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of Supply Five -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-five" />
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="number" class="readOnly" disabled>
-            </div>
-        </div>
-
-
-        <!-- Supply Item (Supply Six) -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Input field for the name of the supply (Supply Six) -->
-                <input type="text" name="supply-six" id="supply-six">
-            </div>
-            <div class="col-3">
-                <!-- Input field for the quantity of Supply Six with a minimum of 0 and a maximum of 21 -->
-                <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
-                    value="0" id="qty-supply-six">
-            </div>
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled>
-            </div>
-            <div class="col-3">
-                <!-- Input field for the price of Supply Six -->
-                <input type="text" value="0" id="price-supply-six">
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for calculated price of Supply Six -->
-                <input type="number" class="readOnly" readonly value="0" id="display-price-supply-six" />
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for the subtotal of all dental supplies -->
-                <input type="number" class="readOnly" readonly value="0" id="supply-subtotal">
-            </div>
-        </div>
-
-
-        <!-- Row for displaying the total calculation -->
-        <div class="row my-3">
-            <div class="col-6">
-                <!-- Total label -->
-                Total
-            </div>
-            <div class="col-3">
-                <!-- Readonly input field for the total quantity of supplies -->
-                <input type="number" class="qty" readonly value="0" class="qty" id="total-quantity" />
-            </div>
-            <div class="col-3">
-                <!-- Hidden readonly input field -->
-                <input type="number" class="readOnly" readonly value="0" hidden />
-            </div>
-
-            <div class="col-3">
-                <!-- Disabled input field -->
-                <input type="text" disabled hidden>
-            </div>
-            <div class="col-3">
-                <!-- Hidden input field -->
-                <input type="text" disabled hidden>
-            </div>
-            <div class="col-3 total-val">
-                <!-- Display total value -->
-                <span id="total-value">0</span>
-            </div>
-        </div>
-
-        <!-- A note section -->
-        <div>Note:
-            <!-- Copy button to copy selected items to clipboard -->
-            <button id="copy-btn" class="button-17" role="button">Copy</button>
-        </div>
-        <!-- Box for displaying selected items -->
-        <div class="selected-items-box">
-            <!-- Div element to hold selected items -->
-            <div id="selected-items"></div>
-        </div>
-
-
-
-
-        <script>
-
-
-
-            document.addEventListener("DOMContentLoaded", function () {
-                const clientName = document.getElementById("claimant-name");
-                const clientClinic = document.getElementById("clinic-name");
-                const invNum = document.getElementById("invoice-number");
-
-                const wad = document.getElementById("wad-select");
-                const dateOfLoss = document.getElementById("dol");
-                const qtyPrevious = document.getElementById("previous-Tx");
-                const suppliesPrevious = document.getElementById("previous-Supplies");
-                const previousOtPsyc = document.getElementById("previous-OtPsyc");
-
-                const qtyAB1 = document.getElementById("qty-ab1");
-                const priceAB1 = document.getElementById("price-ab1");
-
-                const qtyAB2 = document.getElementById("qty-ab2");
-                const priceAB2 = document.getElementById("price-ab2");
-
-                const qtyAB4 = document.getElementById("qty-ab4");
-                const priceAB4 = document.getElementById("price-ab4");
-
-                const qty83PT = document.getElementById("qty-83-pt");
-                const price83PT = document.getElementById("price-83-pt");
-                const dateField83PT = document.getElementById("date-83-pt");
-
-                const qty41PT = document.getElementById("qty-41-pt");
-                const price41PT = document.getElementById("price-41-pt");
-                const dateField41PT = document.getElementById("date-41-pt");
-
-                const qty83CT = document.getElementById("qty-83-ct");
-                const price83CT = document.getElementById("price-83-ct");
-                const dateField83CT = document.getElementById("date-83-ct");
-
-                const qty41CT = document.getElementById("qty-41-ct");
-                const price41CT = document.getElementById("price-41-ct");
-                const dateField41CT = document.getElementById("date-41-ct");
-
-                const qty90MT = document.getElementById("qty-90-mt");
-                const price90MT = document.getElementById("price-90-mt");
-                const dateField90MT = document.getElementById("date-90-mt");
-
-                const qtyMTAny1 = document.getElementById("qty-any1-mt");
-                const priceMTAny1 = document.getElementById("price-any1-mt");
-                const dateFieldMTAny1 = document.getElementById("date-any1-mt");
-                const displayAny1MT = document.getElementById("display-price-any1-mt");
-
-                const qtyMTAny2 = document.getElementById("qty-any2-mt");
-                const priceMTAny2 = document.getElementById("price-any2-mt");
-                const dateFieldMTAny2 = document.getElementById("date-any2-mt");
-                const displayAny2MT = document.getElementById("display-price-any2-mt");
-
-                const qtyAcut = document.getElementById("qty-acut");
-                const priceAcut = document.getElementById("price-acut");
-                const dateFieldAcut = document.getElementById("date-acut");
-                const displayAcut = document.getElementById("display-price-acut");
-
-                const qtyOtax = document.getElementById("qty-ot-ax");
-                const priceOtax = document.getElementById("price-ot-ax");
-                const dateFieldOtax = document.getElementById("date-ot-ax");
-                const displayOtax = document.getElementById("display-price-ot-ax");
-
-                const qtyOtTx = document.getElementById("qty-ot-tx");
-                const priceOtTx = document.getElementById("price-ot-tx");
-                const dateFieldOtTx = document.getElementById("date-ot-tx");
-                const displayOtTx = document.getElementById("display-price-ot-tx");
-
-                const qtyPsycAx = document.getElementById("qty-psyc-ax");
-                const pricePsycAx = document.getElementById("price-psyc-ax");
-                const dateFieldPsycAx = document.getElementById("date-psyc-ax");
-                const displayPsycAx = document.getElementById("display-price-psyc-ax");
-
-                const qtyPsycTx = document.getElementById("qty-psyc-tx");
-                const pricePsycTx = document.getElementById("price-psyc-tx");
-                const dateFieldPsycTx = document.getElementById("date-psyc-tx");
-                const displayPsycTx = document.getElementById("display-price-psyc-tx");
-
-                const qtyDental = document.getElementById("qty-dental");
-                const priceDental = document.getElementById("price-dental");
-                const dateFieldDental = document.getElementById("date-dental");
-                const displayDental = document.getElementById("display-price-dental");
-
-                const supply1Desc = document.getElementById("supply-one");
-                const qtySupply1 = document.getElementById("qty-supply-one");
-                const priceSupply1 = document.getElementById("price-supply-one");
-                const displaySupply1 = document.getElementById("display-price-supply-one");
-
-                const supply2Desc = document.getElementById("supply-two");
-                const qtySupply2 = document.getElementById("qty-supply-two");
-                const priceSupply2 = document.getElementById("price-supply-two");
-                const displaySupply2 = document.getElementById("display-price-supply-two");
-
-                const supply3Desc = document.getElementById("supply-three");
-                const qtySupply3 = document.getElementById("qty-supply-three");
-                const priceSupply3 = document.getElementById("price-supply-three");
-                const displaySupply3 = document.getElementById("display-price-supply-three");
-
-                const supply4Desc = document.getElementById("supply-four");
-                const qtySupply4 = document.getElementById("qty-supply-four");
-                const priceSupply4 = document.getElementById("price-supply-four");
-                const displaySupply4 = document.getElementById("display-price-supply-four");
-
-                const supply5Desc = document.getElementById("supply-five");
-                const qtySupply5 = document.getElementById("qty-supply-five");
-                const priceSupply5 = document.getElementById("price-supply-five");
-                const displaySupply5 = document.getElementById("display-price-supply-five");
-
-                const supply6Desc = document.getElementById("supply-six");
-                const qtySupply6 = document.getElementById("qty-supply-six");
-                const priceSupply6 = document.getElementById("price-supply-six");
-                const displaySupply6 = document.getElementById("display-price-supply-six");
-
-                const totalValueElement = document.getElementById("total-value");
-                const totalQuantityElement = document.getElementById("total-quantity");
-                const selectedItemsContainer = document.getElementById("selected-items");
-
-                const physioSubTotalElement = document.getElementById("physio-subtotal");
-                const mtsubtotalElement = document.getElementById("mt-subtotal");
-                const ctsubtotalElement = document.getElementById("ct-subtotal");
-                const acutSubtotalElement = document.getElementById("acut-subtotal");
-                const otSubtotalElement = document.getElementById("ot-subtotal");
-                const psycSubtotalElement = document.getElementById("psyc-subtotal");
-                const dentalSubtotalElement = document.getElementById("dental-subtotal");
-                const suppliesSubtotalElement = document.getElementById("supply-subtotal");
-
-                // Find the copy button element
-                const copyButton = document.getElementById("copy-btn");
-
-                let selectedAny1MT = 0;
-                let selectedAny2MT = 0;
-                let selectedAcut = 0;
-                let selectedOtax = 0;
-                let selectedOtTx = 0;
-                let selectedPsycAx = 0;
-                let selectedPsycTx = 0;
-                let selectedDental = 0;
-                let selectedSupply1 = 0;
-                let selectedSupply2 = 0;
-                let selectedSupply3 = 0;
-                let selectedSupply4 = 0;
-                let selectedSupply5 = 0;
-                let selectedSupply6 = 0;
-
-                // New variable to keep track of whether both qty and price are entered for "MT Any1"
-                let AnyMT1Price = 0;
-                let AnyMT2Price = 0;
-                let AnyAcutPrice = 0;
-                let OtAxPrice = 0;
-                let OtTxPrice = 0;
-                let PsycAxPrice = 0;
-                let PsycTxPrice = 0;
-                let DentalPrice = 0;
-                let dtprLimit = 0;
-                let Supply1 = 0;
-                let Supply2 = 0;
-                let Supply3 = 0;
-                let Supply4 = 0;
-                let Supply5 = 0;
-                let Supply6 = 0;
-
-                let isGSTIncluded = false; // Assume GST is included by default
-
-                // Function to calculate the total price and quantity
-                function calculateTotal() {
-                    const anyItemSelected =
-                        parseFloat(qtyAB1.value) > 0 ||
-                        parseFloat(qtyAB2.value) > 0 ||
-                        parseFloat(qtyAB4.value) > 0 ||
-                        parseFloat(qty83PT.value) > 0 ||
-                        parseFloat(qty41PT.value) > 0 ||
-                        parseFloat(qty83CT.value) > 0 ||
-                        parseFloat(qty41CT.value) > 0 ||
-                        parseFloat(qty90MT.value) > 0 ||
-                        parseFloat(qtyMTAny1.value) > 0 ||
-                        parseFloat(qtyMTAny2.value) > 0 ||
-                        parseFloat(qtyAcut.value) > 0 ||
-                        parseFloat(qtyOtax.value) > 0 ||
-                        parseFloat(qtyOtTx.value) > 0 ||
-                        parseFloat(qtyPsycAx.value) > 0 ||
-                        parseFloat(qtyPsycTx.value) > 0 ||
-                        parseFloat(qtyDental.value) > 0 ||
-                        parseFloat(qtySupply1.value) > 0 ||
-                        parseFloat(qtySupply2.value) > 0 ||
-                        parseFloat(qtySupply3.value) > 0 ||
-                        parseFloat(qtySupply4.value) > 0 ||
-                        parseFloat(qtySupply5.value) > 0 ||
-                        parseFloat(qtySupply6.value) > 0;
-
-                    const itemQuantities = [
-                        parseFloat(qty83PT.value),
-                        parseFloat(qty41PT.value),
-                        parseFloat(qty83CT.value),
-                        parseFloat(qty41CT.value),
-                        parseFloat(qty90MT.value),
-                        parseFloat(qtyMTAny1.value),
-                        parseFloat(qtyMTAny2.value),
-                        parseFloat(qtyAcut.value),
-                    ];
-
-                    const itemQuantitieswithPrevious = [
-                        parseFloat(qtyPrevious.value),
-                        parseFloat(qty83PT.value),
-                        parseFloat(qty41PT.value),
-                        parseFloat(qty83CT.value),
-                        parseFloat(qty41CT.value),
-                        parseFloat(qty90MT.value),
-                        parseFloat(qtyMTAny1.value),
-                        parseFloat(qtyMTAny2.value),
-                        parseFloat(qtyAcut.value),
-                    ];
-
-                    const itemPrices = [
-                        parseFloat(priceAB1.value),
-                        parseFloat(priceAB2.value),
-                        parseFloat(priceAB4.value),
-                        parseFloat(price83PT.value),
-                        parseFloat(price41PT.value),
-                        parseFloat(price83CT.value),
-                        parseFloat(price41CT.value),
-                        parseFloat(price90MT.value),
-                        parseFloat(AnyMT1Price),
-                        parseFloat(AnyMT2Price),
-                        parseFloat(AnyAcutPrice),
-                        parseFloat(OtAxPrice),
-                        parseFloat(OtTxPrice),
-                        parseFloat(PsycAxPrice),
-                        parseFloat(PsycTxPrice),
-                        parseFloat(DentalPrice),
-                        parseFloat(Supply1),
-                        parseFloat(Supply2),
-                        parseFloat(Supply3),
-                        parseFloat(Supply4),
-                        parseFloat(Supply5),
-                        parseFloat(Supply6),
-                    ];
-
-                    let physioSubTotal = [];
-                    let ctSubTotal = [];
-
-                    if (
-                        (parseFloat(qty83PT.value) == 0) &
-                        (parseFloat(qty41PT.value) == 0) &
-                        (parseFloat(qty83CT.value) == 0) &
-                        (parseFloat(qty41CT.value) == 0)
-                    ) {
-                        physioSubTotal = [
-                            parseFloat(priceAB1.value),
-                            parseFloat(priceAB2.value),
-                            parseFloat(priceAB4.value),
-                        ];
-                        ctSubTotal = [0];
-                    } else {
-                        if (parseFloat(qty83PT.value) != 0 || parseFloat(qty41PT.value) != 0) {
-                            physioSubTotal = [
-                                parseFloat(priceAB1.value),
-                                parseFloat(priceAB2.value),
-                                parseFloat(priceAB4.value),
-                                parseFloat(price83PT.value),
-                                parseFloat(price41PT.value),
-                            ];
-
-                            ctSubTotal = [parseFloat(price83CT.value), parseFloat(price41CT.value)];
-                        }
-                        if (
-                            (parseFloat(qty83PT.value) == 0) & (parseFloat(qty41PT.value) == 0) ||
-                            parseFloat(qty83CT.value) != 0 ||
-                            parseFloat(qty41CT.value) != 0
-                        ) {
-                            physioSubTotal = [0];
-
-                            ctSubTotal = [
-                                parseFloat(priceAB1.value),
-                                parseFloat(priceAB2.value),
-                                parseFloat(priceAB4.value),
-                                parseFloat(price83CT.value),
-                                parseFloat(price41CT.value),
-                            ];
-                        }
-                    }
-                    // if (parseFloat(qty83PT.value) != 0 || parseFloat(qty41PT.value) != 0) {
-                    //   physioSubTotal = [
-                    //     parseFloat(priceAB1.value),
-                    //     parseFloat(priceAB2.value),
-                    //     parseFloat(priceAB4.value),
-                    //     parseFloat(price83PT.value),
-                    //     parseFloat(price41PT.value),
-                    //   ];
-
-                    //   ctSubTotal = [parseFloat(price83CT.value), parseFloat(price41CT.value)];
-                    // }
-
-                    // if (
-                    //   parseFloat(qty83PT.value) == 0 ||
-                    //   parseFloat(qty41PT.value) == 0 ||
-                    //   parseFloat(qty83CT.value) != 0 ||
-                    //   parseFloat(qty41CT.value) != 0
-                    // ) {
-                    //   physioSubTotal = [0];
-
-                    //   ctSubTotal = [
-                    //     parseFloat(priceAB1.value),
-                    //     parseFloat(priceAB2.value),
-                    //     parseFloat(priceAB4.value),
-                    //     parseFloat(price83CT.value),
-                    //     parseFloat(price41CT.value),
-                    //   ];
-                    // }
-
-                    // else {
-                    //   ctSubTotal = [
-                    //     parseFloat(price83CT.value),
-                    //     parseFloat(price41CT.value),
-                    //     parseFloat(priceAB1.value),
-                    //     parseFloat(priceAB2.value),
-                    //     parseFloat(priceAB4.value),
-                    //   ];
-                    // }
-
-                    const mtSubTotal = [
-                        parseFloat(price90MT.value),
-                        parseFloat(AnyMT1Price),
-                        parseFloat(AnyMT2Price),
-                    ];
-
-                    const acutSubTotal = [parseFloat(AnyAcutPrice)];
-
-                    const otSubTotal = [parseFloat(OtAxPrice), parseFloat(OtTxPrice)];
-                    const psycSubTotal = [parseFloat(PsycAxPrice), parseFloat(PsycTxPrice)];
-                    const dentalSubTotal = [parseFloat(DentalPrice)];
-
-                    const otPsycDentalTotal = [
-                        parseFloat(previousOtPsyc.value),
-                        parseFloat(OtAxPrice),
-                        parseFloat(OtTxPrice),
-                        parseFloat(PsycAxPrice),
-                        parseFloat(PsycTxPrice),
-                        parseFloat(DentalPrice),
-                    ];
-
-                    const supplietotal = [
-                        parseFloat(suppliesPrevious.value),
-                        parseFloat(Supply1),
-                        parseFloat(Supply2),
-                        parseFloat(Supply3),
-                        parseFloat(Supply4),
-                        parseFloat(Supply5),
-                        parseFloat(Supply6),
-                    ];
-
-                    const totalQty = itemQuantities.reduce((acc, qty) => acc + qty, 0);
-                    const totalSupplies = supplietotal.reduce((acc, qty) => acc + qty, 0);
-                    const totalQtywithPrevious = itemQuantitieswithPrevious.reduce(
-                        (acc, qty) => acc + qty,
-                        0
-                    );
-                    const totalPrice = itemPrices.reduce((acc, price) => acc + price, 0);
-                    const totalPhysioSubTotal = physioSubTotal.reduce(
-                        (acc, qty) => acc + qty,
-                        0
-                    );
-                    const totalMTSubTotal = mtSubTotal.reduce((acc, qty) => acc + qty, 0);
-                    const totalCTSubTotal = ctSubTotal.reduce((acc, qty) => acc + qty, 0);
-                    const acutSubtotal = acutSubTotal.reduce((acc, qty) => acc + qty, 0);
-                    const otSubtotal = otSubTotal.reduce((acc, qty) => acc + qty, 0);
-                    const psycSubtotal = psycSubTotal.reduce((acc, qty) => acc + qty, 0);
-                    const dentalSubtotal = dentalSubTotal.reduce((acc, qty) => acc + qty, 0);
-                    const OtPsycDentalTotal = otPsycDentalTotal.reduce(
-                        (acc, qty) => acc + qty,
-                        0
-                    );
-                    // Hide "Total Quantity" if totalQty is 0
-
-                    if (wad.value == "Wad 1") {
-                        if (anyItemSelected > 0) {
-                            const totalQuantityDisplay = document.createElement("p");
-                            totalQuantityDisplay.innerText = ` ================================================= \n DTPR ${totalQtywithPrevious}/10 | Supplies:$${totalSupplies}/120.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
-                            selectedItemsContainer.appendChild(totalQuantityDisplay);
-                        }
-                    } else if (wad.value == "Wad 2") {
-                        if (anyItemSelected > 0) {
-                            const totalQuantityDisplay = document.createElement("p");
-                            totalQuantityDisplay.innerText = ` ================================================= \n DTPR ${totalQtywithPrevious}/21 | Supplies:$${totalSupplies}/160.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
-                            selectedItemsContainer.appendChild(totalQuantityDisplay);
-                        }
-                    }
-
-                    totalValueElement.innerText = totalPrice.toFixed(2);
-                    totalQuantityElement.value = totalQty;
-
-                    physioSubTotalElement.value = totalPhysioSubTotal.toFixed(2);
-                    mtsubtotalElement.value = totalMTSubTotal.toFixed(2);
-                    ctsubtotalElement.value = totalCTSubTotal.toFixed(2);
-                    acutSubtotalElement.value = acutSubtotal.toFixed(2);
-                    otSubtotalElement.value = otSubtotal.toFixed(2);
-                    psycSubtotalElement.value = psycSubtotal.toFixed(2);
-                    dentalSubtotalElement.value = dentalSubtotal.toFixed(2);
-                    suppliesSubtotalElement.value = totalSupplies.toFixed(2);
-                }
-
-                // Function to update the displayed item price and quantity
-                function updateDisplay(item, qtyInput, priceInput) {
-                    const qtyValue = parseFloat(qtyInput.value);
-                    const priceValue = parseFloat(priceInput.value);
-
-                    if (qtyValue > 0) {
-                        item.style.display = "block";
-                        item.innerHTML = `${qtyValue} ${qtyValue === 1 ? "item" : "items"
-                            } @ $${priceValue.toFixed(2)}`;
-                    } else {
-                        item.style.display = "none";
-                    }
-
-                    calculateTotal();
-                    displaySelectedItems();
-                }
-
-                // Function to display selected items
-                function displaySelectedItems() {
-                    selectedItemsContainer.innerHTML = "";
-                    // Calculate total value
-                    const totalValue = parseFloat(totalValueElement.innerText);
-                    const totalValueDisplay = document.createElement("p");
-                    const clientName = document.getElementById("claimant-name").value;
-                    const invNum = document.getElementById("invoice-number").value;
-                    const clientClinic = document.getElementById("clinic-name").value;
-                    totalValueDisplay.innerText = `Claimant: ${clientName} \n Paid Inv. ${invNum} to ${clientClinic} for $${totalValue.toFixed(
-                        2
-                    )}`;
-                    selectedItemsContainer.appendChild(totalValueDisplay);
-
-                    /* AB Items Display */
-                    function addABItemToDisplay(itemName, qtyValue, priceValue) {
-                        const itemDisplay = document.createElement("p");
-                        itemDisplay.innerText = `${qtyValue} ${itemName}`;
-                        selectedItemsContainer.appendChild(itemDisplay);
-                    }
-
-                    /* Fixed Value Items Display */
-                    function addItemToDisplay(itemName, qtyValue, priceValue, dateValue) {
-                        const itemDisplay = document.createElement("p");
-                        itemDisplay.innerText = `${qtyValue} ${itemName} - Date: ${dateValue}`;
-                        selectedItemsContainer.appendChild(itemDisplay);
-                    }
-
-                    /* Fixed Value Items Display */
-                    function addAnyValueItemToDisplay(
-                        itemName,
-                        qtyValue,
-                        priceValue,
-                        dateValue,
-                        gstCheck
-                    ) {
-                        if (gstCheck) {
-                            const itemDisplay = document.createElement("p");
-                            itemDisplay.innerText = `${qtyValue} ${itemName} $${Math.round((priceValue + Number.EPSILON) * 100) / 100
-                                } Each (GST Incl.)- Date: ${dateValue}`;
-                            selectedItemsContainer.appendChild(itemDisplay);
-                        } else {
-                            const itemDisplay = document.createElement("p");
-                            itemDisplay.innerText = `${qtyValue} ${itemName} $${Math.round((priceValue + Number.EPSILON) * 100) / 100
-                                } Each - Date: ${dateValue}`;
-                            selectedItemsContainer.appendChild(itemDisplay);
-                        }
-                    }
-
-                    function addSupliesToDisplay(itemName, qtyValue, priceValue, gstCheck) {
-                        if (gstCheck) {
-                            const itemDisplay = document.createElement("p");
-                            itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${Math.round((priceValue + Number.EPSILON) * 100) / 100
-                                } Each GST Incl.`;
-                            selectedItemsContainer.appendChild(itemDisplay);
-                        } else {
-                            const itemDisplay = document.createElement("p");
-                            itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${Math.round((priceValue + Number.EPSILON) * 100) / 100
-                                } Each `;
-                            selectedItemsContainer.appendChild(itemDisplay);
-                        }
-                    }
-
-                    const qtyAB1Value = parseFloat(qtyAB1.value);
-                    const priceAB1Value = parseFloat(priceAB1.value);
-                    if (qtyAB1Value > 0) {
-                        addABItemToDisplay("AB1 @ $117", qtyAB1Value, priceAB1Value);
-                    }
-
-                    const qtyAB2Value = parseFloat(qtyAB2.value);
-                    const priceAB2Value = parseFloat(priceAB2.value);
-                    if (qtyAB2Value > 0) {
-                        addABItemToDisplay("AB2 @ $50", qtyAB2Value, priceAB2Value);
-                    }
-
-                    const qtyAB4Value = parseFloat(qtyAB4.value);
-                    const priceAB4Value = parseFloat(priceAB4.value);
-                    if (qtyAB4Value > 0) {
-                        addABItemToDisplay("AB4 @ $40", qtyAB4Value, priceAB4Value);
-                    }
-
-                    // Get values of selected items
-                    const qty83PTValue = parseFloat(qty83PT.value);
-                    const price83PTValue = parseFloat(price83PT.value);
-                    const date83PTValue = document.getElementById("date-83-pt").value;
-                    if (qty83PTValue > 0) {
-                        addItemToDisplay(
-                            "PT @ $83 Each",
-                            qty83PTValue,
-                            price83PTValue,
-                            date83PTValue
-                        );
-                    }
-
-                    const qty41PTValue = parseFloat(qty41PT.value);
-                    const price41PTValue = parseFloat(price41PT.value);
-                    const date41PTValue = document.getElementById("date-41-pt").value;
-                    if (qty41PTValue > 0) {
-                        addItemToDisplay(
-                            "PT @ $41 Each",
-                            qty41PTValue,
-                            price41PTValue,
-                            date41PTValue
-                        );
-                    }
-
-                    // Get values of selected items
-                    const qty83CTValue = parseFloat(qty83CT.value);
-                    const price83CTValue = parseFloat(price83CT.value);
-                    const date83CTValue = document.getElementById("date-83-ct").value;
-                    if (qty83CTValue > 0) {
-                        addItemToDisplay(
-                            "CT @ $83 Each",
-                            qty83CTValue,
-                            price83CTValue,
-                            date83CTValue
-                        );
-                    }
-
-                    const qty41CTValue = parseFloat(qty41CT.value);
-                    const price41CTValue = parseFloat(price41CT.value);
-                    const date41CTValue = document.getElementById("date-41-ct").value;
-                    if (qty41CTValue > 0) {
-                        addItemToDisplay(
-                            "CT @ $41 Each",
-                            qty41CTValue,
-                            price41CTValue,
-                            date41CTValue
-                        );
-                    }
-
-                    const qty90MTValue = parseFloat(qty90MT.value);
-                    const price90MTValue = parseFloat(price90MT.value);
-                    const date90MTValue = document.getElementById("date-90-mt").value;
-                    if (qty90MTValue > 0) {
-                        addItemToDisplay(
-                            "MT @ $94.50 Each (GST Incl.)",
-                            qty90MTValue,
-                            price90MTValue,
-                            date90MTValue
-                        );
-                    }
-
-                    const qtyMTAny1Value = parseFloat(qtyMTAny1.value);
-                    const priceMTAny1Value = parseFloat(priceMTAny1.value);
-                    const dateMTAny1Value = document.getElementById("date-any1-mt").value;
-                    if (qtyMTAny1Value > 0) {
-                        addAnyValueItemToDisplay(
-                            "MT @ ",
-                            qtyMTAny1Value,
-                            selectedAny1MT,
-                            dateMTAny1Value,
-                            priceMTAny1.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtyMTAny2Value = parseFloat(qtyMTAny2.value);
-                    const priceMTAny2Value = parseFloat(priceMTAny2.value);
-                    const dateMTAny2Value = document.getElementById("date-any2-mt").value;
-                    if (qtyMTAny2Value > 0) {
-                        addAnyValueItemToDisplay(
-                            "MT @ ",
-                            qtyMTAny2Value,
-                            selectedAny2MT,
-                            dateMTAny2Value,
-                            priceMTAny2.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtyAcutValue = parseFloat(qtyAcut.value);
-                    const priceAcutValue = parseFloat(priceAcut.value);
-                    const dateAcutValue = document.getElementById("date-acut").value;
-                    if (qtyAcutValue > 0) {
-                        addAnyValueItemToDisplay(
-                            "Acut @ ",
-                            qtyAcutValue,
-                            selectedAcut,
-                            dateAcutValue,
-                            priceAcut.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtyOtaxValue = parseFloat(qtyOtax.value);
-                    const priceOtaxValue = parseFloat(priceOtax.value);
-                    const dateOtaxValue = document.getElementById("date-ot-ax").value;
-                    if (qtyOtaxValue > 0) {
-                        addAnyValueItemToDisplay(
-                            "OT AX @ ",
-                            qtyOtaxValue,
-                            selectedOtax,
-                            dateOtaxValue,
-                            priceOtax.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtyOtTxValue = parseFloat(qtyOtTx.value);
-                    const priceOtTxValue = parseFloat(priceOtTx.value);
-                    const dateOtTxValue = document.getElementById("date-ot-tx").value;
-                    if (qtyOtTxValue > 0) {
-                        addAnyValueItemToDisplay(
-                            "OT TX @ ",
-                            qtyOtTxValue,
-                            selectedOtTx,
-                            dateOtTxValue,
-                            priceOtTx.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtyPsycAxValue = parseFloat(qtyPsycAx.value);
-                    const pricePsycAxValue = parseFloat(pricePsycAx.value);
-                    const datePsycAxValue = document.getElementById("date-psyc-ax").value;
-                    if (qtyPsycAxValue > 0) {
-                        addAnyValueItemToDisplay(
-                            "PSYC AX @ ",
-                            qtyPsycAxValue,
-                            selectedPsycAx,
-                            datePsycAxValue,
-                            pricePsycAx.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtyPsycTxValue = parseFloat(qtyPsycTx.value);
-                    const pricePsycTxValue = parseFloat(pricePsycTx.value);
-                    const datePsycTxValue = document.getElementById("date-psyc-tx").value;
-                    if (qtyPsycTxValue > 0) {
-                        addAnyValueItemToDisplay(
-                            "PSYC TX @ ",
-                            qtyPsycTxValue,
-                            selectedPsycTx,
-                            datePsycTxValue,
-                            pricePsycTx.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtyDentalValue = parseFloat(qtyDental.value);
-                    const priceDentalValue = parseFloat(priceDental.value);
-                    const dateDentalValue = document.getElementById("date-dental").value;
-                    if (qtyDentalValue > 0) {
-                        addAnyValueItemToDisplay(
-                            "Dental @ ",
-                            qtyDentalValue,
-                            selectedDental,
-                            dateDentalValue,
-                            priceDental.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtySupply1Value = parseFloat(qtySupply1.value);
-                    if (qtySupply1Value > 0) {
-                        addSupliesToDisplay(
-                            supply1Desc.value,
-                            qtySupply1Value,
-                            selectedSupply1,
-                            priceSupply1.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtySupply2Value = parseFloat(qtySupply2.value);
-                    if (qtySupply2Value > 0) {
-                        addSupliesToDisplay(
-                            supply2Desc.value,
-                            qtySupply2Value,
-                            selectedSupply2,
-                            priceSupply2.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtySupply3Value = parseFloat(qtySupply3.value);
-                    if (qtySupply3Value > 0) {
-                        addSupliesToDisplay(
-                            supply3Desc.value,
-                            qtySupply3Value,
-                            selectedSupply3,
-                            priceSupply3.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtySupply4Value = parseFloat(qtySupply4.value);
-
-                    if (qtySupply4Value > 0) {
-                        addSupliesToDisplay(
-                            supply4Desc.value,
-                            qtySupply4Value,
-                            selectedSupply4,
-                            priceSupply4.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtySupply5Value = parseFloat(qtySupply5.value);
-                    if (qtySupply5Value > 0) {
-                        addSupliesToDisplay(
-                            supply5Desc.value,
-                            qtySupply5Value,
-                            selectedSupply5,
-                            priceSupply5.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    const qtySupply6Value = parseFloat(qtySupply6.value);
-                    if (qtySupply6Value > 0) {
-                        addSupliesToDisplay(
-                            supply6Desc.value,
-                            qtySupply6Value,
-
-                            selectedSupply6,
-                            priceSupply6.value.trim().toLowerCase().endsWith("g")
-                        );
-                    }
-
-                    // Call calculateTotal to update the total price in the display box
-                    calculateTotal();
-                }
-
-                clientName.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-                clientClinic.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-                invNum.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                wad.addEventListener("change", function () {
-                    displaySelectedItems();
-                });
-
-                dateOfLoss.addEventListener("input", function () {
-                    const daysToAdd = 91;
-                    const dolDate = new Date(dol.value);
-                    const dtprLimitDate = new Date(
-                        dolDate.getTime() + daysToAdd * 24 * 60 * 60 * 1000
-                    );
-
-                    const options = { day: "numeric", month: "long", year: "numeric" };
-                    const dtprLimitFormatted = dtprLimitDate.toLocaleDateString(
-                        "en-US",
-                        options
-                    );
-                    dtprLimit = dtprLimitFormatted;
-
-                    displaySelectedItems();
-                });
-
-                qtyPrevious.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                suppliesPrevious.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                previousOtPsyc.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                // Event listeners to update prices and quantities when quantity inputs change
-                qtyAB1.addEventListener("input", function () {
-                    priceAB1.value = (qtyAB1.value * 117).toFixed(2);
-                    calculateTotal();
-                    displaySelectedItems(); // Update display box
-                });
-
-                qtyAB2.addEventListener("input", function () {
-                    priceAB2.value = (qtyAB2.value * 50).toFixed(2);
-                    calculateTotal();
-                    displaySelectedItems(); // Update display box
-                });
-
-                qtyAB4.addEventListener("input", function () {
-                    priceAB4.value = (qtyAB4.value * 40).toFixed(2);
-                    calculateTotal();
-                    displaySelectedItems(); // Update display box
-                });
-
-                qty83PT.addEventListener("input", function () {
-                    price83PT.value = (qty83PT.value * 83).toFixed(2);
-                    calculateTotal();
-                    displaySelectedItems(); // Update display box
-                });
-
-                dateField83PT.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qty41PT.addEventListener("input", function () {
-                    price41PT.value = (qty41PT.value * 41).toFixed(2);
-                    calculateTotal();
-                    displaySelectedItems(); // Update display box
-                });
-
-                dateField41PT.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qty83CT.addEventListener("input", function () {
-                    price83CT.value = (qty83CT.value * 83).toFixed(2);
-                    calculateTotal();
-                    displaySelectedItems(); // Update display box
-                });
-
-                dateField83CT.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qty41CT.addEventListener("input", function () {
-                    price41CT.value = (qty41CT.value * 41).toFixed(2);
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateField41CT.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qty90MT.addEventListener("input", function () {
-                    price90MT.value = (qty90MT.value * 94.5).toFixed(2);
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateField90MT.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtyMTAny1.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyMTAny1.value);
-                    let priceValue = parseFloat(priceMTAny1.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceMTAny1.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedAny1MT = priceValue;
-
-                    displayAny1MT.value = (qtyValue * priceValue).toFixed(2);
-                    AnyMT1Price = displayAny1MT.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceMTAny1.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyMTAny1.value);
-                    let priceValue = parseFloat(priceMTAny1.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceMTAny1.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                        isGSTIncluded = true;
-                    }
-                    selectedAny1MT = priceValue;
-                    displayAny1MT.value = (qtyValue * priceValue).toFixed(2);
-                    AnyMT1Price = displayAny1MT.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateFieldMTAny1.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtyMTAny2.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyMTAny2.value);
-                    let priceValue = parseFloat(priceMTAny2.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceMTAny2.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedAny2MT = priceValue;
-
-                    displayAny2MT.value = (qtyValue * priceValue).toFixed(2);
-                    AnyMT2Price = displayAny2MT.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceMTAny2.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyMTAny2.value);
-                    let priceValue = parseFloat(priceMTAny2.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceMTAny2.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedAny2MT = priceValue;
-
-                    displayAny2MT.value = (qtyValue * priceValue).toFixed(2);
-                    AnyMT2Price = displayAny2MT.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateFieldMTAny2.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtyAcut.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyAcut.value);
-                    let priceValue = parseFloat(priceAcut.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceAcut.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedAcut = priceValue;
-                    displayAny2MT.value = (qtyValue * priceValue).toFixed(2);
-                    AnyAcutPrice = displayAcut.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceAcut.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyAcut.value);
-                    let priceValue = parseFloat(priceAcut.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceAcut.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedAcut = priceValue;
-                    displayAcut.value = (qtyValue * priceValue).toFixed(2);
-                    AnyAcutPrice = displayAcut.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateFieldAcut.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtyOtax.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyOtax.value);
-                    let priceValue = parseFloat(priceOtax.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceOtax.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedOtax = priceValue;
-                    displayOtax.value = (qtyValue * priceValue).toFixed(2);
-                    OtAxPrice = displayOtax.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceOtax.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyOtax.value);
-                    let priceValue = parseFloat(priceOtax.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceOtax.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedOtax = priceValue;
-                    displayOtax.value = (qtyValue * priceValue).toFixed(2);
-                    OtAxPrice = displayOtax.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateFieldOtax.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtyOtTx.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyOtTx.value);
-                    let priceValue = parseFloat(priceOtTx.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceOtTx.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedOtTx = priceValue;
-                    displayOtTx.value = (qtyValue * priceValue).toFixed(2);
-                    OtTxPrice = displayOtTx.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceOtTx.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyOtTx.value);
-                    let priceValue = parseFloat(priceOtTx.value);
-
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (priceOtTx.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedOtTx = priceValue;
-                    displayOtTx.value = (qtyValue * priceValue).toFixed(2);
-                    OtTxPrice = displayOtTx.value;
-
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateFieldOtTx.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtyPsycAx.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyPsycAx.value);
-                    let priceValue = parseFloat(pricePsycAx.value);
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (pricePsycAx.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedPsycAx = priceValue;
-                    displayPsycAx.value = (qtyValue * priceValue).toFixed(2);
-                    PsycAxPrice = displayPsycAx.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                pricePsycAx.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyPsycAx.value);
-                    let priceValue = parseFloat(pricePsycAx.value);
-                    // Check if the price has the "g" suffix, if so, multiply by 1.05
-                    if (pricePsycAx.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedPsycAx = priceValue;
-                    displayPsycAx.value = (qtyValue * priceValue).toFixed(2);
-                    PsycAxPrice = displayPsycAx.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateFieldPsycAx.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtyPsycTx.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyPsycTx.value);
-                    let priceValue = parseFloat(pricePsycTx.value);
-                    if (pricePsycTx.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedPsycTx = priceValue;
-                    displayPsycTx.value = (qtyValue * priceValue).toFixed(2);
-                    PsycTxPrice = displayPsycTx.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                pricePsycTx.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyPsycTx.value);
-                    let priceValue = parseFloat(pricePsycTx.value);
-                    if (pricePsycTx.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedPsycTx = priceValue;
-                    displayPsycTx.value = (qtyValue * priceValue).toFixed(2);
-                    PsycTxPrice = displayPsycTx.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateFieldPsycTx.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtyDental.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyDental.value);
-                    let priceValue = parseFloat(priceDental.value);
-                    if (priceDental.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedDental = priceValue;
-                    displayDental.value = (qtyValue * priceValue).toFixed(2);
-                    DentalPrice = displayDental.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceDental.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtyDental.value);
-                    let priceValue = parseFloat(priceDental.value);
-                    if (priceDental.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedDental = priceValue;
-                    displayDental.value = (qtyValue * priceValue).toFixed(2);
-                    DentalPrice = displayDental.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                dateFieldDental.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                supply1Desc.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtySupply1.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply1.value);
-                    let priceValue = parseFloat(priceSupply1.value);
-                    if (priceSupply1.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedSupply1 = priceValue;
-                    displaySupply1.value = (qtyValue * priceValue).toFixed(2);
-                    Supply1 = displaySupply1.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceSupply1.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply1.value);
-                    let priceValue = parseFloat(priceSupply1.value);
-                    if (priceSupply1.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedSupply1 = priceValue;
-                    displaySupply1.value = (qtyValue * priceValue).toFixed(2);
-                    Supply1 = displaySupply1.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                supply2Desc.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtySupply2.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply2.value);
-                    let priceValue = parseFloat(priceSupply2.value);
-                    if (priceSupply2.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedSupply2 = priceValue;
-                    displaySupply2.value = (qtyValue * priceValue).toFixed(2);
-                    Supply2 = displaySupply2.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceSupply2.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply2.value);
-                    let priceValue = parseFloat(priceSupply2.value);
-
-                    if (priceSupply2.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedSupply2 = priceValue;
-
-                    displaySupply2.value = (qtyValue * priceValue).toFixed(2);
-                    Supply2 = displaySupply2.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                supply3Desc.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtySupply3.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply3.value);
-
-                    let priceValue = parseFloat(priceSupply3.value);
-
-                    if (priceSupply3.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-
-                    selectedSupply3 = priceValue;
-
-                    displaySupply3.value = (qtyValue * priceValue).toFixed(2);
-                    Supply3 = displaySupply3.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceSupply3.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply3.value);
-                    let priceValue = parseFloat(priceSupply3.value);
-
-                    if (priceSupply3.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedSupply3 = priceValue;
-                    displaySupply3.value = (qtyValue * priceValue).toFixed(2);
-
-                    Supply3 = displaySupply3.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                supply4Desc.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtySupply4.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply4.value);
-                    let priceValue = parseFloat(priceSupply4.value);
-
-                    if (priceSupply4.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedSupply4 = priceValue;
-                    displaySupply4.value = (qtyValue * priceValue).toFixed(2);
-                    Supply4 = displaySupply4.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceSupply4.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply4.value);
-                    let priceValue = parseFloat(priceSupply4.value);
-
-                    if (priceSupply4.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-
-                    selectedSupply4 = priceValue;
-                    displaySupply4.value = (qtyValue * priceValue).toFixed(2);
-                    Supply4 = displaySupply4.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                supply5Desc.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtySupply5.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply5.value);
-                    let priceValue = parseFloat(priceSupply5.value);
-
-                    if (priceSupply5.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-
-                    selectedSupply5 = priceValue;
-
-                    displaySupply5.value = (qtyValue * priceValue).toFixed(2);
-                    Supply5 = displaySupply5.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceSupply5.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply5.value);
-                    let priceValue = parseFloat(priceSupply5.value);
-
-                    if (priceSupply5.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-
-                    selectedSupply5 = priceValue;
-                    displaySupply5.value = (qtyValue * priceValue).toFixed(2);
-                    Supply5 = displaySupply5.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                supply6Desc.addEventListener("input", function () {
-                    displaySelectedItems();
-                });
-
-                qtySupply6.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply6.value);
-                    let priceValue = parseFloat(priceSupply6.value);
-
-                    if (priceSupply6.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedSupply6 = priceValue;
-
-                    displaySupply6.value = (qtyValue * priceValue).toFixed(2);
-                    Supply6 = displaySupply6.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                priceSupply6.addEventListener("input", function () {
-                    let qtyValue = parseFloat(qtySupply6.value);
-                    let priceValue = parseFloat(priceSupply6.value);
-
-                    if (priceSupply6.value.trim().toLowerCase().endsWith("g")) {
-                        priceValue *= 1.05;
-                        priceValue = Math.round((priceValue + Number.EPSILON) * 100) / 100;
-                    }
-                    selectedSupply6 = priceValue;
-
-                    displaySupply6.value = (qtyValue * priceValue).toFixed(2);
-                    Supply6 = displaySupply6.value;
-                    calculateTotal();
-                    displaySelectedItems();
-                });
-
-                // Add a click event listener to the copy button
-                copyButton.addEventListener("click", function () {
-                    // Get the selected-items container element
-                    const selectedItemsContainer = document.getElementById("selected-items");
-
-                    // Create a range object to select the content inside the selected-items container
-                    const range = document.createRange();
-                    range.selectNode(selectedItemsContainer);
-
-                    // Create a new selection and add the range to it
-                    const selection = window.getSelection();
-                    selection.removeAllRanges();
-                    selection.addRange(range);
-
-                    // Copy the selected content as HTML with formatting to the clipboard
-                    document.execCommand("copy");
-
-                    // Clear the selection to avoid any unintended side effects
-                    selection.removeAllRanges();
-
-                    // Optionally, you can show a message or perform any other action after copying
-                    alert("Selected items copied to clipboard!");
-                });
-
-                // Initial calculation on page load
-                calculateTotal();
-            });
-
-
-
-
-
-        </script>
-
-
-
-
-
-
+        <table>
+            <tr>
+                <th class="col-3">Item</th>
+                <th class="col-3">No of TX</th>
+                <th class="col-3">Date of TX</th>
+                <th class="col-3">Cost G if GST</th>
+                <th class="col-3">Price</th>
+                <th class="col-3">Subtotal</th>
+                <th class="col-3" colspan="2">Other information</th>
+            </tr>
+
+            <tr>
+                <td class="col-6">
+                    <!-- Item name: AB1 = $117 -->
+                    AB1 = $117
+                </td>
+                <td class="col-3">
+                    <!-- Input field for AB1 quantity -->
+                    <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="2"
+                        id="qty-ab1" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for date -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for price -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of AB1 -->
+                    <input type="number" class="readOnly" readonly value="0" id="price-ab1" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for subtotal -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+                <td class="col-4">
+                    <!-- Label for Claimant -->
+                    <label for="claimant-name" class="form-label">Claimant:</label>
+                </td>
+                <td class="col-8">
+                    <!-- Input field for Claimant's name -->
+                    <input type="text" id="claimant-name" name="claimant-name" class="form-control">
+                </td>
+
+            </tr>
+
+
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: AB2 = $50 -->
+                    AB2 = $50
+                </td>
+                <td class="col-3">
+                    <!-- Input field for AB2 quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        id="qty-ab2" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for date -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for price -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of AB2 -->
+                    <input type="number" class="readOnly" readonly value="0" id="price-ab2" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for subtotal -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+
+                <td class="col-4">
+                    <!-- Label for Invoice Number -->
+                    <label for="invoice-number" class="form-label">Invoice Number:</label>
+                </td>
+                <td class="col-8">
+                    <!-- Input field for Invoice Number -->
+                    <input type="text" id="invoice-number" name="invoice-number" class="form-control">
+                </td>
+            </tr>
+
+
+            <!-- Row for AB4 -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: AB4 = $40 -->
+                    AB4 = $40
+                </td>
+                <td class="col-3">
+                    <!-- Input field for AB4 quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" min="0" max="21" oninput="validity.valid||(value='');" class="qty"
+                        min="0" max="21" value="0" id="qty-ab4" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for date -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for price -->
+                    <input type="text" class="readOnly" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of AB4 -->
+                    <input type="number" class="readOnly" readonly value="0" id="price-ab4" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for subtotal -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+                <td class="col-4">
+                    <!-- Label for Clinic Name -->
+                    <label for="clinic-name" class="form-label">Clinic Name:</label>
+                </td>
+                <td class="col-8">
+                    <!-- Input field for Clinic Name -->
+                    <input type="text" id="clinic-name" name="clinic-name" class="form-control">
+                </td>
+            </tr>
+
+
+
+
+
+
+            <!-- Row for PT @ $83 Each -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: PT @ $83 Each -->
+                    PT @ $83 Each
+                </td>
+                <td class="col-3">
+                    <!-- Input field for PT quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        id="qty-83-pt" value="0" />
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of PT -->
+                    <input type="text" id="date-83-pt" name="date-83-pt">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for price -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of PT @ $83 Each -->
+                    <input type="number" class="readOnly" readonly value="0" id="price-83-pt" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for subtotal -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+
+
+                <td class="col-8">
+                    <!-- Label for Wad -->
+                    <label for="wad-select" class="form-label">Wad:</label>
+                    <!-- Dropdown menu for selecting Wad -->
+                    <select id="wad-select" name="wad" class="form-control">
+                        <option value="Wad 1">Wad 1</option>
+                        <option value="Wad 2" selected>Wad 2</option>
+                    </select>
+                </td>
+                <td class="col-4">
+                    <!-- Label for Date of Loss -->
+                    <label for="date-of-accident" class="form-label">Date of Loss:</label>
+                    <!-- Input field for Date of Loss with a minimum date of 2018-01-01 -->
+                    <input type="date" id="dol" name="dol" value="2018-01-01">
+                </td>
+
+
+
+            </tr>
+
+
+
+
+
+
+            <!-- Row for PT @ $41 Each -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: PT @ $41 Each -->
+                    PT @ $41 Each
+                </td>
+                <td class="col-3">
+                    <!-- Input field for PT quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-41-pt" />
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of PT -->
+                    <input type="text" id="date-41-pt" name="date-41-pt">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for price -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of PT @ $41 Each -->
+                    <input type="number" class="readOnly" readonly value="0" id="price-41-pt" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for subtotal of PT items -->
+                    <input type="number" class="readOnly" readonly value="0" id="physio-subtotal">
+                </td>
+
+
+                <td class="col-4">
+                    <!-- Label for Previous TX -->
+                    <label for="previous-Tx" class="form-label">Previous TX:</label>
+                    <!-- Input field for Previous TX quantity -->
+                    <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0"
+                        id="previous-Tx" name="previous-Tx" class="form-control">
+                </td>
+
+                <td class="col-4">
+                    <!-- Label for Previous Supplies -->
+                    <label for="previous-supplies" class="form-label">Previous Supplies:</label>
+                    <!-- Input field for Previous Supplies quantity -->
+                    <input type="text" value="0" id="previous-Supplies" min="0" />
+                </td>
+            </tr>
+
+            <!-- Row for MT @ $90 & GST Each -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: MT @ $90 & GST Each -->
+                    MT @ $90 & GST Each
+                </td>
+                <td class="col-3">
+                    <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" value="0" id="qty-90-mt" oninput="validity.valid||(value='');"
+                        class="qty" min="0" max="21">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of MT -->
+                    <input type="text" id="date-90-mt" name="date-90-mt">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of MT @ $90 & GST Each -->
+                    <input type="number" class="readOnly" readonly value="0" id="price-90-mt">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for subtotal -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+
+                <td class="col-4" colspan="2">
+                    <!-- Label for Previous OT/PSYC/DENTAL -->
+                    <label for="previous-OtPsyc" class="form-label">Previous OT/PSYC/DENTAL:</label>
+                    <!-- Input field for Previous OT/PSYC/DENTAL quantity -->
+                    <input type="text" value="0" id="previous-OtPsyc" min="0" />
+                </td>
+
+
+            </tr>
+
+            <!-- Row for MT @ $ (Any Amount) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: MT @ $ (Any Amount) -->
+                    MT @ $ (Any Amount)
+                </td>
+                <td class="col-3">
+                    <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-any1-mt">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of MT -->
+                    <input type="text" id="date-any1-mt" name="date-any1-mt">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for price of MT (Any Amount) -->
+                    <input type="text" value="0" id="price-any1-mt">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of MT @ $ (Any Amount) -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-any1-mt" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for subtotal -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+
+                <td rowspan="18" colspan="2">
+                    <!-- A note section -->
+                    <div>Note:
+                        <!-- Copy button to copy selected items to clipboard -->
+                        <button id="copy-btn" class="button-17" role="button">Copy</button>
+                    </div>
+                    <!-- Box for displaying selected items -->
+                    <div class="selected-items-box">
+                        <!-- Div element to hold selected items -->
+                        <div id="selected-items"></div>
+                    </div>
+                </td>
+
+
+            </tr>
+
+            <!-- Row for MT @ $ (Any Amount) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: MT @ $ (Any Amount) -->
+                    MT @ $ (Any Amount)
+                </td>
+                <td class="col-3">
+                    <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-any2-mt">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of MT -->
+                    <input type="text" id="date-any2-mt" name="date-any2-mt">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for price of MT (Any Amount) -->
+                    <input type="text" value="0" id="price-any2-mt">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of MT @ $ (Any Amount) -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-any2-mt" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for subtotal of MT (Any Amount) -->
+                    <input type="number" class="readOnly" readonly value="0" id="mt-subtotal">
+                </td>
+            </tr>
+
+            <!-- Row for CT @ $83 Each -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: CT @ $83 Each -->
+                    CT @ $83 Each
+                </td>
+                <td class="col-3">
+                    <!-- Input field for CT quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-83-ct" />
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of CT -->
+                    <input type="text" id="date-83-ct" name="date-83-ct">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for price -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of CT @ $83 Each -->
+                    <input type="number" class="readOnly" readonly value="0" id="price-83-ct" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field for subtotal -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+            </tr>
+
+            <!-- Row for CT @ $41 Each -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: CT @ $41 Each -->
+                    CT @ $41 Each
+                </td>
+                <td class="col-3">
+                    <!-- Input field for CT quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-41-ct" />
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of CT -->
+                    <input type="text" id="date-41-ct" name="date-41-ct">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of CT @ $41 Each -->
+                    <input type="number" class="readOnly" readonly value="0" id="price-41-ct" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for subtotal of CT items -->
+                    <input type="number" class="readOnly" readonly value="0" id="ct-subtotal">
+                </td>
+            </tr>
+
+            <!-- Sixth item row (AcuT @ $ (Any Amount)) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: AcuT @ $ (Any Amount) -->
+                    AcuT @ $ (Any Amount)
+                </td>
+                <td class="col-3">
+                    <!-- Input field for AcuT quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-acut">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of AcuT -->
+                    <input type="text" id="date-acut" name="date-acut">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for price of AcuT -->
+                    <input type="text" value="0" id="price-acut">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of AcuT -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-acut" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for subtotal of AcuT items -->
+                    <input type="number" class="readOnly" readonly value="0" id="acut-subtotal">
+                </td>
+            </tr>
+
+            <!-- Row for OT AX @ $ (Any Amount) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: OT AX @ $ (Any Amount) -->
+                    OT AX @ $ (Any Amount)
+                </td>
+                <td class="col-3">
+                    <!-- Input field for OT AX quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-ot-ax">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of OT AX -->
+                    <input type="text" id="date-ot-ax" name="date-ot-ax">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for price of OT AX -->
+                    <input type="text" value="0" id="price-ot-ax">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of OT AX -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-ot-ax" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+            </tr>
+
+            <!-- Eighth item row (OT TX @ $ (Any Amount)) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: OT TX @ $ (Any Amount) -->
+                    OT TX @ $ (Any Amount)
+                </td>
+                <td class="col-3">
+                    <!-- Input field for OT TX quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-ot-tx">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of OT TX -->
+                    <input type="text" id="date-ot-tx" name="date-ot-tx">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for price of OT TX -->
+                    <input type="text" value="0" id="price-ot-tx">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of OT TX -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-ot-tx" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for subtotal of OT TX items -->
+                    <input type="number" class="readOnly" readonly value="0" id="ot-subtotal">
+                </td>
+            </tr>
+
+            <!-- Row for PSYCH AX @ $ (Any Amount) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: PSYCH AX @ $ (Any Amount) -->
+                    PSYCH AX @ $ (Any Amount)
+                </td>
+                <td class="col-3">
+                    <!-- Input field for PSYCH AX quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-psyc-ax" />
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of PSYCH AX -->
+                    <input type="text" id="date-psyc-ax" name="date-psyc-ax">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for price of PSYCH AX -->
+                    <input type="text" id="price-psyc-ax" value="0" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of PSYCH AX -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+            </tr>
+
+            <!-- Eighth item row (PSYCH TX @ $ (Any Amount)) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: PSYCH TX @ $ (Any Amount) -->
+                    PSYCH TX @ $ (Any Amount)
+                </td>
+                <td class="col-3">
+                    <!-- Input field for PSYCH TX quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-psyc-tx" />
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of PSYCH TX -->
+                    <input type="text" id="date-psyc-tx" name="date-psyc-tx">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for price of PSYCH TX -->
+                    <input type="text" id="price-psyc-tx" value="0" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of PSYCH TX -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for subtotal of PSYCH TX items -->
+                    <input type="number" class="readOnly" readonly value="0" id="psyc-subtotal">
+                </td>
+            </tr>
+
+            <!-- Row for Dental @ $ (Any Amount) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Item name and price: Dental @ $ (Any Amount) -->
+                    Dental @ $ (Any Amount)
+                </td>
+                <td class="col-3">
+                    <!-- Input field for Dental quantity with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-dental">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for date of Dental -->
+                    <input type="text" id="date-dental" name="date-dental">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for price of Dental -->
+                    <input type="text" value="0" id="price-dental">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of Dental -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-dental" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for subtotal of Dental items -->
+                    <input type="number" class="readOnly" readonly value="0" id="dental-subtotal">
+                </td>
+            </tr>
+
+
+            <!-- First supply item row -->
+            <tr>
+                <td class="col-6">
+                    <!-- Input field for the name of the first supply -->
+                    <input type="text" name="supply-one" id="supply-one">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the quantity of the first supply with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-supply-one">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the price of the first supply -->
+                    <input type="text" value="0" id="price-supply-one">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of the first supply -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-one" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+            </tr>
+
+            <!-- Supply Item (Supply Two) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Input field for the name of the supply -->
+                    <input type="text" name="supply-two" id="supply-two">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the quantity of the supply with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-supply-two">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the price of the supply -->
+                    <input type="text" value="0" id="price-supply-two">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of the supply -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-two" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+            </tr>
+
+
+            <!-- Supply Item (Supply Three) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Input field for the name of the supply (Supply Three) -->
+                    <input type="text" name="supply-three" id="supply-three">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the quantity of Supply Three with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-supply-three">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the price of Supply Three -->
+                    <input type="text" value="0" id="price-supply-three">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of Supply Three -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-three" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+            </tr>
+
+            <!-- Supply Item (Supply Four) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Input field for the name of the supply (Supply Four) -->
+                    <input type="text" name="supply-four" id="supply-four">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the quantity of Supply Four with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-supply-four">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the price of Supply Four -->
+                    <input type="text" value="0" id="price-supply-four">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of Supply Four -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-four" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+            </tr>
+
+
+            <!-- Supply Item (Supply Five) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Input field for the name of the supply (Supply Five) -->
+                    <input type="text" name="supply-five" id="supply-five">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the quantity of Supply Five with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-supply-five">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the price of Supply Five -->
+                    <input type="text" value="0" id="price-supply-five">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of Supply Five -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-five" />
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="number" class="readOnly" disabled>
+                </td>
+            </tr>
+
+            <!-- Supply Item (Supply Six) -->
+            <tr>
+                <td class="col-6">
+                    <!-- Input field for the name of the supply (Supply Six) -->
+                    <input type="text" name="supply-six" id="supply-six">
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the quantity of Supply Six with a minimum of 0 and a maximum of 21 -->
+                    <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
+                        value="0" id="qty-supply-six">
+                </td>
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled>
+                </td>
+                <td class="col-3">
+                    <!-- Input field for the price of Supply Six -->
+                    <input type="text" value="0" id="price-supply-six">
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for calculated price of Supply Six -->
+                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-six" />
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for the subtotal of all dental supplies -->
+                    <input type="number" class="readOnly" readonly value="0" id="supply-subtotal">
+                </td>
+            </tr>
+
+
+            <tr>
+                <!-- Row for displaying the total calculation -->
+                <td class="col-6">
+                    <!-- Total label -->
+                    Total
+                </td>
+                <td class="col-3">
+                    <!-- Readonly input field for the total quantity of supplies -->
+                    <input type="number" class="qty" readonly value="0" class="qty" id="total-quantity" />
+                </td>
+                <td class="col-3">
+                    <!-- Hidden readonly input field -->
+                    <input type="number" class="readOnly" readonly value="0" hidden />
+                </td>
+
+                <td class="col-3">
+                    <!-- Disabled input field -->
+                    <input type="text" disabled hidden>
+                </td>
+                <td class="col-3">
+                    <!-- Hidden input field -->
+                    <input type="text" disabled hidden>
+                </td>
+                <td class="col-3 total-val">
+                    <!-- Display total value -->
+                    <span id="total-value">0</span>
+                </td>
+
+            </tr>
+
+        </table>
+
+    </div>
 
 </body>
 

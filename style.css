@@ -119,6 +119,23 @@ input[readonly] {
   color: #333;
 }
 
+.col-3 {
+  padding: 8px;
+}
+
+table {
+  width: 100%;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
 /*ReadOnly Value*/
 input.readOnly {
   width: 65px; /* Keep the same width */
@@ -172,7 +189,9 @@ input[type="text"]:focus {
   border-radius: 8px;
   padding: 8px;
 }
-
+td {
+  white-space: nowrap;
+}
 #wad-select,
 #dol {
   margin-left: 10px;
