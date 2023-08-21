@@ -320,44 +320,61 @@
 <body>
     <!-- The main container for the form with some top margin -->
     <div class="container mt-4">
-
+        <!-- Creating a table to display transaction information -->
         <table>
+            <!-- Table header row with column headers -->
             <tr>
+                <!-- Column header for Item -->
                 <th class="col-3">Item</th>
+                <!-- Column header for Number of Transactions -->
                 <th class="col-3">No of TX</th>
+                <!-- Column header for Date of Transaction -->
                 <th class="col-3">Date of TX</th>
+                <!-- Column header for Cost with GST -->
                 <th class="col-3">Cost G if GST</th>
+                <!-- Column header for Price -->
                 <th class="col-3">Price</th>
+                <!-- Column header for Subtotal -->
                 <th class="col-3">Subtotal</th>
+                <!-- Column header for Other information with colspan -->
                 <th class="col-3" colspan="2">Other information</th>
             </tr>
 
+            <!-- Table row for transaction details -->
             <tr>
+                <!-- Column for Item name and cost -->
                 <td class="col-6">
+                    <!-- Comment about the item and its cost -->
                     <!-- Item name: AB1 = $117 -->
                     AB1 = $117
                 </td>
+                <!-- Column for inputting quantity of AB1 -->
                 <td class="col-3">
                     <!-- Input field for AB1 quantity -->
                     <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="2"
                         id="qty-ab1" />
                 </td>
+                <!-- Column for disabled input field for date -->
                 <td class="col-3">
                     <!-- Disabled input field for date -->
-                    <input type="text" disabled>
+                    <input type="text" id="date-ab1" name="date-ab1">
                 </td>
+                <!-- Column for disabled input field for price -->
                 <td class="col-3">
                     <!-- Disabled input field for price -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for readonly input field for calculated price of AB1 -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of AB1 -->
                     <input type="number" class="readOnly" readonly value="0" id="price-ab1" />
                 </td>
+                <!-- Column for disabled input field for subtotal -->
                 <td class="col-3">
                     <!-- Disabled input field for subtotal -->
                     <input type="number" class="readOnly" disabled>
                 </td>
+                <!-- Column for label and input field for Claimant's name -->
                 <td class="col-4">
                     <!-- Label for Claimant -->
                     <label for="claimant-name" class="form-label">Claimant:</label>
@@ -366,37 +383,42 @@
                     <!-- Input field for Claimant's name -->
                     <input type="text" id="claimant-name" name="claimant-name" class="form-control">
                 </td>
-
             </tr>
 
-
+            <!-- Row for AB2 -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: AB2 = $50 -->
                     AB2 = $50
                 </td>
+                <!-- Column for inputting quantity of AB2 -->
                 <td class="col-3">
                     <!-- Input field for AB2 quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         id="qty-ab2" />
                 </td>
+                <!-- Column for disabled input field for date -->
                 <td class="col-3">
                     <!-- Disabled input field for date -->
-                    <input type="text" disabled>
+                    <input type="text" id="date-ab2" name="date-ab1">
                 </td>
+                <!-- Column for disabled input field for price -->
                 <td class="col-3">
                     <!-- Disabled input field for price -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for readonly input field for calculated price of AB2 -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of AB2 -->
                     <input type="number" class="readOnly" readonly value="0" id="price-ab2" />
                 </td>
+                <!-- Column for disabled input field for subtotal -->
                 <td class="col-3">
                     <!-- Disabled input field for subtotal -->
                     <input type="number" class="readOnly" disabled>
                 </td>
-
+                <!-- Column for label and input field for Invoice Number -->
                 <td class="col-4">
                     <!-- Label for Invoice Number -->
                     <label for="invoice-number" class="form-label">Invoice Number:</label>
@@ -407,34 +429,40 @@
                 </td>
             </tr>
 
-
             <!-- Row for AB4 -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: AB4 = $40 -->
                     AB4 = $40
                 </td>
+                <!-- Column for inputting quantity of AB4 -->
                 <td class="col-3">
                     <!-- Input field for AB4 quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" min="0" max="21" oninput="validity.valid||(value='');" class="qty"
                         min="0" max="21" value="0" id="qty-ab4" />
                 </td>
+                <!-- Column for disabled input field for date -->
                 <td class="col-3">
                     <!-- Disabled input field for date -->
-                    <input type="text" disabled>
+                    <input type="text" id="date-ab4" name="date-ab4">
                 </td>
+                <!-- Column for disabled input field for price -->
                 <td class="col-3">
                     <!-- Disabled input field for price -->
                     <input type="text" class="readOnly" disabled>
                 </td>
+                <!-- Column for readonly input field for calculated price of AB4 -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of AB4 -->
                     <input type="number" class="readOnly" readonly value="0" id="price-ab4" />
                 </td>
+                <!-- Column for disabled input field for subtotal -->
                 <td class="col-3">
                     <!-- Disabled input field for subtotal -->
                     <input type="number" class="readOnly" disabled>
                 </td>
+                <!-- Column for label and input field for Clinic Name -->
                 <td class="col-4">
                     <!-- Label for Clinic Name -->
                     <label for="clinic-name" class="form-label">Clinic Name:</label>
@@ -447,38 +475,40 @@
 
 
 
-
-
-
             <!-- Row for PT @ $83 Each -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: PT @ $83 Each -->
                     PT @ $83 Each
                 </td>
+                <!-- Column for inputting quantity of PT -->
                 <td class="col-3">
                     <!-- Input field for PT quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         id="qty-83-pt" value="0" />
                 </td>
+                <!-- Column for inputting date of PT -->
                 <td class="col-3">
                     <!-- Input field for date of PT -->
                     <input type="text" id="date-83-pt" name="date-83-pt">
                 </td>
+                <!-- Column for disabled input field for price -->
                 <td class="col-3">
                     <!-- Disabled input field for price -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for readonly input field for calculated price of PT @ $83 Each -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of PT @ $83 Each -->
                     <input type="number" class="readOnly" readonly value="0" id="price-83-pt" />
                 </td>
+                <!-- Column for disabled input field for subtotal -->
                 <td class="col-3">
                     <!-- Disabled input field for subtotal -->
                     <input type="number" class="readOnly" disabled>
                 </td>
-
-
+                <!-- Column for label and dropdown menu for selecting Wad -->
                 <td class="col-8">
                     <!-- Label for Wad -->
                     <label for="wad-select" class="form-label">Wad:</label>
@@ -488,51 +518,49 @@
                         <option value="Wad 2" selected>Wad 2</option>
                     </select>
                 </td>
+                <!-- Column for label and input field for Date of Loss -->
                 <td class="col-4">
                     <!-- Label for Date of Loss -->
                     <label for="date-of-accident" class="form-label">Date of Loss:</label>
                     <!-- Input field for Date of Loss with a minimum date of 2018-01-01 -->
                     <input type="date" id="dol" name="dol" value="2018-01-01">
                 </td>
-
-
-
             </tr>
-
-
-
-
-
 
             <!-- Row for PT @ $41 Each -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: PT @ $41 Each -->
                     PT @ $41 Each
                 </td>
+                <!-- Column for inputting quantity of PT -->
                 <td class="col-3">
                     <!-- Input field for PT quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-41-pt" />
                 </td>
+                <!-- Column for inputting date of PT -->
                 <td class="col-3">
                     <!-- Input field for date of PT -->
                     <input type="text" id="date-41-pt" name="date-41-pt">
                 </td>
+                <!-- Column for disabled input field for price -->
                 <td class="col-3">
                     <!-- Disabled input field for price -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for readonly input field for calculated price of PT @ $41 Each -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of PT @ $41 Each -->
                     <input type="number" class="readOnly" readonly value="0" id="price-41-pt" />
                 </td>
+                <!-- Column for readonly input field for subtotal of PT items -->
                 <td class="col-3">
                     <!-- Readonly input field for subtotal of PT items -->
                     <input type="number" class="readOnly" readonly value="0" id="physio-subtotal">
                 </td>
-
-
+                <!-- Column for label and input field for Previous TX quantity -->
                 <td class="col-4">
                     <!-- Label for Previous TX -->
                     <label for="previous-Tx" class="form-label">Previous TX:</label>
@@ -540,7 +568,7 @@
                     <input type="number" value="0" oninput="validity.valid||(value='');" class="qty" min="0"
                         id="previous-Tx" name="previous-Tx" class="form-control">
                 </td>
-
+                <!-- Column for label and input field for Previous Supplies quantity -->
                 <td class="col-4">
                     <!-- Label for Previous Supplies -->
                     <label for="previous-supplies" class="form-label">Previous Supplies:</label>
@@ -551,71 +579,81 @@
 
             <!-- Row for MT @ $90 & GST Each -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: MT @ $90 & GST Each -->
                     MT @ $90 & GST Each
                 </td>
+                <!-- Column for inputting quantity of MT -->
                 <td class="col-3">
                     <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" value="0" id="qty-90-mt" oninput="validity.valid||(value='');"
                         class="qty" min="0" max="21">
                 </td>
+                <!-- Column for inputting date of MT -->
                 <td class="col-3">
                     <!-- Input field for date of MT -->
                     <input type="text" id="date-90-mt" name="date-90-mt">
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled />
                 </td>
+                <!-- Column for readonly input field for calculated price of MT @ $90 & GST Each -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of MT @ $90 & GST Each -->
                     <input type="number" class="readOnly" readonly value="0" id="price-90-mt">
                 </td>
+                <!-- Column for disabled input field for subtotal -->
                 <td class="col-3">
                     <!-- Disabled input field for subtotal -->
                     <input type="number" class="readOnly" disabled>
                 </td>
-
+                <!-- Column for label and input fields for Previous OT/PSYC/DENTAL quantity -->
                 <td class="col-4" colspan="2">
                     <!-- Label for Previous OT/PSYC/DENTAL -->
                     <label for="previous-OtPsyc" class="form-label">Previous OT/PSYC/DENTAL:</label>
                     <!-- Input field for Previous OT/PSYC/DENTAL quantity -->
                     <input type="text" value="0" id="previous-OtPsyc" min="0" />
                 </td>
-
-
             </tr>
 
-            <!-- Row for MT @ $ (Any Amount) -->
+            <!-- Row for MT @ $ (Any Amount) 1-->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: MT @ $ (Any Amount) -->
                     MT @ $ (Any Amount)
                 </td>
+                <!-- Column for inputting quantity of MT -->
                 <td class="col-3">
                     <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-any1-mt">
                 </td>
+                <!-- Column for inputting date of MT -->
                 <td class="col-3">
                     <!-- Input field for date of MT -->
                     <input type="text" id="date-any1-mt" name="date-any1-mt">
                 </td>
+                <!-- Column for inputting price of MT (Any Amount) -->
                 <td class="col-3">
                     <!-- Input field for price of MT (Any Amount) -->
                     <input type="text" value="0" id="price-any1-mt">
                 </td>
+                <!-- Column for readonly input field for calculated price of MT @ $ (Any Amount) -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of MT @ $ (Any Amount) -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-any1-mt" />
                 </td>
+                <!-- Column for disabled input field for subtotal -->
                 <td class="col-3">
                     <!-- Disabled input field for subtotal -->
                     <input type="number" class="readOnly" disabled>
                 </td>
-
-                <td rowspan="18" colspan="2" style=" vertical-align:top">
+                <!-- Column for note section and selected items box -->
+                <td rowspan="18" colspan="2" style="vertical-align:top">
+                    <!-- Comment about note section -->
                     <!-- A note section -->
                     <div>Note:
                         <!-- Copy button to copy selected items to clipboard -->
@@ -627,62 +665,73 @@
                         <div id="selected-items"></div>
                     </div>
                 </td>
-
-
             </tr>
 
-            <!-- Row for MT @ $ (Any Amount) -->
+            <!-- Row for MT @ $ (Any Amount) 2 -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: MT @ $ (Any Amount) -->
                     MT @ $ (Any Amount)
                 </td>
+                <!-- Column for inputting quantity of MT -->
                 <td class="col-3">
                     <!-- Input field for MT quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-any2-mt">
                 </td>
+                <!-- Column for inputting date of MT -->
                 <td class="col-3">
                     <!-- Input field for date of MT -->
                     <input type="text" id="date-any2-mt" name="date-any2-mt">
                 </td>
+                <!-- Column for inputting price of MT (Any Amount) -->
                 <td class="col-3">
                     <!-- Input field for price of MT (Any Amount) -->
                     <input type="text" value="0" id="price-any2-mt">
                 </td>
+                <!-- Column for readonly input field for calculated price of MT @ $ (Any Amount) -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of MT @ $ (Any Amount) -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-any2-mt" />
                 </td>
+                <!-- Column for readonly input field for subtotal of MT (Any Amount) -->
                 <td class="col-3">
                     <!-- Readonly input field for subtotal of MT (Any Amount) -->
                     <input type="number" class="readOnly" readonly value="0" id="mt-subtotal">
                 </td>
             </tr>
 
+
             <!-- Row for CT @ $83 Each -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: CT @ $83 Each -->
                     CT @ $83 Each
                 </td>
+                <!-- Column for inputting quantity of CT -->
                 <td class="col-3">
                     <!-- Input field for CT quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-83-ct" />
                 </td>
+                <!-- Column for inputting date of CT -->
                 <td class="col-3">
                     <!-- Input field for date of CT -->
                     <input type="text" id="date-83-ct" name="date-83-ct">
                 </td>
+                <!-- Column for disabled input field for price -->
                 <td class="col-3">
                     <!-- Disabled input field for price -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for readonly input field for calculated price of CT @ $83 Each -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of CT @ $83 Each -->
                     <input type="number" class="readOnly" readonly value="0" id="price-83-ct" />
                 </td>
+                <!-- Column for disabled input field for subtotal -->
                 <td class="col-3">
                     <!-- Disabled input field for subtotal -->
                     <input type="number" class="readOnly" disabled>
@@ -691,56 +740,68 @@
 
             <!-- Row for CT @ $41 Each -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: CT @ $41 Each -->
                     CT @ $41 Each
                 </td>
+                <!-- Column for inputting quantity of CT -->
                 <td class="col-3">
                     <!-- Input field for CT quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-41-ct" />
                 </td>
+                <!-- Column for inputting date of CT -->
                 <td class="col-3">
                     <!-- Input field for date of CT -->
                     <input type="text" id="date-41-ct" name="date-41-ct">
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for readonly input field for calculated price of CT @ $41 Each -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of CT @ $41 Each -->
                     <input type="number" class="readOnly" readonly value="0" id="price-41-ct" />
                 </td>
+                <!-- Column for readonly input field for subtotal of CT items -->
                 <td class="col-3">
                     <!-- Readonly input field for subtotal of CT items -->
                     <input type="number" class="readOnly" readonly value="0" id="ct-subtotal">
                 </td>
             </tr>
 
-            <!-- Sixth item row (AcuT @ $ (Any Amount)) -->
+
+            <!-- AcuT @ $ (Any Amount) -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: AcuT @ $ (Any Amount) -->
                     AcuT @ $ (Any Amount)
                 </td>
+                <!-- Column for inputting quantity of AcuT -->
                 <td class="col-3">
                     <!-- Input field for AcuT quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-acut">
                 </td>
+                <!-- Column for inputting date of AcuT -->
                 <td class="col-3">
                     <!-- Input field for date of AcuT -->
                     <input type="text" id="date-acut" name="date-acut">
                 </td>
+                <!-- Column for inputting price of AcuT -->
                 <td class="col-3">
                     <!-- Input field for price of AcuT -->
                     <input type="text" value="0" id="price-acut">
                 </td>
+                <!-- Column for readonly input field for calculated price of AcuT -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of AcuT -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-acut" />
                 </td>
+                <!-- Column for readonly input field for subtotal of AcuT items -->
                 <td class="col-3">
                     <!-- Readonly input field for subtotal of AcuT items -->
                     <input type="number" class="readOnly" readonly value="0" id="acut-subtotal">
@@ -749,114 +810,137 @@
 
             <!-- Row for OT AX @ $ (Any Amount) -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: OT AX @ $ (Any Amount) -->
                     OT AX @ $ (Any Amount)
                 </td>
+                <!-- Column for inputting quantity of OT AX -->
                 <td class="col-3">
                     <!-- Input field for OT AX quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-ot-ax">
                 </td>
+                <!-- Column for inputting date of OT AX -->
                 <td class="col-3">
                     <!-- Input field for date of OT AX -->
                     <input type="text" id="date-ot-ax" name="date-ot-ax">
                 </td>
+                <!-- Column for inputting price of OT AX -->
                 <td class="col-3">
                     <!-- Input field for price of OT AX -->
                     <input type="text" value="0" id="price-ot-ax">
                 </td>
+                <!-- Column for readonly input field for calculated price of OT AX -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of OT AX -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-ot-ax" />
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
-            <!-- Eighth item row (OT TX @ $ (Any Amount)) -->
+            <!-- OT TX @ $ (Any Amount) -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: OT TX @ $ (Any Amount) -->
                     OT TX @ $ (Any Amount)
                 </td>
+                <!-- Column for inputting quantity of OT TX -->
                 <td class="col-3">
                     <!-- Input field for OT TX quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-ot-tx">
                 </td>
+                <!-- Column for inputting date of OT TX -->
                 <td class="col-3">
                     <!-- Input field for date of OT TX -->
                     <input type="text" id="date-ot-tx" name="date-ot-tx">
                 </td>
+                <!-- Column for inputting price of OT TX -->
                 <td class="col-3">
                     <!-- Input field for price of OT TX -->
                     <input type="text" value="0" id="price-ot-tx">
                 </td>
+                <!-- Column for readonly input field for calculated price of OT TX -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of OT TX -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-ot-tx" />
                 </td>
+                <!-- Column for readonly input field for subtotal of OT TX items -->
                 <td class="col-3">
                     <!-- Readonly input field for subtotal of OT TX items -->
                     <input type="number" class="readOnly" readonly value="0" id="ot-subtotal">
                 </td>
             </tr>
 
-            <!-- Row for PSYCH AX @ $ (Any Amount) -->
+
+            <!-- PSYCH AX @ $ (Any Amount) -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: PSYCH AX @ $ (Any Amount) -->
                     PSYCH AX @ $ (Any Amount)
                 </td>
+                <!-- Column for inputting quantity of PSYCH AX -->
                 <td class="col-3">
                     <!-- Input field for PSYCH AX quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-psyc-ax" />
                 </td>
+                <!-- Column for inputting date of PSYCH AX -->
                 <td class="col-3">
                     <!-- Input field for date of PSYCH AX -->
                     <input type="text" id="date-psyc-ax" name="date-psyc-ax">
                 </td>
+                <!-- Column for inputting price of PSYCH AX -->
                 <td class="col-3">
                     <!-- Input field for price of PSYCH AX -->
                     <input type="text" id="price-psyc-ax" value="0" />
                 </td>
+                <!-- Column for readonly input field for calculated price of PSYCH AX -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of PSYCH AX -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
-            <!-- Eighth item row (PSYCH TX @ $ (Any Amount)) -->
+            <!-- PSYCH TX @ $ (Any Amount) -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: PSYCH TX @ $ (Any Amount) -->
                     PSYCH TX @ $ (Any Amount)
                 </td>
+                <!-- Column for inputting quantity of PSYCH TX -->
                 <td class="col-3">
                     <!-- Input field for PSYCH TX quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-psyc-tx" />
                 </td>
+                <!-- Column for inputting date of PSYCH TX -->
                 <td class="col-3">
                     <!-- Input field for date of PSYCH TX -->
                     <input type="text" id="date-psyc-tx" name="date-psyc-tx">
                 </td>
+                <!-- Column for inputting price of PSYCH TX -->
                 <td class="col-3">
                     <!-- Input field for price of PSYCH TX -->
                     <input type="text" id="price-psyc-tx" value="0" />
                 </td>
+                <!-- Column for readonly input field for calculated price of PSYCH TX -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of PSYCH TX -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
                 </td>
+                <!-- Column for readonly input field for subtotal of PSYCH TX items -->
                 <td class="col-3">
                     <!-- Readonly input field for subtotal of PSYCH TX items -->
                     <input type="number" class="readOnly" readonly value="0" id="psyc-subtotal">
@@ -865,27 +949,33 @@
 
             <!-- Row for Dental @ $ (Any Amount) -->
             <tr>
+                <!-- Column for Item name and price -->
                 <td class="col-6">
                     <!-- Item name and price: Dental @ $ (Any Amount) -->
                     Dental @ $ (Any Amount)
                 </td>
+                <!-- Column for inputting quantity of Dental -->
                 <td class="col-3">
                     <!-- Input field for Dental quantity with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-dental">
                 </td>
+                <!-- Column for inputting date of Dental -->
                 <td class="col-3">
                     <!-- Input field for date of Dental -->
                     <input type="text" id="date-dental" name="date-dental">
                 </td>
+                <!-- Column for inputting price of Dental -->
                 <td class="col-3">
                     <!-- Input field for price of Dental -->
                     <input type="text" value="0" id="price-dental">
                 </td>
+                <!-- Column for readonly input field for calculated price of Dental -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of Dental -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-dental" />
                 </td>
+                <!-- Column for readonly input field for subtotal of Dental items -->
                 <td class="col-3">
                     <!-- Readonly input field for subtotal of Dental items -->
                     <input type="number" class="readOnly" readonly value="0" id="dental-subtotal">
@@ -895,183 +985,205 @@
 
             <!-- First supply item row -->
             <tr>
+                <!-- Column for inputting the name of the first supply -->
                 <td class="col-6">
                     <!-- Input field for the name of the first supply -->
                     <input type="text" name="supply-one" id="supply-one">
                 </td>
+                <!-- Column for inputting the quantity of the first supply -->
                 <td class="col-3">
                     <!-- Input field for the quantity of the first supply with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-supply-one">
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for inputting the price of the first supply -->
                 <td class="col-3">
                     <!-- Input field for the price of the first supply -->
                     <input type="text" value="0" id="price-supply-one">
                 </td>
+                <!-- Column for readonly input field for calculated price of the first supply -->
                 <td class="col-3">
                     <!-- Readonly input field for calculated price of the first supply -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-supply-one" />
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
             <!-- Supply Item (Supply Two) -->
             <tr>
+                <!-- Column for inputting the name of the second supply -->
                 <td class="col-6">
-                    <!-- Input field for the name of the supply -->
+                    <!-- Input field for the name of the second supply -->
                     <input type="text" name="supply-two" id="supply-two">
                 </td>
+                <!-- Column for inputting the quantity of the second supply -->
                 <td class="col-3">
-                    <!-- Input field for the quantity of the supply with a minimum of 0 and a maximum of 21 -->
+                    <!-- Input field for the quantity of the second supply with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-supply-two">
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for inputting the price of the second supply -->
                 <td class="col-3">
-                    <!-- Input field for the price of the supply -->
+                    <!-- Input field for the price of the second supply -->
                     <input type="text" value="0" id="price-supply-two">
                 </td>
+                <!-- Column for readonly input field for calculated price of the second supply -->
                 <td class="col-3">
-                    <!-- Readonly input field for calculated price of the supply -->
+                    <!-- Readonly input field for calculated price of the second supply -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-supply-two" />
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
-
             <!-- Supply Item (Supply Three) -->
             <tr>
+                <!-- Column for inputting the name of the third supply -->
                 <td class="col-6">
-                    <!-- Input field for the name of the supply (Supply Three) -->
+                    <!-- Input field for the name of the third supply -->
                     <input type="text" name="supply-three" id="supply-three">
                 </td>
+                <!-- Column for inputting the quantity of the third supply -->
                 <td class="col-3">
-                    <!-- Input field for the quantity of Supply Three with a minimum of 0 and a maximum of 21 -->
+                    <!-- Input field for the quantity of the third supply with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-supply-three">
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for inputting the price of the third supply -->
                 <td class="col-3">
-                    <!-- Input field for the price of Supply Three -->
+                    <!-- Input field for the price of the third supply -->
                     <input type="text" value="0" id="price-supply-three">
                 </td>
+                <!-- Column for readonly input field for calculated price of the third supply -->
                 <td class="col-3">
-                    <!-- Readonly input field for calculated price of Supply Three -->
+                    <!-- Readonly input field for calculated price of the third supply -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-supply-three" />
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
             <!-- Supply Item (Supply Four) -->
             <tr>
+                <!-- Column for inputting the name of the fourth supply -->
                 <td class="col-6">
-                    <!-- Input field for the name of the supply (Supply Four) -->
+                    <!-- Input field for the name of the fourth supply -->
                     <input type="text" name="supply-four" id="supply-four">
                 </td>
+                <!-- Column for inputting the quantity of the fourth supply -->
                 <td class="col-3">
-                    <!-- Input field for the quantity of Supply Four with a minimum of 0 and a maximum of 21 -->
+                    <!-- Input field for the quantity of the fourth supply with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-supply-four">
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for inputting the price of the fourth supply -->
                 <td class="col-3">
-                    <!-- Input field for the price of Supply Four -->
+                    <!-- Input field for the price of the fourth supply -->
                     <input type="text" value="0" id="price-supply-four">
                 </td>
+                <!-- Column for readonly input field for calculated price of the fourth supply -->
                 <td class="col-3">
-                    <!-- Readonly input field for calculated price of Supply Four -->
+                    <!-- Readonly input field for calculated price of the fourth supply -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-supply-four" />
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
-
             <!-- Supply Item (Supply Five) -->
             <tr>
+                <!-- Column for inputting the name of the fifth supply -->
                 <td class="col-6">
-                    <!-- Input field for the name of the supply (Supply Five) -->
+                    <!-- Input field for the name of the fifth supply -->
                     <input type="text" name="supply-five" id="supply-five">
                 </td>
+                <!-- Column for inputting the quantity of the fifth supply -->
                 <td class="col-3">
-                    <!-- Input field for the quantity of Supply Five with a minimum of 0 and a maximum of 21 -->
+                    <!-- Input field for the quantity of the fifth supply with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-supply-five">
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for inputting the price of the fifth supply -->
                 <td class="col-3">
-                    <!-- Input field for the price of Supply Five -->
+                    <!-- Input field for the price of the fifth supply -->
                     <input type="text" value="0" id="price-supply-five">
                 </td>
+                <!-- Column for readonly input field for calculated price of the fifth supply -->
                 <td class="col-3">
-                    <!-- Readonly input field for calculated price of Supply Five -->
+                    <!-- Readonly input field for calculated price of the fifth supply -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-supply-five" />
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
             <!-- Supply Item (Supply Six) -->
             <tr>
+                <!-- Column for inputting the name of the sixth supply -->
                 <td class="col-6">
-                    <!-- Input field for the name of the supply (Supply Six) -->
+                    <!-- Input field for the name of the sixth supply -->
                     <input type="text" name="supply-six" id="supply-six">
                 </td>
+                <!-- Column for inputting the quantity of the sixth supply -->
                 <td class="col-3">
-                    <!-- Input field for the quantity of Supply Six with a minimum of 0 and a maximum of 21 -->
+                    <!-- Input field for the quantity of the sixth supply with a minimum of 0 and a maximum of 21 -->
                     <input type="number" class="qty" oninput="validity.valid||(value='');" class="qty" min="0" max="21"
                         value="0" id="qty-supply-six">
                 </td>
+                <!-- Column for disabled input field -->
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled>
                 </td>
+                <!-- Column for inputting the price of the sixth supply -->
                 <td class="col-3">
-                    <!-- Input field for the price of Supply Six -->
+                    <!-- Input field for the price of the sixth supply -->
                     <input type="text" value="0" id="price-supply-six">
                 </td>
+                <!-- Column for readonly input field for calculated price of the sixth supply -->
                 <td class="col-3">
-                    <!-- Readonly input field for calculated price of Supply Six -->
+                    <!-- Readonly input field for calculated price of the sixth supply -->
                     <input type="number" class="readOnly" readonly value="0" id="display-price-supply-six" />
                 </td>
+                <!-- Column for readonly input field for the subtotal of all supply items -->
                 <td class="col-3">
-                    <!-- Readonly input field for the subtotal of all dental supplies -->
+                    <!-- Readonly input field for the subtotal of all supply items -->
                     <input type="number" class="readOnly" readonly value="0" id="supply-subtotal">
                 </td>
             </tr>
 
-
+            <!-- Row for displaying the total calculation -->
             <tr>
-                <!-- Row for displaying the total calculation -->
                 <td class="col-6">
                     <!-- Total label -->
                     Total
@@ -1084,9 +1196,7 @@
                     <!-- Hidden readonly input field -->
                     <input type="number" class="readOnly" readonly value="0" hidden />
                 </td>
-
                 <td class="col-3">
-                    <!-- Disabled input field -->
                     <input type="text" disabled hidden>
                 </td>
                 <td class="col-3">
@@ -1097,11 +1207,8 @@
                     <!-- Display total value -->
                     <span id="total-value">0</span>
                 </td>
-
             </tr>
-
         </table>
-
     </div>
 
     <script>document.addEventListener("DOMContentLoaded", function () {
@@ -1117,12 +1224,17 @@
 
             const qtyAB1 = document.getElementById("qty-ab1");
             const priceAB1 = document.getElementById("price-ab1");
+            const dateFieldAB1 = document.getElementById("date-ab1");
 
             const qtyAB2 = document.getElementById("qty-ab2");
             const priceAB2 = document.getElementById("price-ab2");
+            const dateFieldAB2 = document.getElementById("date-ab2");
+
 
             const qtyAB4 = document.getElementById("qty-ab4");
             const priceAB4 = document.getElementById("price-ab4");
+            const dateFieldAB4 = document.getElementById("date-ab4");
+
 
             const qty83PT = document.getElementById("qty-83-pt");
             const price83PT = document.getElementById("price-83-pt");
@@ -1366,9 +1478,8 @@
                         ctSubTotal = [parseFloat(price83CT.value), parseFloat(price41CT.value)];
                     }
                     if (
-                        (parseFloat(qty83PT.value) == 0) & (parseFloat(qty41PT.value) == 0) ||
-                        parseFloat(qty83CT.value) != 0 ||
-                        parseFloat(qty41CT.value) != 0
+                        (parseFloat(qty83PT.value) == 0) & (parseFloat(qty41PT.value) == 0) & (parseFloat(qty83CT.value) != 0 ||
+                            parseFloat(qty41CT.value) != 0)
                     ) {
                         physioSubTotal = [0];
 
@@ -1381,45 +1492,6 @@
                         ];
                     }
                 }
-                // if (parseFloat(qty83PT.value) != 0 || parseFloat(qty41PT.value) != 0) {
-                //   physioSubTotal = [
-                //     parseFloat(priceAB1.value),
-                //     parseFloat(priceAB2.value),
-                //     parseFloat(priceAB4.value),
-                //     parseFloat(price83PT.value),
-                //     parseFloat(price41PT.value),
-                //   ];
-
-                //   ctSubTotal = [parseFloat(price83CT.value), parseFloat(price41CT.value)];
-                // }
-
-                // if (
-                //   parseFloat(qty83PT.value) == 0 ||
-                //   parseFloat(qty41PT.value) == 0 ||
-                //   parseFloat(qty83CT.value) != 0 ||
-                //   parseFloat(qty41CT.value) != 0
-                // ) {
-                //   physioSubTotal = [0];
-
-                //   ctSubTotal = [
-                //     parseFloat(priceAB1.value),
-                //     parseFloat(priceAB2.value),
-                //     parseFloat(priceAB4.value),
-                //     parseFloat(price83CT.value),
-                //     parseFloat(price41CT.value),
-                //   ];
-                // }
-
-                // else {
-                //   ctSubTotal = [
-                //     parseFloat(price83CT.value),
-                //     parseFloat(price41CT.value),
-                //     parseFloat(priceAB1.value),
-                //     parseFloat(priceAB2.value),
-                //     parseFloat(priceAB4.value),
-                //   ];
-                // }
-
                 const mtSubTotal = [
                     parseFloat(price90MT.value),
                     parseFloat(AnyMT1Price),
@@ -1432,6 +1504,15 @@
                 const psycSubTotal = [parseFloat(PsycAxPrice), parseFloat(PsycTxPrice)];
                 const dentalSubTotal = [parseFloat(DentalPrice)];
 
+                const supplySubTotal = [
+                    parseFloat(Supply1),
+                    parseFloat(Supply2),
+                    parseFloat(Supply3),
+                    parseFloat(Supply4),
+                    parseFloat(Supply5),
+                    parseFloat(Supply6),
+                ];
+
                 const otPsycDentalTotal = [
                     parseFloat(previousOtPsyc.value),
                     parseFloat(OtAxPrice),
@@ -1441,7 +1522,7 @@
                     parseFloat(DentalPrice),
                 ];
 
-                const supplietotal = [
+                const supplytotal = [
                     parseFloat(suppliesPrevious.value),
                     parseFloat(Supply1),
                     parseFloat(Supply2),
@@ -1452,7 +1533,7 @@
                 ];
 
                 const totalQty = itemQuantities.reduce((acc, qty) => acc + qty, 0);
-                const totalSupplies = supplietotal.reduce((acc, qty) => acc + qty, 0);
+                const totalSupplies = supplytotal.reduce((acc, qty) => acc + qty, 0);
                 const totalQtywithPrevious = itemQuantitieswithPrevious.reduce(
                     (acc, qty) => acc + qty,
                     0
@@ -1472,6 +1553,8 @@
                     (acc, qty) => acc + qty,
                     0
                 );
+
+                const supplySubtotal = supplySubTotal.reduce((acc, qty) => acc + qty, 0);
                 // Hide "Total Quantity" if totalQty is 0
 
                 if (wad.value == "Wad 1") {
@@ -1498,7 +1581,7 @@
                 otSubtotalElement.value = otSubtotal.toFixed(2);
                 psycSubtotalElement.value = psycSubtotal.toFixed(2);
                 dentalSubtotalElement.value = dentalSubtotal.toFixed(2);
-                suppliesSubtotalElement.value = totalSupplies.toFixed(2);
+                suppliesSubtotalElement.value = supplySubtotal.toFixed(2);
             }
 
             // Function to update the displayed item price and quantity
@@ -1881,16 +1964,28 @@
                 displaySelectedItems(); // Update display box
             });
 
+            dateFieldAB1.addEventListener("input", function () {
+                displaySelectedItems();
+            });
+
             qtyAB2.addEventListener("input", function () {
                 priceAB2.value = (qtyAB2.value * 50).toFixed(2);
                 calculateTotal();
                 displaySelectedItems(); // Update display box
             });
 
+            dateFieldAB2.addEventListener("input", function () {
+                displaySelectedItems();
+            });
+
             qtyAB4.addEventListener("input", function () {
                 priceAB4.value = (qtyAB4.value * 40).toFixed(2);
                 calculateTotal();
                 displaySelectedItems(); // Update display box
+            });
+
+            dateFieldAB4.addEventListener("input", function () {
+                displaySelectedItems();
             });
 
             qty83PT.addEventListener("input", function () {
