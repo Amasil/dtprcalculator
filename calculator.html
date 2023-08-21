@@ -1616,9 +1616,9 @@
                 selectedItemsContainer.appendChild(totalValueDisplay);
 
                 /* AB Items Display */
-                function addABItemToDisplay(itemName, qtyValue, priceValue) {
+                function addABItemToDisplay(itemName, qtyValue, priceValue, dateValue) {
                     const itemDisplay = document.createElement("p");
-                    itemDisplay.innerText = `${qtyValue} ${itemName}`;
+                    itemDisplay.innerText = `${qtyValue} ${itemName} - Date: ${dateValue}`;
                     selectedItemsContainer.appendChild(itemDisplay);
                 }
 
@@ -1666,20 +1666,23 @@
 
                 const qtyAB1Value = parseFloat(qtyAB1.value);
                 const priceAB1Value = parseFloat(priceAB1.value);
+                const dateAB1Value = document.getElementById("date-ab1").value;
                 if (qtyAB1Value > 0) {
-                    addABItemToDisplay("AB1 @ $117", qtyAB1Value, priceAB1Value);
+                    addABItemToDisplay("AB1 @ $117", qtyAB1Value, priceAB1Value, dateAB1Value);
                 }
 
                 const qtyAB2Value = parseFloat(qtyAB2.value);
                 const priceAB2Value = parseFloat(priceAB2.value);
+                const dateAB2Value = document.getElementById("date-ab2").value;
                 if (qtyAB2Value > 0) {
-                    addABItemToDisplay("AB2 @ $50", qtyAB2Value, priceAB2Value);
+                    addABItemToDisplay("AB2 @ $50", qtyAB2Value, priceAB2Value, dateAB2Value);
                 }
 
                 const qtyAB4Value = parseFloat(qtyAB4.value);
                 const priceAB4Value = parseFloat(priceAB4.value);
+                const dateAB4Value = document.getElementById("date-ab4").value;
                 if (qtyAB4Value > 0) {
-                    addABItemToDisplay("AB4 @ $40", qtyAB4Value, priceAB4Value);
+                    addABItemToDisplay("AB4 @ $40", qtyAB4Value, priceAB4Value, dateAB4Value);
                 }
 
                 // Get values of selected items
