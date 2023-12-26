@@ -210,12 +210,6 @@
             padding: 8px;
         }
 
-        .td {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
         #wad-select,
         #dol {
             margin-left: 10px;
@@ -328,18 +322,7 @@
                 /* Adjust the maximum width as needed */
             }
 
-            /* Additional responsive styles for specific elements if needed */
-            #claimant-name,
-            #invoice-number,
-            #clinic-name,
-            #wad-select,
-            #dol,
-            #previous-Tx,
-            #previous-Supplies,
-            #previous-OtPsyc {
-                width: 100%;
-                max-width: 100%;
-            }
+
         }
     </style>
 
@@ -1312,13 +1295,13 @@
 
                 if (wad.value == "Wad 1") {
                     if (anyItemSelected > 0) {
-                        const totalQuantityDisplay = document.createElement("p");
+                        const totalQuantityDisplay = document.createElement("span");
                         totalQuantityDisplay.innerText = ` ========================================================= \n DTPR ${totalQtywithPrevious}/10 | Supplies: $${totalSupplies.toFixed(2)}/120.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
                         selectedItemsContainer.appendChild(totalQuantityDisplay);
                     }
                 } else if (wad.value == "Wad 2") {
                     if (anyItemSelected > 0) {
-                        const totalQuantityDisplay = document.createElement("p");
+                        const totalQuantityDisplay = document.createElement("span");
                         totalQuantityDisplay.innerText = ` ========================================================= \n DTPR ${totalQtywithPrevious}/21 | Supplies: $${totalSupplies.toFixed(2)}/160.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
                         selectedItemsContainer.appendChild(totalQuantityDisplay);
                     }
@@ -1359,26 +1342,26 @@
                 selectedItemsContainer.innerHTML = "";
                 // Calculate total value
                 const totalValue = parseFloat(totalValueElement.innerText);
-                const totalValueDisplay = document.createElement("p");
+                const totalValueDisplay = document.createElement("span");
                 const clientName = document.getElementById("claimant-name").value;
                 const invNum = document.getElementById("invoice-number").value;
                 const clientClinic = document.getElementById("clinic-name").value;
                 totalValueDisplay.innerText = `Claimant: ${clientName} \n Paid Inv. ${invNum} to ${clientClinic} for $${totalValue.toFixed(
                     2
-                )}`;
+                )}\n\n`;
                 selectedItemsContainer.appendChild(totalValueDisplay);
 
                 /* AB Items Display */
                 function addABItemToDisplay(itemName, qtyValue, priceValue, dateValue) {
-                    const itemDisplay = document.createElement("p");
-                    itemDisplay.innerText = `${qtyValue} ${itemName} - Date: ${dateValue}`;
+                    const itemDisplay = document.createElement("span");
+                    itemDisplay.innerText = `${qtyValue} ${itemName} - Date: ${dateValue}\n`;
                     selectedItemsContainer.appendChild(itemDisplay);
                 }
 
                 /* Fixed Value Items Display */
                 function addItemToDisplay(itemName, qtyValue, priceValue, dateValue) {
-                    const itemDisplay = document.createElement("p");
-                    itemDisplay.innerText = `${qtyValue} ${itemName} - Date: ${dateValue}`;
+                    const itemDisplay = document.createElement("span");
+                    itemDisplay.innerText = `${qtyValue} ${itemName} - Date: ${dateValue}\n`;
                     selectedItemsContainer.appendChild(itemDisplay);
                 }
 
@@ -1391,12 +1374,12 @@
                     gstCheck
                 ) {
                     if (gstCheck) {
-                        const itemDisplay = document.createElement("p");
+                        const itemDisplay = document.createElement("span");
                         itemDisplay.innerText = `${qtyValue} ${itemName} $${Math.round((priceValue + Number.EPSILON) * 100) / 100
-                            } Each (GST Incl.)- Date: ${dateValue}`;
+                            } Each (GST Incl.) - Date: ${dateValue}`;
                         selectedItemsContainer.appendChild(itemDisplay);
                     } else {
-                        const itemDisplay = document.createElement("p");
+                        const itemDisplay = document.createElement("span");
                         itemDisplay.innerText = `${qtyValue} ${itemName} $${Math.round((priceValue + Number.EPSILON) * 100) / 100
                             } Each - Date: ${dateValue}`;
                         selectedItemsContainer.appendChild(itemDisplay);
@@ -1405,12 +1388,12 @@
 
                 function addSupliesToDisplay(itemName, qtyValue, priceValue, gstCheck) {
                     if (gstCheck) {
-                        const itemDisplay = document.createElement("p");
+                        const itemDisplay = document.createElement("span");
                         itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${Math.round((priceValue + Number.EPSILON) * 100) / 100
                             } Each GST Incl.`;
                         selectedItemsContainer.appendChild(itemDisplay);
                     } else {
-                        const itemDisplay = document.createElement("p");
+                        const itemDisplay = document.createElement("span");
                         itemDisplay.innerText = `Supplies: ${qtyValue} ${itemName} @ $${Math.round((priceValue + Number.EPSILON) * 100) / 100
                             } Each `;
                         selectedItemsContainer.appendChild(itemDisplay);
@@ -2296,7 +2279,7 @@
 
                 // Create a range object to select the content inside the selected-items container
                 const range = document.createRange();
-                range.selectNode(selectedItemsContainer);
+                range.selectNodeContents(selectedItemsContainer);
 
                 // Create a new selection and add the range to it
                 const selection = window.getSelection();
