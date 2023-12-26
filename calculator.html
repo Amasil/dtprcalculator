@@ -33,7 +33,7 @@
         }
 
         .container {
-            max-width: 1280px;
+            max-width: 1450px;
             margin: 0 auto;
             margin-top: 10px;
             margin-bottom: 10px;
@@ -75,7 +75,7 @@
             width: 30px;
             padding: 8px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 8px;
         }
 
         input[readonly] {
@@ -89,11 +89,6 @@
 
         .text-right {
             text-align: right;
-        }
-
-        .my-4 {
-            margin-top: 20px;
-            margin-bottom: 20px;
         }
 
         /* Additional styles for a more visually appealing form */
@@ -125,44 +120,112 @@
             color: #333;
         }
 
-        .col-3 {
-            padding: 8px;
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            width: 100%;
+            border: 2px solid #0067ac;
+            /* Outside border color */
+            border-radius: 8px;
         }
 
-
-        table,
         th,
         td {
-            border: 0.1px solid black;
-            border-collapse: collapse;
-            width: 100%;
+            border: 0.1px solid #aaa;
             padding: 8px;
             text-align: left;
             overflow: hidden;
-            text-overflow: ellipsis;
             white-space: nowrap;
         }
+
+        /* Additional styles to make the table look more like the container */
+        table {
+            background-color: #ffffff;
+            /* White background */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+
 
         /*ReadOnly Value*/
         input.readOnly {
-            width: 65px;
-            /* Keep the same width */
+            width: 50px;
             padding: 10px;
             border: 1px solid #ddd;
-            text-align: left;
+            text-align: right;
             overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
             border-radius: 8px;
         }
 
         /* Styling for input[type="text"] and input[type="number"] elements */
         input[type="text"] {
-            width: 90%;
             padding: 8px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 8px;
             color: #333;
+        }
+
+        #date-ab1,
+        #date-ab2,
+        #date-ab4,
+        #date-83-pt,
+        #date-41-pt,
+        #date-83-ct,
+        #date-41-ct,
+        #date-90-mt,
+        #date-any1-mt,
+        #date-any2-mt,
+        #date-acut,
+        #date-ot-ax,
+        #date-ot-tx,
+        #date-psyc-ax,
+        #date-psyc-tx,
+        #date-dental {
+            width: 200px;
+        }
+
+        #supply-one,
+        #supply-two,
+        #supply-three,
+        #supply-four,
+        #supply-five,
+        #supply-six {
+            width: 200px;
+        }
+
+        #price-mt,
+        #price-any1-mt,
+        #price-any2-mt,
+        #price-acut,
+        #price-ot-ax,
+        #price-ot-tx,
+        #price-psyc-ax,
+        #price-psyc-tx,
+        #price-dental,
+        #price-supply-one,
+        #price-supply-two,
+        #price-supply-three,
+        #price-supply-four,
+        #price-supply-five,
+        #price-supply-six {
+            width: 75px;
+
+        }
+
+
+        #acut-subtotal,
+        #physio-subtotal,
+
+        #mt-subtotal,
+        #ct-subtotal,
+        #ot-subtotal,
+        #psyc-subtotal,
+        #dental-subtotal,
+        #supply-subtotal {
+
+            width: 95px;
         }
 
         input[type="text"]:focus {
@@ -179,11 +242,17 @@
             padding: 10px;
             margin-top: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 500px;
         }
 
         .selected-items-box h3 {
             margin-bottom: 10px;
             color: #333;
+        }
+
+        #selected-items {
+            overflow: auto;
+            /* Enable scrolling if the content exceeds the height */
         }
 
         /* Add spacing between elements */
@@ -351,13 +420,11 @@
                     <input type="text" id="date-ab1" name="date-ab1">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="price-ab1" />
+                    <input type="text" class="readOnly" readonly value="0" id="price-ab1" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
                 <td>
                     <label for="claimant-name" class="form-label">Claimant:</label>
@@ -380,13 +447,11 @@
                     <input type="text" id="date-ab2" name="date-ab1">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="price-ab2" />
+                    <input type="text" class="readOnly" readonly value="0" id="price-ab2" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
                 <td>
                     <label for="invoice-number" class="form-label">Invoice Number:</label>
@@ -410,13 +475,11 @@
                     <input type="text" id="date-ab4" name="date-ab4">
                 </td>
                 <td>
-                    <input type="text" class="readOnly" disabled>
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="price-ab4" />
+                    <input type="text" class="readOnly" readonly value="0" id="price-ab4" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
                 <td>
                     <label for="clinic-name" class="form-label">Clinic Name:</label>
@@ -439,13 +502,11 @@
                     <input type="text" id="date-83-pt" name="date-83-pt">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="price-83-pt" />
+                    <input type="text" class="readOnly" readonly value="0" id="price-83-pt" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
                 <td>
                     <label for="wad-select" class="form-label">Wad:</label>
@@ -474,13 +535,12 @@
                     <input type="text" id="date-41-pt" name="date-41-pt">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="price-41-pt" />
+                    <input type="text" class="readOnly" readonly value="0" id="price-41-pt" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="physio-subtotal">
+                    <input type="text" class="readOnly" readonly value="0" id="physio-subtotal">
                 </td>
                 <td>
                     <label for="previous-Tx" class="form-label">Previous TX:</label>
@@ -507,13 +567,11 @@
                     <input type="text" id="date-90-mt" name="date-90-mt">
                 </td>
                 <td>
-                    <input type="text" disabled />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="price-90-mt">
+                    <input type="text" class="readOnly" readonly value="0" id="price-90-mt">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
                 <td colspan="2">
                     <label for="previous-OtPsyc" class="form-label">Previous OT/PSYC/DENTAL:</label>
@@ -538,10 +596,9 @@
                     <input type="text" value="0" id="price-any1-mt">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-any1-mt" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-any1-mt" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
                 <td rowspan="18" colspan="2" style="vertical-align:top">
                     <div>Note:
@@ -569,10 +626,10 @@
                     <input type="text" value="0" id="price-any2-mt">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-any2-mt" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-any2-mt" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="mt-subtotal">
+                    <input type="text" class="readOnly" readonly value="0" id="mt-subtotal">
                 </td>
             </tr>
 
@@ -590,13 +647,11 @@
                     <input type="text" id="date-83-ct" name="date-83-ct">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="price-83-ct" />
+                    <input type="text" class="readOnly" readonly value="0" id="price-83-ct" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
@@ -613,13 +668,12 @@
                     <input type="text" id="date-41-ct" name="date-41-ct">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="price-41-ct" />
+                    <input type="text" class="readOnly" readonly value="0" id="price-41-ct" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="ct-subtotal">
+                    <input type="text" class="readOnly" readonly value="0" id="ct-subtotal">
                 </td>
             </tr>
 
@@ -640,10 +694,10 @@
                     <input type="text" value="0" id="price-acut">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-acut" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-acut" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="acut-subtotal">
+                    <input type="text" class="readOnly" readonly value="0" id="acut-subtotal">
                 </td>
             </tr>
 
@@ -661,16 +715,14 @@
                         value="0" id="qty-supply-one">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
                     <input type="text" value="0" id="price-supply-one">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-one" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-supply-one" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
@@ -684,16 +736,14 @@
                         value="0" id="qty-supply-two">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
                     <input type="text" value="0" id="price-supply-two">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-two" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-supply-two" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
@@ -708,16 +758,14 @@
                         value="0" id="qty-supply-three">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
                     <input type="text" value="0" id="price-supply-three">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-three" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-supply-three" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
@@ -732,16 +780,14 @@
                         value="0" id="qty-supply-four">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
                     <input type="text" value="0" id="price-supply-four">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-four" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-supply-four" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
@@ -756,16 +802,14 @@
                         value="0" id="qty-supply-five">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
                     <input type="text" value="0" id="price-supply-five">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-five" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-supply-five" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
@@ -780,16 +824,15 @@
                         value="0" id="qty-supply-six">
                 </td>
                 <td>
-                    <input type="text" disabled>
                 </td>
                 <td>
                     <input type="text" value="0" id="price-supply-six">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-supply-six" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-supply-six" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="supply-subtotal">
+                    <input type="text" class="readOnly" readonly value="0" id="supply-subtotal">
                 </td>
             </tr>
             <tr>
@@ -812,10 +855,9 @@
                     <input type="text" value="0" id="price-ot-ax">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-ot-ax" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-ot-ax" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
@@ -836,10 +878,10 @@
                     <input type="text" value="0" id="price-ot-tx">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-ot-tx" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-ot-tx" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="ot-subtotal">
+                    <input type="text" class="readOnly" readonly value="0" id="ot-subtotal">
                 </td>
             </tr>
 
@@ -860,10 +902,9 @@
                     <input type="text" id="price-psyc-ax" value="0" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-psyc-ax" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" disabled>
                 </td>
             </tr>
 
@@ -884,10 +925,10 @@
                     <input type="text" id="price-psyc-tx" value="0" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-psyc-tx" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="psyc-subtotal">
+                    <input type="text" class="readOnly" readonly value="0" id="psyc-subtotal">
                 </td>
             </tr>
 
@@ -908,10 +949,10 @@
                     <input type="text" value="0" id="price-dental">
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="display-price-dental" />
+                    <input type="text" class="readOnly" readonly value="0" id="display-price-dental" />
                 </td>
                 <td>
-                    <input type="number" class="readOnly" readonly value="0" id="dental-subtotal">
+                    <input type="text" class="readOnly" readonly value="0" id="dental-subtotal">
                 </td>
             </tr>
 
@@ -919,22 +960,15 @@
             <!-- Row for displaying the total calculation -->
             <tr>
                 <td>
-                    Total
+                    <strong>Total</strong>
                 </td>
                 <td>
                     <input type="number" class="qty" readonly value="0" class="qty" id="total-quantity" />
                 </td>
-                <td>
-                    <input type="number" class="readOnly" readonly value="0" hidden />
+                <td colspan="3">
                 </td>
                 <td>
-                    <input type="text" disabled hidden>
-                </td>
-                <td>
-                    <input type="text" disabled hidden>
-                </td>
-                <td class="col-3 total-val">
-                    <span id="total-value">0</span>
+                    <span id="total-value"></span>
                 </td>
             </tr>
 
@@ -1292,13 +1326,13 @@
                 if (wad.value == "Wad 1") {
                     if (anyItemSelected > 0) {
                         const totalQuantityDisplay = document.createElement("span");
-                        totalQuantityDisplay.innerText = ` ========================================================= \n DTPR ${totalQtywithPrevious}/10 | Supplies: $${totalSupplies.toFixed(2)}/120.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
+                        totalQuantityDisplay.innerText = ` ======================================================== \n DTPR ${totalQtywithPrevious}/10 | Supplies: $${totalSupplies.toFixed(2)}/120.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
                         selectedItemsContainer.appendChild(totalQuantityDisplay);
                     }
                 } else if (wad.value == "Wad 2") {
                     if (anyItemSelected > 0) {
                         const totalQuantityDisplay = document.createElement("span");
-                        totalQuantityDisplay.innerText = ` ========================================================= \n DTPR ${totalQtywithPrevious}/21 | Supplies: $${totalSupplies.toFixed(2)}/160.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
+                        totalQuantityDisplay.innerText = ` ======================================================== \n DTPR ${totalQtywithPrevious}/21 | Supplies: $${totalSupplies.toFixed(2)}/160.00 | Used by ${dtprLimit} \n OT/PSYCH/DENTAL $${OtPsycDentalTotal}/$1000.00`;
                         selectedItemsContainer.appendChild(totalQuantityDisplay);
                     }
                 }
@@ -1372,12 +1406,12 @@
                     if (gstCheck) {
                         const itemDisplay = document.createElement("span");
                         itemDisplay.innerText = `${qtyValue} ${itemName} $${Math.round((priceValue + Number.EPSILON) * 100) / 100
-                            } Each (GST Incl.) - Date: ${dateValue}`;
+                            } Each (GST Incl.) - Date: ${dateValue}\n`;
                         selectedItemsContainer.appendChild(itemDisplay);
                     } else {
                         const itemDisplay = document.createElement("span");
                         itemDisplay.innerText = `${qtyValue} ${itemName} $${Math.round((priceValue + Number.EPSILON) * 100) / 100
-                            } Each - Date: ${dateValue}`;
+                            } Each - Date: ${dateValue}\n`;
                         selectedItemsContainer.appendChild(itemDisplay);
                     }
                 }
@@ -2288,7 +2322,6 @@
                 // Clear the selection to avoid any unintended side effects
                 selection.removeAllRanges();
 
-                // Optionally, you can show a message or perform any other action after copying
                 alert("Selected items copied to clipboard!");
             });
 
