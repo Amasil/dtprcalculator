@@ -245,12 +245,28 @@
             width: 500px;
         }
 
+        .instruction-box {
+            background-color: #f9f9f9;
+            border: 2px solid #0067ac;
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            height: 260px;
+        }
+
         .selected-items-box h3 {
             margin-bottom: 10px;
             color: #333;
         }
 
         #selected-items {
+            overflow: auto;
+            /* Enable scrolling if the content exceeds the height */
+        }
+
+        #instruction-items {
             overflow: auto;
             /* Enable scrolling if the content exceeds the height */
         }
@@ -266,6 +282,7 @@
         }
 
         #wad-select,
+        #instruction-select,
         #dol {
             margin-left: 10px;
             margin-right: 10px;
@@ -600,7 +617,7 @@
                 </td>
                 <td>
                 </td>
-                <td rowspan="18" colspan="2" style="vertical-align:top">
+                <td rowspan="12" colspan="2" style="vertical-align:top">
                     <div>Note:
                         <button id="copy-btn" class="button-17" role="button">Copy</button>
                     </div>
@@ -835,9 +852,19 @@
                     <input type="text" class="readOnly" readonly value="0" id="supply-subtotal">
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td colspan="6"><strong>OT/PSYC/DENTAL:</strong></td>
-            </tr>
+                <td colspan="2" rowspan="7" style="vertical-align:top"> <label for="instruction-select"
+                        class="form-label">Instructions:</label>
+                    <select id="instruction-select" name="instructions" class="form-control">
+                        <option value="Intact" selected>Intact</option>
+                        <option value="RSA">RSA</option>
+                    </select>
+                    <div class="instruction-box">
+                        <div id="instruction-items"></div>
+                    </div>
+                </td>
+            </tr> -->
 
             <!-- Row for OT AX @ $ (Any Amount) -->
             <tr>
